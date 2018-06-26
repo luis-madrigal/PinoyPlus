@@ -1,0 +1,140 @@
+body {
+	background-image: url("../res/img/bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.nav-item-custom {
+	white-space:nowrap;
+	display:block;
+	font-color: black;
+	font-size: 0.8em;
+	font-weight: normal;
+	text-align: center;
+	padding-top: 12%;
+	letter-spacing: -0.05em;
+	padding-right:3.5%;
+	padding-left:3.5%;
+}
+
+.nav-item-selected {
+	border-bottom-style: solid;
+	border-bottom-color: red;
+	padding-bottom:2%;
+}
+
+.nav-item-selected span {
+	color: red;
+}
+
+.nav-item-selected span:hover {
+	color: darkred;
+	cursor: pointer;
+}
+
+.search-bar-custom {
+	padding-right: 2%;
+	padding-bottom: 3%;
+}
+
+.search-bar-custom input{
+	width: 100%;
+	background-color: transparent;
+	border-radius: 10px;
+	border-color: transparent;
+	box-shadow: 0 0 5px #CC0000;
+	font-size: 0.8em;
+	padding-left: 10%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+.search-bar-custom :focus{
+	outline: none;
+	box-shadow: 0 0 10px #CC0000;
+}
+
+.home-content {
+	margin-top: 3%;
+}
+
+.home-content span{
+	color: white;
+}
+
+.profile-box {
+	width: 90%;
+	background-color: #B02327;
+	background: linear-gradient(#B02327, #C6615E);
+	border-radius: 10px;
+	margin-left: -12%;
+}
+
+.profile-image img {
+	margin-top: 15%;
+	border-radius: 50%;
+	width: 60%;
+}
+
+#profileName {
+	font-size: 1.2em;
+}
+
+#profilePosition {
+	font-size: 0.8em;
+}
+
+.profile-details-cont {
+	padding-top: 20%;
+	padding-left: 6%;
+}
+
+.profile-details {
+	font-size: 0.8em;
+}
+
+.profile-edit {
+	float: right;
+	margin-right: 4%;
+	margin-bottom: 5%;
+	padding-top: 30%;
+}
+
+.profile-edit button{
+	width: 130%;
+	border-radius: 15px;
+	border: 1.5px solid #FFFFFF;
+	white-space:nowrap;
+	background-color: transparent;
+	color: white;
+	font-size: 0.7em;
+	vertical-align: center;
+}
+
+.profile-edit button:focus{
+	outline: 0;
+}
+
+.profile-edit button:hover{
+	cursor: pointer;
+	box-shadow: 0 0 10px #FFFFFF;
+}
+
+.chat-window {
+	margin-left: 2%;
+}
+
+#chatWithInfo {
+	margin-top: 2%;
+	color: darkred;
+}
+
+.chat-container {
+	margin-top: -1.5%;
+	border-top: solid;
+	background-color: white;
+	width: 130%;
+	height: 735%;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
