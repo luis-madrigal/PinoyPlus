@@ -1,0 +1,234 @@
+body {
+	background-image: url("../res/img/bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.navbar-nav {
+	padding-top: 5%;
+}
+
+.nav-item-custom {
+	white-space:nowrap;
+	display:block;
+	font-color: black;
+	font-size: 0.8em;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: bottom;
+	top: 100%;
+	/*padding-top: 12%;*/
+	letter-spacing: -0.05em;
+	padding-right:3.5%;
+	padding-left:3.5%;
+}
+
+.nav-item-custom:hover {
+	color: grey;
+	cursor: pointer;
+}
+
+.nav-item-selected {
+	border-bottom-style: solid;
+	border-bottom-color: red;
+	padding-bottom:2%;
+	color: red;
+}
+
+.nav-item-selected span {
+}
+
+.nav-item-selected:hover {
+	border-bottom-color: darkred;
+	color: darkred;
+	cursor: pointer;
+}
+
+.nav-item-selected span:hover {
+}
+
+.search-bar-custom {
+	padding-right: 2%;
+	padding-bottom: 3%;
+}
+
+.search-bar-custom input{
+	width: 100%;
+	background-color: transparent;
+	border-radius: 10px;
+	border-color: transparent;
+	box-shadow: 0 0 5px #CC0000;
+	font-size: 0.8em;
+	padding-left: 10%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+.search-bar-custom :focus{
+	outline: none;
+	box-shadow: 0 0 10px #CC0000;
+}
+
+.home-content {
+	margin-top: 3%;
+}
+
+.home-content span{
+	color: white;
+}
+
+.profile-box {
+	width: 90%;
+	background-color: #B02327;
+	background: linear-gradient(#B02327, #C6615E);
+	border-radius: 10px;
+	margin-left: -12%;
+}
+
+.profile-image img {
+	margin-top: 15%;
+	border-radius: 50%;
+	width: 60%;
+}
+
+#profileName {
+	font-size: 1.2em;
+}
+
+#profilePosition {
+	font-size: 0.8em;
+}
+
+.profile-details-cont {
+	padding-top: 20%;
+	padding-left: 6%;
+}
+
+.profile-details {
+	font-size: 0.8em;
+}
+
+.profile-edit {
+	float: right;
+	margin-right: 4%;
+	margin-bottom: 5%;
+	padding-top: 30%;
+}
+
+.profile-edit button{
+	width: 130%;
+	border-radius: 15px;
+	border: 1.5px solid #FFFFFF;
+	white-space:nowrap;
+	background-color: transparent;
+	color: white;
+	font-size: 0.7em;
+	vertical-align: center;
+}
+
+.profile-edit button:focus{
+	outline: 0;
+}
+
+.profile-edit button:hover{
+	cursor: pointer;
+	box-shadow: 0 0 10px #FFFFFF;
+}
+
+.chat-window {
+	margin-left: 2%;
+}
+
+#chatWithInfo {
+	margin-top: 2%;
+	color: darkred;
+}
+
+.chat-container {
+	overflow-y: auto;
+	overflow-x: hidden;
+	margin-top: -1.5%;
+	border-top: solid;
+	border-top-color: darkred;
+	background-color: white;
+	width: 130%;
+	height: 17em;
+	padding-top: 2%;
+}
+
+.message-container img{
+	display: inline;
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+}
+
+.testing {
+	height: 100%;
+}
+
+.message {
+	clear: both;
+	display: inline-block;
+	margin-left: 2%;
+	margin-right: 2%;
+	border-radius: 10px;
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
+	padding-left: 1.5%;
+	padding-right: 1.5%;
+	margin-bottom: 0.7%;
+	font-size: 0.9em;
+	max-width: 50%;
+}
+
+.user-message {
+	padding-right: 3%;
+}
+
+.user-message p{
+	background-color: darkred;
+	color: white;
+	float: right;
+}
+
+.user-message img {
+	float: right;
+}
+
+.conversant-message {
+	padding-left: 3%;
+}
+
+.conversant-message p{
+	background-color: lightgrey;
+	color: black;
+	float: left;
+}
+
+.conversant-message img {
+	float: left;
+}
+
+.chat-input {
+	background-color: white;
+	border-top: 0.5px solid lightgrey;
+	width: 130.1%;
+	height: 5em;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.chat-input textarea{
+	outline: none;
+	resize: none;
+	width: 100%;
+	height: 100%;
+	font-size: 0.8em;
+	border-color: transparent;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.chat-input textarea:selected{
+}
