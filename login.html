@@ -1,48 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<style type="text/css">
-	.footer{
-		position: fixed;
-		left: 0;
-	    bottom: 0;
-	    width: 100%;
-	    height: 15%;
-	    display: none;
-	}
-
-	.full { 
-	    height: 100vh;
-	    display: flex;
-
-	}
-
-	.login-input{
-		margin-bottom: 10px;
-	}
-
-	.link{
-  		background-color:none;
-  		color:black;
- 	}
-
- 	.header-text{
- 		color:maroon;
- 		display: none;
- 	}
-
- 	.sub-text{
- 		display: none;
- 	}
-
- 	#login-form{
- 		display: none;
- 	}
-
-</style>
 <head>
 	<title>PinoyPlus</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 	<!-- jQuery library -->
@@ -51,19 +13,13 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+	<link rel = "stylesheet" href = "css/login.css">
 </head>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$(".footer").fadeIn(1000, function() {
-			$("#large-text").fadeIn(2000);
-			$("#sub-text").fadeIn(3000, function() {
-				$("#login-form").fadeIn(500);
-			});
-		});
-	});
-	
-</script>
 <body>
+	<div class="float-left">
+		<img class = "img-responsive logo-img" src = "res/img/logo.png" height = 100 width = 100>
+	</div>
 	<div class="container full">
 		<div class="row w-100">
 			<div class="col-7 align-self-center">
@@ -88,4 +44,5 @@
 		<img class = "footer" src="./resources/login_footer.png">
 	</div>
 </body>
+<script src="js/login.js"></script>
 </html>

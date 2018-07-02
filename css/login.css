@@ -1,0 +1,41 @@
+.footer{
+	position: fixed;
+	left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 15%;
+    display: none;
+}
+
+.full { 
+    height: 100vh;
+    display: flex;
+
+}
+
+.logo-img{
+	margin: 20px;
+	position: absolute;
+}
+
+.login-input{
+	margin-bottom: 10px;
+}
+
+.link{
+		background-color:none;
+		color:black;
+	}
+
+.header-text{
+	color:maroon;
+	display: none;
+}
+
+.sub-text{
+	display: none;
+}
+
+#login-form{
+	display: none;
+}
