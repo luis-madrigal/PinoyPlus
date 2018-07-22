@@ -1,8 +1,14 @@
+@font-face {
+	font-family: Avenir;
+	src: url(fonts/AvenirLTStd-Book.otf);
+}
+
 body {
 	margin: 0px auto;
 	padding: 0px;
 	height: 100%;
 	width: 100%;
+	font-family: Avenir;
 }
 
 .center{
@@ -17,4 +23,16 @@ body {
 
 .bold{
 	font-weight: bold;
+}
+
+.no-padding-left {
+	padding-left: 0;
+}
+
+.no-padding-right {
+	padding-right: 0;
+}
+
+.row-with-padding {
+	padding-bottom: 3%;
 }

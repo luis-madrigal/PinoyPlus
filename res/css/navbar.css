@@ -1,0 +1,94 @@
+.nav-item-custom {
+	white-space: nowrap;
+    color: #6D6E71;
+	font-size: 0.8em;
+	/* font-weight: bold; */
+	text-align: center;
+	top: 100%;
+	letter-spacing: -0.05em;
+	margin-right: 6%;
+	margin-left: 6%;
+	font-weight: bold;
+}
+
+.nav-item-custom:hover {
+	cursor: pointer;
+}
+
+.nav-item-selected{
+	border-bottom-style: solid;
+	border-bottom-color: #AE242C;
+	padding-bottom: 2%;
+	color: #AE242C;
+}
+
+.nav-item-selected:hover p{
+	border-bottom-color: darkred;
+	color: darkred;
+	cursor: pointer;
+}
+
+
+.search-bar-custom {
+	padding-top: 4%;
+	padding-right: 2%;
+}
+
+.search-bar-custom input {
+	width: 100%;
+	background-color: transparent;
+	border-radius: 20px;
+	border-color: transparent;
+	box-shadow: 0 0 5px #CC0000;
+	font-size: 0.8em;
+	padding-left: 10%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+.search-bar-custom :focus {
+	outline: none;
+	box-shadow: 0 0 10px #CC0000;
+}
+
+.account {
+	padding-top: 10%;
+	padding-left: 10%;
+}
+
+.account img {
+	border-radius: 50%;
+}
+
+.account img:hover {
+	cursor: pointer;
+}
+
+.account .fa:hover{
+	cursor: pointer;
+	color: gray;
+}
+
+.message-count {
+	font-size: 3em;
+	color: darkred;
+	padding-left: 30%;
+	padding-right: 30%;
+	margin-top:-25px; 
+	text-shadow: 2px 2px 4px slategray;
+}
+
+.message-count:hover {
+	cursor: pointer;
+	/* text-shadow: 2px 2px 4px black; */
+}
+
+.message-count-text {
+	font-family: Avenir;
+	font-size: 0.5em !important;
+	color: white;
+	margin-top:-45px; 
+	margin-left: 22px;
+	display:block;
+	text-shadow: none;
+}

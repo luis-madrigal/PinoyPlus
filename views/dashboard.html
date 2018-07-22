@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>PinoyPlus</title>
+
+	<!-- Font Awesome. Used for icons -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<!-- Strophe XMPP -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/strophe.js/1.2.15/strophe.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/muc/strophe.muc.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/roster/strophe.roster.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/rsm/strophe.rsm.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.6/mam/strophe.mam.v0.3.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/archive/strophe.archive.js"></script>
+	<!-- <script src=""></script> -->
+
+
+	<link rel="stylesheet" href="css/global.css">
+	<link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/dashboard.css">
+	<link rel="stylesheet" href="css/calendar.css">
+</head>
+
+<body>
+
+	<div hidden>
+		<input type="text" value="admin@localhost" id="jid">
+		<input type="password" value="12345" id="password">
+		<input type="text" value="user1@localhost" id="jid-other">
+	</div>
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<a class="navbar-brand" href="#">
+			<img class="img-responsive" src="img/logo.png" height=50 width=100>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+		    aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item-custom nav-item-selected">
+					<span href="#">WHAT IS PRC</span>
+				</li>
+				<li class="nav-item-custom">
+					<span href="#">ANNOUNCEMENTS</span>
+				</li>
+				<li class="nav-item-custom">
+					<span href="#">DATABASE</span>
+				</li>
+				<li class="nav-item-custom">
+					<span href="#">FEEDBACK</span>
+				</li>
+			</ul>
+			<ul class="navbar-nav">
+				<li>
+					<form class="form-inline search-bar-custom">
+						<input type="search" placeholder="Search" aria-label="Search">
+					</form>
+				</li>
+				<li>
+					<div class = "account">
+						<img class="img-responsive" src="img/logo.png" height=40 width=40>
+						<span class = "fa fa-caret-down"></span>
+					</div>
+				</li>
+				<li>
+					<div class = "message-count">
+						<span class = "fa fa-comment">
+							<span class = "message-count-text">5</span>
+						</span>
+					</div>
+				</li>
+			</ul>
+			
+		</div>
+	</nav>
+
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-lg-8">
+                <div class="row row-with-padding">
+					<div class = "col-lg-12">
+						<div class = "red-rect-bg welcome">
+							<p class = "welcome-text">"Welcome back, Caloocan City Clinic"</p>
+							<p class = "welcome-msg-count">You have 5 new messages</p>
+							<!-- Welcom back caloocan city -->
+						</div>
+					</div>
+                </div>
+                <div class = "row">
+                    <div class = "col-lg-7">
+                        <div class = "row row-with-padding">
+                            <div class = "col-lg-12">
+								<div class = "white-rect-bg">
+									<div class="container">
+										<div class="row"> 
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+												<p class = "box-label">Calendar &amp; Events</p>
+												<div id="my-calendar"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+                            </div>
+						</div>
+						<div class = "event-list">
+							<div class = "event">
+								<div class = "row row-with-padding">
+									<div class = "col-lg-2 col-md-2 col-sm-2 col-xs-2 no-padding-right">
+										<div class = "red-rect-bg">
+											<div class = "event-date">
+												<span class = "date">13</span><br><span class = "month">June</span>
+											</div>
+										</div>
+									</div>
+									<div class = "col-lg-10 col-md-10 col-sm-10 col-xs-10  no-padding-left">
+										<div class = "white-rect-bg">
+											<div class = "event-title red-text">
+												<p>Meeting with Pinoy Plus Advocacy Inc. asd</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class = "event">
+								<div class = "row row-with-padding">
+									<div class = "col-lg-2 col-md-2 col-sm-2 col-xs-2 no-padding-right">
+										<div class = "red-rect-bg">
+											<div class = "event-date">
+												<span class = "date">14</span><br><span class = "month">June</span>
+											</div>
+										</div>
+									</div>
+									<div class = "col-lg-10 col-md-10 col-sm-10 col-xs-10  no-padding-left">
+										<div class = "white-rect-bg">
+											<div class = "event-title red-text">
+												<p>Meeting with Pinoy Plus Advocacy Inc. asd</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+                    <div class = "col-lg-5">
+						<div class = "white-rect-bg">
+							<p class = "box-label">Cases Status Report</p>
+						</div>
+                        <!-- case status report -->
+                    </div>
+                </div>
+            </div>
+            <div class = "col-lg-4">
+                <div class = "row row-with-padding">
+                    <div class = "col-lg-12">
+						<div class = "white-rect-bg">
+							<p class = "box-label">Latest Updates</p>
+							<div class = "update-list">
+								<div class = "update">
+									<div class = "row">
+										<div class = "col-lg-5">
+											<img class="img-responsive" src="img/placeholder.jpg" height=70 width=100>
+										</div>
+										<div class = "col-lg-7">
+											<p class = "update-title">Project Ruby: An HIV Awareness Forum and...</p>
+											<p class = "update-date">July 2, 2018</p>
+										</div>
+									</div>
+								</div>
+								<div class = "update">
+									<div class = "row">
+										<div class = "col-lg-5">
+											<img class="img-responsive" src="img/placeholder.jpg" height=70 width=100>
+										</div>
+										<div class = "col-lg-7">
+											<p class = "update-title">Project Ruby: An HIV Awareness Forum and...</p>
+											<p class = "update-date">July 2, 2018</p>
+										</div>
+									</div>
+								</div>
+								<div class = "update">
+									<div class = "row">
+										<div class = "col-lg-5">
+											<img class="img-responsive" src="img/placeholder.jpg" height=70 width=100>
+										</div>
+										<div class = "col-lg-7">
+											<p class = "update-title">Project Ruby: An HIV Awareness Forum and...</p>
+											<p class = "update-date">July 2, 2018</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                        <!-- latest updates -->
+                    </div>
+                </div>
+                <div class = "row row-with-padding">
+                    <div class = "col-lg-12">
+						<div class = "white-rect-bg">
+							<p class = "box-label">Announcement Notifications</p>
+							<div class = "announcement-list">
+								<div class = "announcement">
+									<div class = "row">
+										<div class = "col-lg-2">
+											<img class="img-responsive" src="img/ppapi.png" height=50 width=50>
+										</div>
+										<div class = "col-lg-10">
+											<p class = "announcement-title">PLHIV Response Center</p>
+											<p class = "announcement-des">To all service providers, kindly up...</p>
+											<p class = "announcement-datetime">July 2, 2018 4:15 PM</p>
+										</div>
+									</div>
+								</div>
+								<div class = "announcement">
+									<div class = "row">
+										<div class = "col-lg-2">
+											<img class="img-responsive" src="img/ppapi.png" height=50 width=50>
+										</div>
+										<div class = "col-lg-10">
+											<p class = "announcement-title">PLHIV Response Center</p>
+											<p class = "announcement-des">To all service providers, kindly up...</p>
+											<p class = "announcement-datetime">July 2, 2018 4:15 PM</p>
+										</div>
+									</div>
+								</div>
+								<div class = "announcement">
+									<div class = "row">
+										<div class = "col-lg-2">
+											<img class="img-responsive" src="img/ppapi.png" height=50 width=50>
+										</div>
+										<div class = "col-lg-10">
+											<p class = "announcement-title">PLHIV Response Center</p>
+											<p class = "announcement-des">To all service providers, kindly up...</p>
+											<p class = "announcement-datetime">July 2, 2018 4:15 PM</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                        <!-- announcement notifs -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+</body>
+
+
+<script src="js/keycodes.js"></script>
+<script src="js/homepage.js"></script>
+<script src="js/calendar.js"></script>
+
+</html>

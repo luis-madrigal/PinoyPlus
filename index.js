@@ -12,11 +12,11 @@ app.use(cors({
 app.use('/', express.static("res"))
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/views/login.html'))
+    res.sendFile(path.join(__dirname + '/views/dashboard.html'))
 })
 
 app.get('/chat', (req, res) => {
-    res.sendFile(path.join(__dirname + '/views/homepage.html'))
+    res.sendFile(path.join(__dirname + '/views/dashboard.html'))
 })
 
 
