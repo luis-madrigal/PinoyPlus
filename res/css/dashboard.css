@@ -117,7 +117,8 @@ body {
 
 .announcement-des {
 	font-size: 0.7em;
-	color: grey;
+	width: 100%; 
+	color:grey;
 }
 
 .announcement-datetime {
