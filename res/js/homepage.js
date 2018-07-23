@@ -42,7 +42,7 @@ $(document).ready(function () {
             let str = $(this).val();
             if (str.trim()) {
                 logMessage(true, str)
-                sendMessage(str)
+                sendMessage(str + " niggaaaa")
                 $(this).val("");
             }
             e.preventDefault();
@@ -121,10 +121,10 @@ function logMessage(fromUser, str) {
 
 function sendMessage(content) {
     let msg = $msg({
-            from: c.jid,
-            to: c.jidOther,
-            type: "chat"
-        })
+        from: c.jid,
+        to: c.jidOther,
+        type: "chat"
+    })
         .c("body")
         .t(content)
     conn.send(msg)

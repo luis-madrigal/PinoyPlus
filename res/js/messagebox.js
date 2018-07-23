@@ -1,6 +1,13 @@
 function w3_open() {
-    document.getElementById("chatBox").style.display = "block";
+    $('#chatBox').css('display', 'block');
 }
 function w3_close() {
-    document.getElementById("chatBox").style.display = "none";
+    $('#chatBox').css('display', 'none');
 }
+
+$(document).ready(function () {
+    $('.contact-item').click(function (e) {
+        $('.chat-list-container').css('display', 'none');
+        $('.main-chat-container').css('display', 'block');
+    });
+});

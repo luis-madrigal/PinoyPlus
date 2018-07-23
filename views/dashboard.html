@@ -26,6 +26,7 @@
 
 	<!--W3 CSS-->
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<link rel="stylesheet" href="css/chatbox.css">
 	<link rel="stylesheet" href="css/global.css">
@@ -55,44 +56,87 @@
 				<div class="col-lg-4"></div>
 			</div>
 		</div>
-
-		<!--CHAT MESSAGES-->
-		<div class="row chat-messages">
-			<div class="col-sm-12">
-				<div class="chat-container">
-					<div class="row message-container conversant-message">
-						<div class="col-sm-1">
-							<img class="img-responsive" src="img/face.png">
+		<!--MAIN CHAT CONTAINER-->
+		<div class="main-chat-container" style="display:none">
+			<!--CHAT MESSAGES-->
+			<div class="row chat-messages">
+				<div class="col-sm-12">
+					<div class="chat-container">
+						<div class="row message-container conversant-message">
+							<div class="col-sm-1">
+								<img class="img-responsive" src="img/face.png">
+							</div>
+							<div class="col-sm-7 messages">
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+							</div>
 						</div>
-						<div class="col-sm-7 messages">
-							<p class="message">asddddddddd</p>
-							<p class="message">asddddddddd</p>
-							<p class="message">asddddddddd</p>
-							<p class="message">asddddddddd</p>
-							<p class="message">asddddddddd</p>
-						</div>
-					</div>
-					<div class="row message-container user-message">
-						<div class="col-sm-4"></div>
-						<div class="col-sm-7 messages">
-							<p class="message">asddddddddd</p>
-							<p class="message">asddddddddd</p>
-							<p class="message">asddddddddd</p>
-							<p class="message">asddddddddd</p>
-							<p class="message">asddddddddd</p>
-						</div>
-						<div class="col-sm-1">
-							<img class="img-responsive" src="img/face.png">
+						<div class="row message-container user-message">
+							<div class="col-sm-4"></div>
+							<div class="col-sm-7 messages">
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+							</div>
+							<div class="col-sm-1">
+								<img class="img-responsive" src="img/face.png">
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!--CHAT INPUT-->
+			<div class="row chat-input-container">
+				<div class="col-lg-12">
+					<div class="chat-input">
+						<textarea id="chat-input-text" placeholder="Type a message... Enter to send message. Press P to simulate incoming message"></textarea>
+					</div>
+				</div>
+			</div>
 		</div>
-		<!--CHAT INPUT-->
-		<div class="row chat-input-container">
-			<div class="col-lg-12">
-				<div class="chat-input">
-					<textarea id="chat-input-text" placeholder="Type a message... Enter to send message. Press P to simulate incoming message"></textarea>
+		<!-- CHAT CONTACT LIST -->
+		<div class="chat-list-container row">
+			<!-- CHAT SEARCH BAR -->
+			<div class="row chat-search">
+				<i class="fa fa-search"></i>
+				<p>Search for a conversation</p>
+			</div>
+			<!-- CHAT CONTACTS -->
+			<div class="row contact-list">
+				<!-- COTNACT ITEM -->
+				<div class="contact-item">
+					<!-- TIME -->
+					<div class="row">
+						<div class="col-sm-9">
+						</div>
+						<div class="col-sm-3 time">
+							<p>4:15pm</p>
+						</div>
+
+					</div>
+					<!-- INFO -->
+					<div class="row">
+						<!-- ICON -->
+						<div class="col-sm-4">
+							<img class="img-responsive" src="img/face.png">
+						</div>
+						<!-- DETAILS -->
+						<div class="col-sm-8">
+							<!-- NAME -->
+							<div class="row">
+								<p>Caloocan Social Hygene Clinic</p>
+							</div>
+							<!-- LAST MESSAGE -->
+							<div class="row">
+								<p>Kamusta naman yung mga...</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -142,7 +186,7 @@
 				</li>
 				<li>
 					<div class="message-count">
-						<button class="w3-button w3-xlarge w3-right" onclick="w3_open()">
+						<button class="w3-right" onclick="w3_open()">
 							<span class="fa fa-comment">
 								<span class="message-count-text">5</span>
 							</span>
