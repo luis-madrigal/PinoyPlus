@@ -3,7 +3,7 @@ body {
 }
 
 .red-rect-bg {
-    background-color: darkred;
+	background: linear-gradient(#B02428, #86191F);
 	border-radius: 20px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -29,7 +29,14 @@ body {
 .box-label {
 	color: darkred;
 	padding-left: 3%;
+	padding-top: 5%;
+}
+
+.chart-title {
+	color: rgb(66, 66, 66);
+	padding-left: 3%;
 	padding-top: 2%;
+	font-size: 0.8em;
 }
 
 .event-list .red-rect-bg {
@@ -47,6 +54,7 @@ body {
 	padding-top: 15px;
 	padding-bottom: 5px;
 	line-height: 80%;
+	height: 7vh;
 }
 
 .event-date .date {
@@ -59,11 +67,11 @@ body {
 
 .event-title {
 	display: table;
-	height: 56px;
+	height: 7vh;
 	padding-left: 8%;
 	padding-right: 5%;
 	align-content: center;
-	font-size: 0.7em;
+	font-size: 0.9em;
 }
 
 .event-title p {
@@ -72,7 +80,8 @@ body {
 }
 
 .welcome {
-	line-height: 2px;
+	font-size: 1.3em;
+	line-height: 4px;
 	padding-top: 5%;
 	padding-left: 5%;
 	padding-bottom: 3%;
@@ -85,6 +94,7 @@ body {
 
 .update {
 	padding-left: 5%;
+	height: 12vh;
 }
 
 .update img {
@@ -92,11 +102,11 @@ body {
 }
 
 .update-title {
-	font-size: 0.7em;
+	font-size: 0.9em;
 }
 
 .update-date {
-	font-size: 0.7em;
+	font-size: 0.9em;
 	color: grey;
 	line-height: 2px;
 }
@@ -105,6 +115,7 @@ body {
 	padding-bottom: 2%;
 	padding-left: 5%;
 	line-height: 2px;
+	height: 10vh;
 }
 
 .announcement img {
@@ -112,17 +123,17 @@ body {
 }
 
 .announcement-title {
-	font-size: 0.7em;
+	font-size: 0.9em;
 }
 
 .announcement-des {
-	font-size: 0.7em;
+	font-size: 0.9em;
 	width: 100%; 
 	color:grey;
 }
 
 .announcement-datetime {
-	font-size: 0.7em;
+	font-size: 0.8em;
 	color: grey;
 }
 

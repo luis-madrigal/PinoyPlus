@@ -286,11 +286,15 @@ $.fn.zabuto_calendar = function (options) {
 
                         if ($calendarElement.data('showToday') === true) {
                             if (isToday(year, month, currDayOfMonth)) {
-                                $dayElement.html('<span class="badge badge-today">' + currDayOfMonth + '</span>');
+                                // $dayElement.html('<span class="current-day">' + currDayOfMonth + '</span>');
+                                $dayElement.addClass("current-day");
                             }
                         }
 
                         var $dowElement = $('<td id="' + dateId + '"></td>');
+                        // if(dow == 4) {
+                        //     $($dayElement).addClass("circle");
+                        // }
                         $dowElement.append($dayElement);
 
                         $dowElement.data('date', dateAsString(year, month, currDayOfMonth));
@@ -568,7 +572,7 @@ $.fn.zabuto_calendar_defaults = function () {
         show_previous: true,
         show_next: true,
         cell_border: false,
-        today: false,
+        today: true,
         show_days: true,
         weekstartson: 0,
         nav_icon: false,
