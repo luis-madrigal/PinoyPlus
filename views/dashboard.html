@@ -26,7 +26,11 @@
 	<!-- Chart.js -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
+	<!--W3 CSS-->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<link rel="stylesheet" href="css/chatbox.css">
 	<link rel="stylesheet" href="css/global.css">
 	<link rel="stylesheet" href="css/navbar.css">
 	<link rel="stylesheet" href="css/dashboard.css">
@@ -34,6 +38,202 @@
 </head>
 
 <body>
+
+	<!-- CHAT BOX -->
+	<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none;width:33%;right:0; background-color: transparent;"
+	 id="chatBox">
+		<div class="row chat-top">
+		</div>
+		<!--CHATBOX HEADER-->
+		<button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+		<div class="chat-header">
+			<div class="row">
+				<img src="img/ppapi.PNG" />
+			</div>
+			<div class="row" style="text-align: center;">
+				<div class="col-lg-4"></div>
+				<div class="col-lg-4">
+					<p id="chatWithInfo">PRC Chat</p>
+				</div>
+				<div class="col-lg-4"></div>
+			</div>
+		</div>
+		<!--MAIN CHAT CONTAINER-->
+		<div class="main-chat-container" style="display:none">
+			<!--CHAT MESSAGES-->
+			<div class="row chat-messages">
+				<div class="col-sm-12">
+					<div class="chat-container">
+						<div class="row message-container conversant-message">
+							<div class="col-sm-1">
+								<img class="img-responsive" src="img/face.png">
+							</div>
+							<div class="col-sm-7 messages">
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+							</div>
+						</div>
+						<div class="row message-container user-message">
+							<div class="col-sm-4"></div>
+							<div class="col-sm-7 messages">
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+							</div>
+							<div class="col-sm-1">
+								<img class="img-responsive" src="img/face.png">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--CHAT INPUT-->
+			<div class="row chat-input-container">
+				<div class="col-lg-12">
+					<div class="chat-input">
+						<textarea id="chat-input-text" placeholder="Type a message... Enter to send message. Press P to simulate incoming message"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- CHAT CONTACT LIST -->
+		<div class="chat-list-container row">
+			<!-- CHAT SEARCH BAR -->
+			<div class="row chat-search">
+				<i class="fa fa-search"></i>
+				<p>Search for a conversation</p>
+			</div>
+			<!-- CHAT CONTACTS -->
+			<div class="row contact-list">
+				<!-- COTNACT ITEM -->
+				<div class="contact-item">
+					<!-- TIME -->
+					<div class="row">
+						<div class="col-sm-9">
+						</div>
+						<div class="col-sm-3 time">
+							<p>4:15pm</p>
+						</div>
+
+					</div>
+					<!-- INFO -->
+					<div class="row">
+						<!-- ICON -->
+						<div class="col-sm-4">
+							<img class="img-responsive" src="img/face.png">
+						</div>
+						<!-- DETAILS -->
+						<div class="col-sm-8">
+							<!-- NAME -->
+							<div class="row contact-name">
+								<p>Caloocan Social Hygene Clinic</p>
+							</div>
+							<!-- LAST MESSAGE -->
+							<div class="row contact-message">
+								<p>Kamusta naman yung mga...</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="contact-item">
+					<!-- TIME -->
+					<div class="row">
+						<div class="col-sm-9">
+						</div>
+						<div class="col-sm-3 time">
+							<p>4:15pm</p>
+						</div>
+
+					</div>
+					<!-- INFO -->
+					<div class="row">
+						<!-- ICON -->
+						<div class="col-sm-4">
+							<img class="img-responsive" src="img/face.png">
+						</div>
+						<!-- DETAILS -->
+						<div class="col-sm-8">
+							<!-- NAME -->
+							<div class="row contact-name">
+								<p>Caloocan Social Hygene Clinic</p>
+							</div>
+							<!-- LAST MESSAGE -->
+							<div class="row contact-message">
+								<p>Kamusta naman yung mga...</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="contact-item">
+					<!-- TIME -->
+					<div class="row">
+						<div class="col-sm-9">
+						</div>
+						<div class="col-sm-3 time">
+							<p>4:15pm</p>
+						</div>
+
+					</div>
+					<!-- INFO -->
+					<div class="row">
+						<!-- ICON -->
+						<div class="col-sm-4">
+							<img class="img-responsive" src="img/face.png">
+						</div>
+						<!-- DETAILS -->
+						<div class="col-sm-8">
+							<!-- NAME -->
+							<div class="row contact-name">
+								<p>Caloocan Social Hygene Clinic</p>
+							</div>
+							<!-- LAST MESSAGE -->
+							<div class="row contact-message">
+								<p>Kamusta naman yung mga...</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="contact-item">
+					<!-- TIME -->
+					<div class="row">
+						<div class="col-sm-9">
+						</div>
+						<div class="col-sm-3 time">
+							<p>4:15pm</p>
+						</div>
+
+					</div>
+					<!-- INFO -->
+					<div class="row">
+						<!-- ICON -->
+						<div class="col-sm-4">
+							<img class="img-responsive" src="img/face.png">
+						</div>
+						<!-- DETAILS -->
+						<div class="col-sm-8">
+							<!-- NAME -->
+							<div class="row contact-name">
+								<p>Caloocan Social Hygene Clinic</p>
+							</div>
+							<!-- LAST MESSAGE -->
+							<div class="row contact-message">
+								<p>Kamusta naman yung mga...</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
 
 	<div hidden>
 		<input type="text" value="admin@localhost" id="jid">
@@ -45,7 +245,7 @@
 			<img class="img-responsive" src="img/logo.png" height=50 width=100>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-		    aria-expanded="false" aria-label="Toggle navigation">
+		 aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
@@ -71,22 +271,25 @@
 					</form>
 				</li>
 				<li>
-					<div class = "account">
+					<div class="account">
 						<img class="img-responsive" src="img/logo.png" height=40 width=40>
-						<span class = "fa fa-caret-down"></span>
+						<span class="fa fa-caret-down"></span>
 					</div>
 				</li>
 				<li>
-					<div class = "message-count">
-						<span class = "fa fa-comment">
-							<span class = "message-count-text">5</span>
-						</span>
+					<div class="message-count">
+						<button class="w3-right" onclick="w3_open()">
+							<span class="fa fa-comment">
+								<span class="message-count-text">5</span>
+							</span>
+						</button>
 					</div>
 				</li>
 			</ul>
-			
+
 		</div>
 	</nav>
+<<<<<<< HEAD
     <div class = "container">
         <div class = "row">
             <div class = "col-lg-8">
@@ -105,18 +308,10 @@
                             <div class = "col-lg-12">
 								<div class = "white-rect-bg">
 									<div class="container">
-										<div class="row"> 
-											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
-												<p class = "box-label">Calendar &amp; Events</p>
+										<div class="row">
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<p class="box-label">Calendar &amp; Events</p>
 												<div id="my-calendar"></div>
-												<!-- <svg width="200" height="100">
-											
-														<path d="M50,50 L100,50"
-															  style="position: fixed; z-index: 2; stroke:red; stroke-width: 5.25px; fill: none;
-															  "
-														/>
-															
-														</svg> -->
 											</div>
 										</div>
 									</div>
@@ -146,21 +341,21 @@
 							<div class = "update-list">
 							</div>
 						</div>
-                    </div>
-                </div>
-                <div class = "row row-with-padding">
-                    <div class = "col-lg-12">
-						<div class = "white-rect-bg">
-							<p class = "box-label">Announcement Notifications</p>
-							<div class = "announcement-list">
+					</div>
+				</div>
+				<div class="row row-with-padding">
+					<div class="col-lg-12">
+						<div class="white-rect-bg">
+							<p class="box-label">Announcement Notifications</p>
+							<div class="announcement-list">
 							</div>
 						</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 
 
@@ -169,5 +364,6 @@
 <script src="js/calendar.js"></script>
 <script src="js/dashboard.js"></script>
 <script src="js/charts.js"></script>
+<script src="js/messagebox.js"></script>
 
 </html>
