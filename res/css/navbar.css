@@ -1,13 +1,13 @@
 .nav-item-custom {
 	white-space: nowrap;
     color: #6D6E71;
-	font-size: 0.8em;
-	/* font-weight: bold; */
+	font-size: 0.9em;
+	font-weight: bold;
 	text-align: center;
 	top: 100%;
 	letter-spacing: -0.05em;
-	margin-right: 6%;
-	margin-left: 6%;
+	margin-right: 8%;
+	margin-left: 8%;
 	font-weight: 900;
 }
 
@@ -31,15 +31,15 @@
 
 .search-bar-custom {
 	padding-top: 4%;
-	padding-right: 2%;
+	padding-right: 6%;
 }
 
 .search-bar-custom input {
-	width: 100%;
+	width: 13vw;
 	background-color: transparent;
 	border-radius: 20px;
 	border-color: transparent;
-	box-shadow: 0 0 5px #CC0000;
+	box-shadow: 0 0 5px darkred;
 	font-size: 0.8em;
 	padding-left: 10%;
 	padding-top: 2%;

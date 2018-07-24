@@ -80,7 +80,8 @@ body {
 }
 
 .welcome {
-	line-height: 2px;
+	font-size: 1.3em;
+	line-height: 4px;
 	padding-top: 5%;
 	padding-left: 5%;
 	padding-bottom: 3%;
