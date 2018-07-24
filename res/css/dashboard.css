@@ -32,6 +32,13 @@ body {
 	padding-top: 2%;
 }
 
+.chart-title {
+	color: rgb(66, 66, 66);
+	padding-left: 3%;
+	padding-top: 2%;
+	font-size: 0.8em;
+}
+
 .event-list .red-rect-bg {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
@@ -47,6 +54,7 @@ body {
 	padding-top: 15px;
 	padding-bottom: 5px;
 	line-height: 80%;
+	height: 56px;
 }
 
 .event-date .date {

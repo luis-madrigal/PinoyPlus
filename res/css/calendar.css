@@ -3,6 +3,7 @@
  */
 
  div.zabuto_calendar {
+    font-family: Avenir;
     margin: 0;
     padding: 0;
 }
@@ -75,6 +76,21 @@ div.zabuto_calendar tr.calendar-dow td {
     font-size: 0.6em;
     width: 14%;
     border: none;
+}
+
+div.zabuto_calendar tr.calendar-dow .circle {
+    background: darkred;
+    border-radius: 100%;
+    color: lightgrey !important;
+}
+
+div.zabuto_calendar tr.calendar-dow .current-day {
+    color: darkred !important;
+    font-weight: bolder !important;
+}
+
+div.zabuto_calendar tr.calendar-dow td {
+    color: grey;
 }
 
 div.zabuto_calendar .table tr td div.day {
