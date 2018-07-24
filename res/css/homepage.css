@@ -10,11 +10,11 @@ body {
 .nav-item-custom {
 	white-space: nowrap;
 	display: block;
-	font-color: black;
+	color: black;
 	font-size: 0.8em;
 	font-weight: normal;
 	text-align: center;
-	vertical-align: bottom;
+	/* vertical-align: bottom; */
 	top: 100%;
 	/*padding-top: 12%;*/
 	letter-spacing: -0.05em;
@@ -34,7 +34,7 @@ body {
 	color: red;
 }
 
-.nav-item-selected span {}
+/* .nav-item-selected span {} */
 
 .nav-item-selected:hover {
 	border-bottom-color: darkred;
@@ -42,7 +42,7 @@ body {
 	cursor: pointer;
 }
 
-.nav-item-selected span:hover {}
+/* .nav-item-selected span:hover {} */
 
 .search-bar-custom {
 	padding-right: 2%;
@@ -67,8 +67,8 @@ body {
 }
 
 .home-content {
-	padding-left:5%;
-	padding-right:5%;
+	padding-left: 5%;
+	padding-right: 5%;
 	margin-top: 3%;
 }
 
@@ -132,9 +132,9 @@ body {
 	box-shadow: 0 0 10px #FFFFFF;
 }
 
-.chat-window {
-	/*margin-left: 2%;*/
-}
+/* .chat-window {
+	margin-left: 2%;
+} */
 
 #chatWithInfo {
 	margin-top: 2%;
@@ -156,8 +156,8 @@ body {
 .message-container img {
 	display: inline;
 	border-radius: 50%;
-	width: 80px;
-	height: 80px;
+	/* width: 80px;
+	height: 80px; */
 }
 
 .testing {
@@ -227,4 +227,4 @@ body {
 	border-bottom-right-radius: 10px;
 }
 
-.chat-input textarea:selected {}
+/* .chat-input textarea:selected {} */

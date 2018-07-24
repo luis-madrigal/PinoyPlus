@@ -1,6 +1,6 @@
 @font-face {
 	font-family: Avenir;
-	src: url(fonts/AvenirLTStd-Book.otf);
+	src: url(../fonts/AvenirLTStd-Book.otf);
 }
 
 body {
@@ -11,17 +11,17 @@ body {
 	font-family: Avenir;
 }
 
-.center{
+.center {
 	margin: auto;
 	text-align: center;
 }
 
-.no-gutter > [class*='col-'] {
-    padding-right:0;
-    padding-left:0;
+.no-gutter>[class*='col-'] {
+	padding-right: 0;
+	padding-left: 0;
 }
 
-.bold{
+.bold {
 	font-weight: bold;
 }
 

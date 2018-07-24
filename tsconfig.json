@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./res/js",
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "scripts/"
+  ],
+  "exclude": [
+    "node_modules/",
+  ]
+}

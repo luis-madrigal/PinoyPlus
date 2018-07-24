@@ -1,2 +1,0 @@
-<iq type='set' id='12345678' xmlns='jabber:client'>
-    <query xmlns='urn:xmpp:mam:1'><x xmlns='jabber:x:data' type='submit'><field var='FORM_TYPE' type='hidden'><value>urn:xmpp:mam:1</value></field><field var='with'><value>user1@localhost</value></field></x><set xmlns='http://jabber.org/protocol/rsm'><max>1</max><before/></set></query></iq>

@@ -17,15 +17,15 @@ $(document).ready(() => {
 
 // UI
 
-let prevChatFromUser = true;
-let conversantMessage = '<div class = "row message-container conversant-message">' +
+var prevChatFromUser = true;
+var conversantMessage = '<div class = "row message-container conversant-message">' +
     '<div class = "col-lg-1">' +
     '<img class = "img-responsive" src = "img/face.png">' +
     '</div>' +
     '<div class = "col-lg-7 messages">' +
     '</div>' +
     '</div>';
-let userMessage = '<div class = "row message-container user-message">' +
+var userMessage = '<div class = "row message-container user-message">' +
     '<div class = "col-lg-4"></div>' +
     '<div class = "col-lg-7 messages">' +
     '</div>' +
@@ -39,7 +39,7 @@ $(document).ready(function () {
 
     $("#chat-input-text").keypress(function (e) {
         if (e.which == KeyCodes.ENTER) {
-            let str = $(this).val();
+            var str = $(this).val();
             if (str.trim()) {
                 logMessage(true, str)
                 sendMessage(str + " niggaaaa")
@@ -107,7 +107,7 @@ $(document).ready(() => {
 // Function
 
 function logMessage(fromUser, str) {
-    let lastMsgFromUser = $(".chat-container").children().last().hasClass("user-message");
+    var lastMsgFromUser = $(".chat-container").children().last().hasClass("user-message");
     console.log(lastMsgFromUser);
     if (fromUser && !lastMsgFromUser) {
         $(".chat-container").append(user_message);
@@ -120,26 +120,26 @@ function logMessage(fromUser, str) {
 }
 
 function sendMessage(content) {
-    let msg = $msg({
-        from: c.jid,
-        to: c.jidOther,
-        type: "chat"
-    })
+    var msg = $msg({
+            from: c.jid,
+            to: c.jidOther,
+            type: "chat"
+        })
         .c("body")
         .t(content)
     conn.send(msg)
 }
 
 function onMessage(msg) {
-    let me = c.jid
-    let from = Strophe.getBareJidFromJid($(msg).attr("from"))
-    let to = Strophe.getBareJidFromJid($(msg).attr("to"))
+    var me = c.jid
+    var from = Strophe.getBareJidFromJid($(msg).attr("from"))
+    var to = Strophe.getBareJidFromJid($(msg).attr("to"))
 
     console.log("From: " + from + " To: " + to + " Me: " + me)
     console.log(msg)
 
     if (to == me || from == me) {
-        let body = $(msg).find("body").text()
+        var body = $(msg).find("body").text()
         logMessage(me == from, body)
     }
 
@@ -152,7 +152,7 @@ function onMessage(msg) {
 function getRoster(callback) {
     conn.roster.get(roster => {
         for (var i in roster) {
-            let member = roster[i]
+            var member = roster[i]
             callback(member, i)
             // console.log({
             //     i: i,
@@ -198,8 +198,8 @@ function test(jid, message) {
 // })
 
 // Get Message History
-let other = c.jidOther + ""
-let mamQuery = {
+var other = c.jidOther + ""
+var mamQuery = {
     with: "user1@localhost",
     max: 5,
     before: '',

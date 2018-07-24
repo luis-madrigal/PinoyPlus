@@ -22,6 +22,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/rsm/strophe.rsm.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.6/mam/strophe.mam.v0.3.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/archive/strophe.archive.js"></script>
+
+
+	<!-- Vue.js development version, includes helpful console warnings -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 	<!-- <script src=""></script> -->
 
 	<!--W3 CSS-->
@@ -39,7 +44,7 @@
 
 	<!-- CHAT BOX -->
 	<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none;width:33%;right:0; background-color: transparent;"
-	 id="chatBox">
+	    id="chatBox">
 		<div class="row chat-top">
 		</div>
 		<!--CHATBOX HEADER-->
@@ -243,7 +248,7 @@
 			<img class="img-responsive" src="img/logo.png" height=50 width=100>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-		 aria-expanded="false" aria-label="Toggle navigation">
+		    aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
@@ -350,6 +355,9 @@
 		</div>
 	</div>
 
+	<input hidden id="username" value="<%= username %>">
+	<input hidden id="password" value="<%= password %>">
+	<input hidden id="chatServerUrl" value="<%= chatServerUrl %>">
 </body>
 
 
