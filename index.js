@@ -47,16 +47,14 @@ app.use('/', express.static("res"))
 app.set('views', path.join(__dirname, 'views'))
 
 app.get('/', (req, res) => {
-    res.render("login.html", {
-        chatServerUrl: config.chatServerUrl
-    })
-})
-
-app.get('/chat', (req, res) => {
     let auth = req.session;
 
+    console.log("Login=" + auth.username + ":" + auth.password)
+
     if (!(auth && auth.username && auth.password)) {
-        res.redirect("/")
+        res.render("login.html", {
+            chatServerUrl: config.chatServerUrl
+        })
         return;
     }
 
@@ -65,27 +63,52 @@ app.get('/chat', (req, res) => {
         username: auth.username,
         password: auth.password
     })
-    // res.sendFile(path.join(__dirname + '/views/dashboard.html'))
+})
+
+app.get("/test", (req, res) => {
+    req.session.s = req.session.s || 1
+    req.session.s++;
+    res.json({
+        count: req.session.s
+    })
+})
+app.get("*", (req, res) => {
+    console.log("Error 404: " + req.url);
+    res.redirect("/");
 })
 
 app.post("/storage", (req, res) => {
-    console.log(req.body)
-    let content = req.body || []
+    console.log(jsonCircle(req.body, 4))
+    let content = req.body || {}
     for (let key in content) {
         req.session[key] = content[key] || ""
     }
-    res.send("")
+    res.json({
+        status: 200
+    })
 })
 
-// app.post("/test", (req, res) => {
-//     req.session.count = req.session.count || 1
-//     res.json({
-//         count: req.session.count++
-//     })
-// })
-
-
 app.listen(config.port, () => console.log('Listening on port ' + config.port + '!'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function jsonCircle(obj, spacing) {

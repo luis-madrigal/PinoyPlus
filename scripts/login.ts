@@ -1,51 +1,64 @@
-
-const chatServerUrl = $("#chatServerUrl").val() + ""
-$("#chatServerUrl").remove()
-
-const conn = new Strophe.Connection(chatServerUrl)
-
-$(document).ready(() => {
+$(() => {
     $(".footer").fadeIn(125, () => {
         $("#large-text").fadeIn(250)
         $("#sub-text").fadeIn(375, () => {
             $("#login-form").fadeIn(125)
         })
     })
+})
+
+$(() => {
+    function startLogin() {
+        $("#error").text("")
+        $("#submit").text("Loading...")
+        $("#submit").attr("disabled", "disabled")
+    }
+    function resetLogin(errorMsg?: string) {
+        $("#error").text(errorMsg || "")
+        $("#submit").text("Log In")
+        $("#submit").removeAttr("disabled")
+    }
+
+    const chatServerUrl = $("#chatServerUrl").val() + ""
+    $("#chatServerUrl").remove()
+
+    const conn = new Strophe.Connection(chatServerUrl)
 
     $("#submit").click(() => {
-        let username = <string>$("#username_input").val() || ""
-        let password = <string>$("#password_input").val() || ""
+        let username = <string>$("#username_input").val()
+        if (!username) {
+            resetLogin("Username is missing")
+            return;
+        }
+
+        let password = <string>$("#password_input").val()
+        if (!password) {
+            resetLogin("Password is missing")
+            return;
+        }
+
         conn.connect(username, password, (status, condition) => {
+
             if (status == Strophe.Status.ERROR) {
                 console.log("An internal error occured")
-                $("#error").text("An error occured")
-                $("#submit").text("Log In")
+                resetLogin("An error occured")
             } else if (status == Strophe.Status.CONNECTING) {
                 console.log("Connecting...")
-                $("#error").text("")
-                $("#submit").text("Loading...")
-                $("#submit").attr("enabled", "false")
+                startLogin();
             } else if (status == Strophe.Status.CONNFAIL || status == Strophe.Status.AUTHFAIL) {
                 console.log("Username and Password combination does not exist")
-                $("#error").text("Invalid username or password")
-                $("#submit").text("Log In")
+                resetLogin("Invalid username or password")
             } else if (status == Strophe.Status.CONNTIMEOUT) {
-                console.log("No internet")
-                $("#error").text("No connection")
-                $("#submit").text("Log In")
+                console.log("No internet or server is not available")
+                resetLogin("No connection")
             } else if (status == Strophe.Status.DISCONNECTED) {
                 console.log("Disconnected")
-                $("#error").text("")
-                $("#submit").text("Log In")
+                resetLogin("")
             } else if (status == Strophe.Status.CONNECTED) {
-                $("#error").text("")
-                $("#submit").text("Log In")
-                // window.location.href = "/chat"
-                // TODO pass parameters to the route
                 console.log("Account Verified")
+                resetLogin("")
 
                 let url = window.location.origin + "/storage"
-
                 $.ajax({
                     url: url,
                     type: 'post',
@@ -53,16 +66,17 @@ $(document).ready(() => {
                         username: username,
                         password: password
                     },
+                    dataType: "json",
                     xhrFields: {
                         withCredentials: true
                     }
                 }).done(() => {
                     console.log("Successful Login")
                     conn.disconnect("")
-                    window.location.pathname = "/chat"
+                    window.location.pathname = "/"
                 }).fail(e => {
-                    console.log(e);
-
+                    console.log("Error Login")
+                    resetLogin("No connection")
                 });
             }
         })
