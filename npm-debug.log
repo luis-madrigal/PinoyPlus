@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'app' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.4
+4 verbose run-script [ 'preapp', 'app', 'postapp' ]
+5 info lifecycle pinoyplus@1.0.0~preapp: pinoyplus@1.0.0
+6 silly lifecycle pinoyplus@1.0.0~preapp: no script for preapp, continuing
+7 info lifecycle pinoyplus@1.0.0~app: pinoyplus@1.0.0
+8 verbose lifecycle pinoyplus@1.0.0~app: unsafe-perm in lifecycle true
+9 verbose lifecycle pinoyplus@1.0.0~app: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\Luis Madrigal\Documents\GitHub\PinoyPlus\node_modules\.bin;C:\Python27\;C:\Python27\Scripts;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\xampp php7\php;C:\ProgramData\ComposerSetup\bin;C:\xampp_php7\php;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\xampp_php7\mysql\bin;C:\Users\Luis Madrigal\AppData\Local\Programs\Python\Python35-32;C:\Program Files\nodejs\;C:\Program Files\TortoiseHg\;C:\Users\Luis Madrigal\AppData\Local\Programs\Python\Python35-32\;C:\Users\Luis Madrigal\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Program Files (x86)\sbt\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Program Files\doxygen\bin;C:\Users\Luis Madrigal\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\Luis Madrigal\AppData\Local\Programs\Python\Python36-32\;C:\Users\Luis Madrigal\AppData\Roaming\Python\Scripts;C:\Users\Luis Madrigal\AppData\Roaming\Composer\vendor\bin;C:\Users\Luis Madrigal\AppData\Local\Microsoft\WindowsApps;C:\Users\Luis Madrigal\AppData\Roaming\npm;C:\Users\Luis Madrigal\AppData\Local\GitHub\PortableGit_284a859b0e6deba86edc624fef1e4db2aa8241a9\cmd;C:\Program Files (x86)\Microsoft VS Code\bin;
+10 verbose lifecycle pinoyplus@1.0.0~app: CWD: C:\Users\Luis Madrigal\Documents\GitHub\PinoyPlus
+11 silly lifecycle pinoyplus@1.0.0~app: Args: [ '/d /s /c', 'tsc && node index.js' ]
+12 silly lifecycle pinoyplus@1.0.0~app: Returned: code: 1  signal: null
+13 info lifecycle pinoyplus@1.0.0~app: Failed to exec app script
+14 verbose stack Error: pinoyplus@1.0.0 app: `tsc && node index.js`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid pinoyplus@1.0.0
+16 verbose cwd C:\Users\Luis Madrigal\Documents\GitHub\PinoyPlus
+17 error Windows_NT 10.0.17134
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "app"
+19 error node v6.9.4
+20 error npm  v3.10.10
+21 error code ELIFECYCLE
+22 error pinoyplus@1.0.0 app: `tsc && node index.js`
+22 error Exit status 1
+23 error Failed at the pinoyplus@1.0.0 app script 'tsc && node index.js'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the pinoyplus package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     tsc && node index.js
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs pinoyplus
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls pinoyplus
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

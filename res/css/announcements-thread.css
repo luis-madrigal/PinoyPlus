@@ -1,0 +1,34 @@
+.container {
+    margin-top: 20px;
+}
+
+.thread {
+    cursor: pointer;
+    margin-top: 15px;
+    padding: 2%;
+}
+
+.thread img {
+    margin-left: 10%;
+}
+
+.thread .description {
+    line-height: 5px;
+    margin-left: 3%;
+}
+
+.thread .reply-count {
+    color: grey;
+    font-size: 0.8em;
+}
+
+.thread .info {
+    line-height: 20px;
+    color: rgb(78, 78, 78);
+}
+
+.thread .datetime {
+    color: grey;
+    text-align: right;
+    font-size: 0.8em;
+}

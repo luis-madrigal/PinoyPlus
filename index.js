@@ -65,6 +65,36 @@ app.get('/', (req, res) => {
     })
 })
 
+app.get('/announcements', (req, res) => {
+    let auth = req.session;
+    
+    res.render("announcements-main.html", {
+        chatServerUrl: config.chatServerUrl,
+        username: auth.username,
+        password: auth.password
+    })
+})
+
+app.get('/threads', (req, res) => {
+    let auth = req.session;
+    
+    res.render("announcements-thread.html", {
+        chatServerUrl: config.chatServerUrl,
+        username: auth.username,
+        password: auth.password
+    })
+})
+
+app.get('/posts', (req, res) => {
+    let auth = req.session;
+    
+    res.render("announcements-post.html", {
+        chatServerUrl: config.chatServerUrl,
+        username: auth.username,
+        password: auth.password
+    })
+})
+
 app.get("/test", (req, res) => {
     req.session.s = req.session.s || 1
     req.session.s++;

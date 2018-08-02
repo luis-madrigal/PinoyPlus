@@ -1,0 +1,76 @@
+body {
+    background-color: #F6F6F6;
+}
+
+.header-text {
+    margin-top: 40px;
+    font-size: 1.2em;
+    color: grey;
+    font-weight: bold;
+}
+
+.white-rect-bg {
+    background-color: white;
+	border-radius: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.red-rect-bg {
+	background: linear-gradient(#B02428, #86191F);
+	border-radius: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	color: white;
+}
+
+.breadcrumbs {
+    margin-top: 20px;
+}
+
+.breadcrumbs p {
+    white-space: pre;
+    padding-top:1%;
+    padding-left:2%;
+}
+
+.search-bar-forum {
+    margin-top: 22px;
+}
+
+.search-bar-forum input {
+    height: 40px;
+    width: 100%;
+	background-color: transparent;
+	border-radius: 18px;
+	border-color: transparent;
+    box-shadow: 0 0 5px darkred;
+    padding-left: 5%;
+}
+
+.search-bar-forum :focus {
+	outline: none;
+	box-shadow: 0 0 10px #CC0000;
+}
+
+.forum-btn {
+    margin-top: 15px;
+}
+
+.forum-btn :hover {
+    cursor: pointer;
+}
+
+.forum-btn p {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.other-topics {
+    margin-top: 20px;
+
+}
+
+.other-topics ul {
+    padding: 0;
+    list-style-type: none;
+    line-height: 30px;
+}

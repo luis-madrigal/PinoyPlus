@@ -1,0 +1,54 @@
+.service-update {
+    padding: 5%;
+}
+
+.service-update .description {
+    display: inline-block;
+    font-size: 0.85em;
+}
+
+.service-update .read-more {
+    font-size: 0.8em;
+}
+
+.service-update .read-more:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.anment-list-mf {
+    margin-top: 12px;
+}
+
+.custom-table th{
+    color:grey;
+    padding-left: 3%;
+}
+
+.anment-description{
+    cursor: pointer;
+    line-height: 3px;
+    padding: 3% !important;
+}
+
+.anment-description .selected {
+    color: rgb(207, 7, 7);
+    font-weight: bold;
+}
+
+.anment-description .info{
+    font-size: 0.8em;
+}
+
+.post-image {
+    margin-left: 20%;
+}
+
+.post-description {
+    font-size: 0.9em;
+}
+
+.post-datetime {
+    line-height: 0;
+    font-size: 0.8em;
+}
