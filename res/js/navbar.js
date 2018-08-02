@@ -9,6 +9,6 @@ $(document).ready(function() {
         
     })
     $("#feedback").click(function() {
-        
+        window.location.href = "/feedback";
     })
 })

@@ -95,6 +95,16 @@ app.get('/posts', (req, res) => {
     })
 })
 
+app.get('/feedback', (req, res) => {
+    let auth = req.session;
+    
+    res.render("feedback.html", {
+        chatServerUrl: config.chatServerUrl,
+        username: auth.username,
+        password: auth.password
+    })
+})
+
 app.get("/test", (req, res) => {
     req.session.s = req.session.s || 1
     req.session.s++;
