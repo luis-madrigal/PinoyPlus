@@ -1,6 +1,9 @@
 $(document).ready(function() {
-    $("#whatIsPrc").click(function() {
+    $(".home-img").click(function() {
         window.location.href = "/";
+    })
+    $("#whatIsPrc").click(function() {
+        window.location.href = "/about";
     })
     $("#announcements").click(function() {
         window.location.href = "/announcements";

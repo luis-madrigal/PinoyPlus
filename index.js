@@ -49,14 +49,14 @@ app.set('views', path.join(__dirname, 'views'))
 app.get('/', (req, res) => {
     let auth = req.session;
 
-    console.log("Login=" + auth.username + ":" + auth.password)
+    // console.log("Login=" + auth.username + ":" + auth.password)
 
-    if (!(auth && auth.username && auth.password)) {
-        res.render("login.html", {
-            chatServerUrl: config.chatServerUrl
-        })
-        return;
-    }
+    // if (!(auth && auth.username && auth.password)) {
+    //     res.render("login.html", {
+    //         chatServerUrl: config.chatServerUrl
+    //     })
+    //     return;
+    // }
 
     res.render("dashboard.html", {
         chatServerUrl: config.chatServerUrl,
@@ -105,6 +105,16 @@ app.get('/feedback', (req, res) => {
     })
 })
 
+app.get("/about", (req, res) => {
+    let auth = req.session;
+    
+    res.render("about.html", {
+        chatServerUrl: config.chatServerUrl,
+        username: auth.username,
+        password: auth.password
+    })
+})
+
 app.get("/test", (req, res) => {
     req.session.s = req.session.s || 1
     req.session.s++;
@@ -112,6 +122,7 @@ app.get("/test", (req, res) => {
         count: req.session.s
     })
 })
+
 app.get("*", (req, res) => {
     console.log("Error 404: " + req.url);
     res.redirect("/");
