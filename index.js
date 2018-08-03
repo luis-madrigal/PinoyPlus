@@ -115,6 +115,16 @@ app.get("/about", (req, res) => {
     })
 })
 
+app.get("/database", (req, res) => {
+    let auth = req.session;
+    
+    res.render("database.html", {
+        chatServerUrl: config.chatServerUrl,
+        username: auth.username,
+        password: auth.password
+    })
+})
+
 app.get("/test", (req, res) => {
     req.session.s = req.session.s || 1
     req.session.s++;

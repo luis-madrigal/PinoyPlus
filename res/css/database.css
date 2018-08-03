@@ -1,0 +1,99 @@
+body {
+    background-color: #F6F6F6;
+}
+
+.red-rect-bg {
+	background: linear-gradient(#B02428, #86191F);
+	border-radius: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	color: white;
+}
+
+.white-rect-bg {
+    background-color: white;
+	border-radius: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.database-table {
+    margin-top: 30px;
+}
+
+.database-table thead th {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-bottom: none;
+}
+
+.database-table td, .database-table th {
+    border-top: none;
+}
+
+.database-header {
+    margin-bottom: 15px;
+}
+
+.database-header th{
+    text-align: center;
+    font-weight: normal;
+}
+
+.database-header th:first-child{
+    border-radius:10px 0 0 10px;
+}
+
+.database-header th:last-child{
+    border-radius:0 10px 10px 0;
+}
+
+tbody:before {
+    content: "-";
+    display: block;
+    line-height: 1em;
+    color: transparent;
+}
+
+tbody tr:first-child {
+    border-radius:10px 10px 0 0;
+}
+
+tbody tr:last-child {
+    border-radius:0 0 10px 10px;
+}
+
+.database-row td {
+    padding-top: 2%;
+    vertical-align: top;
+}
+
+.partners img {
+    margin-left: 20px;
+}
+
+.partners .place {
+    margin-left: 40px;
+}
+
+.person-details {
+    line-height: 10px;
+    text-align: center;
+}
+
+.person-details p {
+    margin-top: 4px;
+}
+
+.services p{
+    padding-right: 10%;
+}
+
+.services .view-more {
+    line-height: 2px;
+    text-align: right;
+    color: grey;
+}
+
+.services .view-more:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

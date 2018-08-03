@@ -9,7 +9,7 @@ $(document).ready(function() {
         window.location.href = "/announcements";
     })
     $("#database").click(function() {
-        
+        window.location.href = "/database"
     })
     $("#feedback").click(function() {
         window.location.href = "/feedback";
