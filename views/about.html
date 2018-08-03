@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>PinoyPlus</title>
+
+	<!-- Font Awesome. Used for icons -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<!-- Strophe XMPP -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/strophe.js/1.2.15/strophe.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/muc/strophe.muc.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/roster/strophe.roster.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/rsm/strophe.rsm.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.6/mam/strophe.mam.v0.3.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/archive/strophe.archive.js"></script>
+
+
+	<!-- Vue.js development version, includes helpful console warnings -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+	<!--W3 CSS-->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="css/chatbox.css">
+	<link rel="stylesheet" href="css/global.css">
+	<link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/about.css">
+	<link rel="stylesheet" href="css/rating.css">
+</head>
+
+<body>
+	<!-- CHAT BOX -->
+	<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none;width:33%;right:0; background-color: transparent;"
+	 id="chatBox">
+		<div class="row chat-top">
+		</div>
+		<!--CHATBOX HEADER-->
+		<button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+		<div class="chat-header">
+			<div class="row">
+				<img src="img/ppapi.PNG" />
+			</div>
+			<div class="row" style="text-align: center;">
+				<div class="col-lg-4"></div>
+				<div class="col-lg-4">
+					<p id="chatWithInfo">PRC Chat</p>
+				</div>
+				<div class="col-lg-4"></div>
+			</div>
+		</div>
+		<!--MAIN CHAT CONTAINER-->
+		<div class="main-chat-container" style="display:none">
+			<!--CHAT MESSAGES-->
+			<div class="row chat-messages">
+				<div class="col-sm-12">
+					<div class="chat-container">
+						<div class="row message-container conversant-message">
+							<div class="col-sm-1">
+								<img class="img-responsive" src="img/face.png">
+							</div>
+							<div class="col-sm-7 messages">
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+							</div>
+						</div>
+						<div class="row message-container user-message">
+							<div class="col-sm-4"></div>
+							<div class="col-sm-7 messages">
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+								<p class="message">asddddddddd</p>
+							</div>
+							<div class="col-sm-1">
+								<img class="img-responsive" src="img/face.png">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--CHAT INPUT-->
+			<div class="row chat-input-container">
+				<div class="col-lg-12">
+					<div class="chat-input">
+						<textarea id="chat-input-text" placeholder="Type a message... Enter to send message. Press P to simulate incoming message"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- CHAT CONTACT LIST -->
+		<div class="chat-list-container row">
+			<!-- CHAT SEARCH BAR -->
+			<div class="row chat-search">
+				<i class="fa fa-search"></i>
+				<p>Search for a conversation</p>
+			</div>
+			<!-- CHAT CONTACTS -->
+			<div class="row contact-list">
+				<!-- COTNACT ITEM -->
+				<div class="contact-item">
+					<!-- TIME -->
+					<div class="row">
+						<div class="col-sm-9">
+						</div>
+						<div class="col-sm-3 time">
+							<p>4:15pm</p>
+						</div>
+
+					</div>
+					<!-- INFO -->
+					<div class="row">
+						<!-- ICON -->
+						<div class="col-sm-4">
+							<img class="img-responsive" src="img/face.png">
+						</div>
+						<!-- DETAILS -->
+						<div class="col-sm-8">
+							<!-- NAME -->
+							<div class="row contact-name">
+								<p>Caloocan Social Hygene Clinic</p>
+							</div>
+							<!-- LAST MESSAGE -->
+							<div class="row contact-message">
+								<p>Kamusta naman yung mga...</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="contact-item">
+					<!-- TIME -->
+					<div class="row">
+						<div class="col-sm-9">
+						</div>
+						<div class="col-sm-3 time">
+							<p>4:15pm</p>
+						</div>
+
+					</div>
+					<!-- INFO -->
+					<div class="row">
+						<!-- ICON -->
+						<div class="col-sm-4">
+							<img class="img-responsive" src="img/face.png">
+						</div>
+						<!-- DETAILS -->
+						<div class="col-sm-8">
+							<!-- NAME -->
+							<div class="row contact-name">
+								<p>Caloocan Social Hygene Clinic</p>
+							</div>
+							<!-- LAST MESSAGE -->
+							<div class="row contact-message">
+								<p>Kamusta naman yung mga...</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="contact-item">
+					<!-- TIME -->
+					<div class="row">
+						<div class="col-sm-9">
+						</div>
+						<div class="col-sm-3 time">
+							<p>4:15pm</p>
+						</div>
+
+					</div>
+					<!-- INFO -->
+					<div class="row">
+						<!-- ICON -->
+						<div class="col-sm-4">
+							<img class="img-responsive" src="img/face.png">
+						</div>
+						<!-- DETAILS -->
+						<div class="col-sm-8">
+							<!-- NAME -->
+							<div class="row contact-name">
+								<p>Caloocan Social Hygene Clinic</p>
+							</div>
+							<!-- LAST MESSAGE -->
+							<div class="row contact-message">
+								<p>Kamusta naman yung mga...</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="contact-item">
+					<!-- TIME -->
+					<div class="row">
+						<div class="col-sm-9">
+						</div>
+						<div class="col-sm-3 time">
+							<p>4:15pm</p>
+						</div>
+
+					</div>
+					<!-- INFO -->
+					<div class="row">
+						<!-- ICON -->
+						<div class="col-sm-4">
+							<img class="img-responsive" src="img/face.png">
+						</div>
+						<!-- DETAILS -->
+						<div class="col-sm-8">
+							<!-- NAME -->
+							<div class="row contact-name">
+								<p>Caloocan Social Hygene Clinic</p>
+							</div>
+							<!-- LAST MESSAGE -->
+							<div class="row contact-message">
+								<p>Kamusta naman yung mga...</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<a class="navbar-brand" href="#">
+			<img class="img-responsive" src="img/logo.png" height=50 width=150>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+		 aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li id="whatIsPrc" class="nav-item-custom nav-item-selected">
+					<span href="#">WHAT IS PRC</span>
+				</li>
+				<li id="announcements" class="nav-item-custom">
+					<span href="#">ANNOUNCEMENTS</span>
+				</li>
+				<li id="database" class="nav-item-custom">
+					<span href="#">DATABASE</span>
+				</li>
+				<li id="feedback" class="nav-item-custom">
+					<span href="#">FEEDBACK</span>
+				</li>
+			</ul>
+			<ul class="navbar-nav">
+				<li>
+					<form class="form-inline search-bar-custom">
+						<input type="search" placeholder="Search" aria-label="Search">
+					</form>
+				</li>
+				<li>
+					<div class="account">
+						<img class="img-responsive" src="img/face.png" height=40 width=40>
+						<span class="fa fa-caret-down"></span>
+					</div>
+				</li>
+				<li>
+					<div class="message-count">
+						<a class="w3-right" onclick="w3_open()">
+							<span class="fa fa-comment">
+								<span class="message-count-text">5</span>
+							</span>
+						</a>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row" style="height:50px;"></div>
+		<div class="row">
+			<div class="col-lg-9">
+				<div class="row row-with-padding">
+					<div class="col-lg-12">
+						<div class="red-rect-bg form-title">
+							<p class="form-text">What is the PLHIV Response Center (PRC)?</p>
+						</div>
+					</div>
+				</div>
+				<div class="row row-with-padding">
+					<div class="col-lg-12">
+						<!-- <div class="white-rect-bg"> -->
+						<div class="container form-start-group">
+							<p>
+								PRC is a communication service that aims to provide an interactive platform for People
+								<br>Living with HIV (PLHIV) where they can voice out concerns as they seek treatment and
+								<br>other HIV-related services. PRC is also a case management tool for evidence-based
+								<br>advocacy and program development.
+								<br>
+								<br>It delivers referrals and facilitates collaboration with treatment and service providers
+								<br>within the referral and service delivery network in response to the needs of the PLHIV
+								<br>community. These providers include social hygiene clinics, local government units,
+								<br>NGOs and CSOs, and psychosocial support groups.
+								<br>
+							</p>
+						</div>
+						<!-- </div> -->
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+
+				<img class="img-responsive" src="img/ppapi.png" style="width:100%;">
+
+			</div>
+		</div>
+
+
+	</div>
+</body>
+<script src="js/dashboard-chat.js"></script>
+<script src="js/messagebox.js"></script>
+<script src="js/navbar.js"></script>
+
+</html>
