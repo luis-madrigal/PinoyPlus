@@ -46,11 +46,14 @@
 
 	<!-- CHAT BOX -->
 	<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none;width:33%;right:0; background-color: transparent;"
-	    id="chatBox">
+	 id="chatBox">
 		<div class="row chat-top">
 		</div>
 		<!--CHATBOX HEADER-->
-		<button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+		<button onclick="w3_close()" class="message-count" id="close-chat">
+			<span class="fa fa-comment" id="close-chat-bubble">
+			</span>
+		</button>
 		<div class="chat-header">
 			<div class="row">
 				<img src="img/ppapi.PNG" />
@@ -245,22 +248,22 @@
 			<img class="img-responsive" src="img/logo.png" height=50 width=150>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-		    aria-expanded="false" aria-label="Toggle navigation">
+		 aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li id = "whatIsPrc" class="nav-item-custom">
+				<li id="whatIsPrc" class="nav-item-custom">
 					<span href="#">WHAT IS PRC</span>
 				</li>
-				<li id = "announcements" class="nav-item-custom">
+				<li id="announcements" class="nav-item-custom">
 					<span href="#">ANNOUNCEMENTS</span>
 				</li>
-				<li id = "database" class="nav-item-custom">
+				<li id="database" class="nav-item-custom">
 					<span href="#">DATABASE</span>
 				</li>
-				<li id = "feedback" class="nav-item-custom">
+				<li id="feedback" class="nav-item-custom">
 					<span href="#">FEEDBACK</span>
 				</li>
 			</ul>
@@ -386,6 +389,6 @@
 <script src="js/dashboard.js"></script>
 <script src="js/charts.js"></script>
 <script src="js/messagebox.js"></script>
-<script src ="js/navbar.js"></script>
+<script src="js/navbar.js"></script>
 
 </html>
