@@ -2,7 +2,7 @@ body {
     background-color: #F6F6F6;
 }
 
-.red-rect-bg {
+/* .red-rect-bg {
 	background: linear-gradient(#B02428, #86191F);
 	border-radius: 20px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -13,11 +13,11 @@ body {
     background-color: white;
 	border-radius: 20px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+} */
 
 .edit {
     margin-right: 5px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     padding: 0;
     float: right;
     color: rgb(100, 100, 100);
@@ -53,11 +53,11 @@ body {
 }
 
 .database-header th:first-child{
-    border-radius:10px 0 0 10px;
+    border-radius:26.66px 0 0 26.66px;
 }
 
 .database-header th:last-child{
-    border-radius:0 10px 10px 0;
+    border-radius:0 26.66px 26.66px 0;
 }
 
 tbody:before {
@@ -67,12 +67,50 @@ tbody:before {
     color: transparent;
 }
 
+tbody tr td{
+    background-color: white;
+    border-radius: 0;
+}
+
+tbody tr:first-child td:first-child{
+    background-color: white;
+    border-radius:26.66px 0 0 0;
+}
+
+tbody tr:first-child td:last-child{
+    background-color: white;
+    border-radius:0 26.66px 0 0;
+}
+
+tbody tr:last-child td:first-child{
+    background-color: white;
+    border-radius:0 0 0 26.66px;
+}
+
+tbody tr:last-child td:last-child{
+    background-color: white;
+    border-radius:0 0 26.66px 0;
+}
+
+tbody tr {
+    border-radius: 0;
+    -webkit-box-shadow: 0px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+    -moz-box-shadow: 0px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+    box-shadow: 0px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+}
+
 tbody tr:first-child {
-    border-radius:10px 10px 0 0;
+    border-radius:26.66px 26.66px 0 0;
+    -webkit-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+	-moz-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+	box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
 }
 
 tbody tr:last-child {
-    border-radius:0 0 10px 10px;
+    border-radius:0 0 26.66px 26.66px;
+    -webkit-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+	-moz-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+	box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
 }
 
 .database-row td {

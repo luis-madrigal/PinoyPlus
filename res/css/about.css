@@ -36,7 +36,7 @@ td {
   border-radius: 20px;
 }
 
-.red-rect-bg {
+/* .red-rect-bg {
   background: linear-gradient(#b02428, #86191f);
   border-radius: 20px;
   padding-left: 5%;
@@ -49,7 +49,7 @@ td {
 
 .red-rect-bg p {
   color: white;
-}
+} */
 
 .red-text {
   color: darkred;

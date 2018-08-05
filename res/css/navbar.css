@@ -1,7 +1,7 @@
 .nav-item-custom {
 	white-space: nowrap;
     color: #6D6E71;
-	font-size: 0.9em;
+	font-size: 1em;
 	font-weight: bolder;
 	text-align: center;
 	top: 100%;
@@ -13,6 +13,7 @@
 
 .nav-item-custom:hover {
 	cursor: pointer;
+	color: #AE242C;
 }
 
 .nav-item-selected{
@@ -58,7 +59,7 @@
 
 .account {
 	padding-top: 10%;
-	padding-left: 10%;
+	margin-left: 20px;
 }
 
 .account img {
@@ -77,8 +78,8 @@
 .message-count {
 	font-size: 3.5em;
 	color: darkred;
-	padding-left: 80%;
-	padding-right: 10%;
+	margin-left: 40px;
+	padding-right: 10px;
 	margin-top:-25px; 
 	text-shadow: 2px 2px 4px slategray;
 }

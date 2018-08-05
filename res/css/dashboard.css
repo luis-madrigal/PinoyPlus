@@ -2,21 +2,8 @@ body {
 	background-color: #F6F6F6;
 }
 
-.red-rect-bg {
-	background: linear-gradient(#B02428, #86191F);
-	border-radius: 20px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	color: white;
-}
-
 .red-text {
 	color: #B12226;
-}
-
-.white-rect-bg {
-    background-color: white;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .box-label {
@@ -87,7 +74,11 @@ body {
 
 .update {
 	padding-left: 5%;
-	height: 12vh;
+	height: 11vh;
+}
+
+.update-list {
+	padding-top: 10px;
 }
 
 .update img {
@@ -106,9 +97,13 @@ body {
 
 .announcement {
 	padding-bottom: 2%;
-	padding-left: 5%;
-	line-height: 2px;
+	padding-left: 10px;
+	line-height: 6px;
 	height: 10vh;
+}
+
+.announcement-list {
+	padding-top: 10px;
 }
 
 .announcement img {
@@ -116,16 +111,19 @@ body {
 }
 
 .announcement-title {
+	padding-left: 10px;
 	font-size: 0.9em;
 }
 
 .announcement-des {
+	padding-left: 10px;
 	font-size: 0.9em;
 	width: 100%; 
 	color:grey;
 }
 
 .announcement-datetime {
+	padding-left: 10px;
 	font-size: 0.8em;
 	color: grey;
 }

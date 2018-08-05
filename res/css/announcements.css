@@ -3,23 +3,9 @@ body {
 }
 
 .header-text {
-    margin-top: 40px;
     font-size: 1.2em;
     color: grey;
     font-weight: bold;
-}
-
-.white-rect-bg {
-    background-color: white;
-	border-radius: 20px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.red-rect-bg {
-	background: linear-gradient(#B02428, #86191F);
-	border-radius: 20px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	color: white;
 }
 
 .breadcrumbs {
@@ -28,7 +14,7 @@ body {
 
 .breadcrumbs p {
     white-space: pre;
-    padding-top:1%;
+    padding-top:10px;
     padding-left:2%;
 }
 
