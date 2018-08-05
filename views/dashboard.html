@@ -113,42 +113,52 @@
 		<div class="chat-list-container row">
 			<!-- CHAT SEARCH BAR -->
 			<div class="row chat-search">
-				<i class="fa fa-search"></i>
-				<p>Search for a conversation</p>
+				<div class="col-sm-2">
+					<i class="fa fa-search"></i>
+				</div>
+				<div class="col-sm-10">
+					<textarea id="chat-search-box" placeholder="Search for a conversation"></textarea>
+				</div>
+
 			</div>
 			<!-- CHAT CONTACTS -->
-			<div hidden class="row contact-list">
-				<!-- COTNACT ITEM -->
+			<div hidden class=" contact-list">
+				<ul id="contact-main-list">
+					<li class="contact-item-container">
+						<!-- COTNACT ITEM -->
 
-				<div class="contact-item">
-					<!-- TIME -->
-					<div class="row">
-						<div class="col-sm-9">
-						</div>
-						<div class="col-sm-3 time">
-							<p>4:15pm</p>
-						</div>
+						<div class="contact-item ">
+							<!-- TIME -->
+							<div class="row">
+								<div class="col-sm-9">
+								</div>
+								<div class="col-sm-3 time">
+									<p>4:15pm</p>
+								</div>
 
-					</div>
-					<!-- INFO -->
-					<div class="row">
-						<!-- ICON -->
-						<div class="col-sm-4">
-							<img class="img-responsive" src="img/face.png">
-						</div>
-						<!-- DETAILS -->
-						<div class="col-sm-8">
-							<!-- NAME -->
-							<div class="row contact-name">
-								<p>Caloocan Social Hygene Clinic</p>
 							</div>
-							<!-- LAST MESSAGE -->
-							<div class="row contact-message">
-								<p>Kamusta naman yung mga...</p>
+							<!-- INFO -->
+							<div class="row">
+								<!-- ICON -->
+								<div class="col-sm-4">
+									<img class="img-responsive" src="img/face.png">
+								</div>
+								<!-- DETAILS -->
+								<div class="col-sm-8">
+									<!-- NAME -->
+									<div class="row contact-name">
+										<p>Caloocan Social Hygene Clinic</p>
+									</div>
+									<!-- LAST MESSAGE -->
+									<div class="row contact-message">
+										<p>Kamusta naman yung mga...</p>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
+					</li>
+				</ul>
+
 
 			</div>
 		</div>
