@@ -32,11 +32,11 @@ td {
   padding-left: 5%;
   padding-right: 5%;
   height: 100%;
-  background: linear-gradient(#b02428, #86191f);
+  background: linear-gradient(to right, #b02428, #86191f);
   border-radius: 20px;
 }
 
-.red-rect-bg {
+/* .red-rect-bg {
   background: linear-gradient(#b02428, #86191f);
   border-radius: 20px;
   padding-left: 5%;
@@ -48,8 +48,8 @@ td {
 }
 
 .red-rect-bg p {
-  color: white;
-}
+  color: white; */
+/* } */
 
 .red-text {
   color: darkred;
@@ -66,8 +66,10 @@ td {
   height: 100%;
 
   background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 26.66px;
+	-webkit-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+	-moz-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+	box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
 }
 
 .rating-group {
@@ -75,8 +77,10 @@ td {
   padding-top: 5%;
   padding-bottom: 5%;
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 26.66px;
+	-webkit-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+	-moz-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+	box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
 }
 
 .col-centered {

@@ -1,0 +1,24 @@
+footer {
+    background: linear-gradient(to right, #B02428, #86191F);
+    color: white;
+    padding: 30px;
+}
+
+footer .contact-info {
+    margin-left: 30px;
+}
+
+footer .number {
+    margin-top: 20px;
+}
+
+footer .address {
+    margin-top: 40px;
+}
+
+
+footer .copyright-text {
+    font-size: 1em;
+    text-align: right;
+    margin-top: 120px;
+}

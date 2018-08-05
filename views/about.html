@@ -35,6 +35,7 @@
 	<link rel="stylesheet" href="css/chatbox.css">
 	<link rel="stylesheet" href="css/global.css">
 	<link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="css/about.css">
 </head>
 
@@ -239,7 +240,7 @@
 			<img class="img-responsive" src="img/logo.png" height=50 width=150>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-		 aria-expanded="false" aria-label="Toggle navigation">
+			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
@@ -266,8 +267,15 @@
 				</li>
 				<li>
 					<div class="account">
-						<img class="img-responsive" src="img/face.png" height=40 width=40>
-						<span class="fa fa-caret-down"></span>
+						<img class="img-responsive" src="img/face.png" height=55 width=55>
+						<span class="fa fa-caret-down" data-toggle="dropdown"></span>
+						<div class="dropdown account-dropdown">
+							<ul class="dropdown-menu account-dropdown-menu">
+								<li type = "button" data-toggle="modal" data-target="#profileModal"><span class = "profile-edit">PRC</span></li>
+								<li><span>Settings</span></li>
+								<li><span>Sign Out</span></li>
+							</ul>
+						</div>
 					</div>
 				</li>
 				<li>
@@ -281,6 +289,91 @@
 				</li>
 			</ul>
 
+		</div>
+
+		<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Profile</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class = "container">
+							<div class = "row">
+								<div class = "col-lg-2">
+									<img class="img-responsive" src="img/ppapi.png" height=100 width=100>
+								</div>
+								<div class = "col-lg-10">
+									<div class = "content">
+										<div class = "row row-nobottom-margin">
+											<div class = "col-lg-12">
+												<div class = "edit">
+													<span class = "fa fa-pencil icon"> </span>
+													<span class = "label">Edit</span>
+												</div>
+											</div>
+										</div>
+										<div class = "row">
+											<div class = "col-lg-12">
+												<p class = "title">PLHIV Response Center (PRC)</p>
+											</div>
+										</div>
+										<div class = "row">
+											<div class = "col-lg-12">
+												<div class = "admins">
+													<p>PRC Administrators</p>
+													<div class = "names">
+														<span>Richard Bragado</span>
+														<span>Lean Aseron</span>
+														<span>Noel Quinto</span>
+														<span>Rommel Legwes</span>
+														<span>Benjamin Rivera</span>
+														<span>Kai Ledesma</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class = "row">
+											<div class = "col-lg-12">
+												<div class = "contact-info">
+													<p>Contact Information</p>
+													<div class = "row">
+														<div class = "col-lg-1">
+															<img class="img-responsive icon" src="img/phone.png" height=30 width=30>
+														</div>
+														<div class = "col-lg-11">
+															<span>(02) 743 7293</span>
+														</div>
+													</div>
+													<div class = "row">
+														<div class = "col-lg-1">
+															<img class="img-responsive icon" src="img/email.png" height=30 width=35>
+														</div>
+														<div class = "col-lg-11">
+															<span>plhiv.response@gmail.com</span>
+														</div>
+													</div>
+													<div class = "row">
+														<div class = "col-lg-1">
+															<img class="img-responsive icon" src="img/location.png" height=40 width=25>
+														</div>
+														<div class = "col-lg-11">
+															<span>1965-B JRB Building, Anacleto Street, Sta. Cruz, Manila, Metro Manila</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</nav>
 
@@ -385,6 +478,50 @@
 			</div>
 		</div>
 	</div>
+
+	<footer class = "page-footer">
+		<div class = "container-fluid">
+			<div class = "row">
+				<div class = "col-lg-2">
+					<div class = "contact-info">
+						<div class = "emails">
+							<span>plhiv.response@gmail.com</span>
+							<span>pinoy.plus@yahoo.com</span>
+						</div>
+						<div class = "number">
+							<span>(02) 743 7293</span>
+						</div>
+						<div class = "address">
+							<span>1965-B JRB Building, Anacleto Street, Sta Cruz, Manila</span>
+						</div>
+					</div>
+				</div>
+				<div class = "col-lg-7"></div>
+				<div class = "col-lg-3">
+					<div class = "row">
+						<div class = "col-lg-7">
+							<span>Follow us on our social media accounts</span>
+						</div>
+						<div class = "col-lg-2">
+							<a href = "https://twitter.com/PlusAdvocacy"><img class="img-responsive" src="img/twitter.png" height=55 width=60></a>
+						</div>
+						<div class = "col-lg-1"></div>
+						<div class = "col-lg-2">
+							<a href = "https://www.facebook.com/PinoyPlusAssociationInc/"><img class="img-responsive" src="img/fb.png" height=50 width=35></a>
+						</div>
+					</div>
+					<div class = "row">
+						<div class = "col-lg-9"></div>
+						<div class = "col-lg-3">
+							<div class = "copyright">
+								<p class = "copyright-text">&copy 2018</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 <script src="js/dashboard-chat.js"></script>
 <script src="js/messagebox.js"></script>

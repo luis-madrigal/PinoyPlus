@@ -73,7 +73,7 @@ body {
   line-height: 1.6em;
 }
 
-.red-rect-bg {
+/* .red-rect-bg {
   background: linear-gradient(#b02428, #86191f);
   border-radius: 20px;
   padding-left: 5%;
@@ -86,7 +86,7 @@ body {
 
 .red-rect-bg p {
   color: white;
-}
+} */
 
 .red-text {
   color: darkred;
