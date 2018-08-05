@@ -8,7 +8,7 @@ const MemcachedStore = require("connect-memcached")(session);
 const config = {
 
     port: process.env.port || process.env.PORT || 3000,
-    chatServerUrl: "http://localhost:5280/bosh/",
+    chatServerUrl: "http://104.215.190.53:4000",
     sessionSecret: "asdpfodkdpvk134po1kp24okfpokd-v0ss-wmwkemld",
     storageServerUrl: "http://localhost:5605",
     storageSecret: "ASdlmg3p442pogb-pofg,rwerwefdvdfvdfgw;el,fsv;,"
@@ -67,7 +67,7 @@ app.get('/', (req, res) => {
 
 app.get('/announcements', (req, res) => {
     let auth = req.session;
-    
+
     res.render("announcements-main.html", {
         chatServerUrl: config.chatServerUrl,
         username: auth.username,
@@ -77,7 +77,7 @@ app.get('/announcements', (req, res) => {
 
 app.get('/threads', (req, res) => {
     let auth = req.session;
-    
+
     res.render("announcements-thread.html", {
         chatServerUrl: config.chatServerUrl,
         username: auth.username,
@@ -87,7 +87,7 @@ app.get('/threads', (req, res) => {
 
 app.get('/posts', (req, res) => {
     let auth = req.session;
-    
+
     res.render("announcements-post.html", {
         chatServerUrl: config.chatServerUrl,
         username: auth.username,
@@ -97,7 +97,7 @@ app.get('/posts', (req, res) => {
 
 app.get('/feedback', (req, res) => {
     let auth = req.session;
-    
+
     res.render("feedback.html", {
         chatServerUrl: config.chatServerUrl,
         username: auth.username,
@@ -107,7 +107,7 @@ app.get('/feedback', (req, res) => {
 
 app.get("/about", (req, res) => {
     let auth = req.session;
-    
+
     res.render("about.html", {
         chatServerUrl: config.chatServerUrl,
         username: auth.username,
@@ -117,7 +117,7 @@ app.get("/about", (req, res) => {
 
 app.get("/database", (req, res) => {
     let auth = req.session;
-    
+
     res.render("database.html", {
         chatServerUrl: config.chatServerUrl,
         username: auth.username,
