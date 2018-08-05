@@ -5,6 +5,11 @@
 .chat-header {
 	text-align: center;
 	background-color: white;
+	border-bottom: solid;
+	border-bottom-width: 2px;
+	border-bottom-color: #cccccc;
+	border-top-left-radius: 20px;
+	box-shadow: 2px 2px 5px 2px #cccccc
 }
 
 .chat-header img {
@@ -16,12 +21,12 @@
 }
 
 .main-chat-container{
-	height: 60%;
+	height: 75%;
 	overflow-x: hidden;
 }
 
 .chat-messages{
-	height: 70%;
+	height: 80%;
 	
 }
 
@@ -98,7 +103,8 @@
 
 .chat-input-container {
 	background-color: white;
-	height: 20%;
+	height: 23%;
+	margin-top: -4%;
 	
 }
 
@@ -131,7 +137,7 @@
 
 .chat-list-container{
 	background-color: gray;
-	height: 55%;
+	height: 75%;
 }
 
 .chat-search{
@@ -206,5 +212,6 @@
 
 #chatBox{
 	overflow-x: hidden;
-
+	height: 100%;
+	box-shadow: 3px 53px 5px 5px #cccccc
 }
