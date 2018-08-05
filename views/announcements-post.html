@@ -2,55 +2,58 @@
 <html>
 
 <head>
-	<title>PinoyPlus</title>
+    <title>PinoyPlus</title>
 
-	<!-- Font Awesome. Used for icons -->
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<!-- Popper JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-	<!-- Strophe XMPP -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/strophe.js/1.2.15/strophe.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/muc/strophe.muc.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/roster/strophe.roster.js"></script>
+    <!-- Font Awesome. Used for icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!-- Strophe XMPP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/strophe.js/1.2.15/strophe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/muc/strophe.muc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/roster/strophe.roster.js"></script>
 
-	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/rsm/strophe.rsm.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.6/mam/strophe.mam.v0.3.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/archive/strophe.archive.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/rsm/strophe.rsm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.6/mam/strophe.mam.v0.3.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/strophejs-plugins@0.0.7/archive/strophe.archive.js"></script>
 
 
-	<!-- Vue.js development version, includes helpful console warnings -->
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Vue.js development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-	<!-- <script src=""></script> -->
-	<!-- Chart.js -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- <script src=""></script> -->
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
-	<!--W3 CSS-->
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--W3 CSS-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<link rel="stylesheet" href="css/chatbox.css">
-	<link rel="stylesheet" href="css/global.css">
-	<link rel="stylesheet" href="css/navbar.css">
-	<link rel="stylesheet" href="css/footer.css">
-	<link rel="stylesheet" href="css/announcements.css">
-	<link rel="stylesheet" href="css/announcements-post.css">
+    <link rel="stylesheet" href="css/chatbox.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/announcements.css">
+    <link rel="stylesheet" href="css/announcements-post.css">
 </head>
 
 <body>
     <!-- CHAT BOX -->
-    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none;width:33%;right:0; background-color: transparent;"
-    id="chatBox">
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none;width:33%;right:0; height: 100%; background-color: transparent;"
+        id="chatBox">
         <div class="row chat-top">
         </div>
         <!--CHATBOX HEADER-->
-        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <button onclick="w3_close()" class="message-count" id="close-chat">
+            <span class="fa fa-comment" id="close-chat-bubble">
+            </span>
+        </button>
         <div class="chat-header">
             <div class="row">
                 <img src="img/ppapi.PNG" />
@@ -101,7 +104,7 @@
             <div class="row chat-input-container">
                 <div class="col-lg-12">
                     <div class="chat-input">
-                        <textarea id="chat-input-text" placeholder="Type a message... Enter to send message. Press P to simulate incoming message"></textarea>
+                        <textarea id="chat-input-text" placeholder="Type a message..."></textarea>
                     </div>
                 </div>
             </div>
@@ -110,136 +113,59 @@
         <div class="chat-list-container row">
             <!-- CHAT SEARCH BAR -->
             <div class="row chat-search">
-                <i class="fa fa-search"></i>
-                <p>Search for a conversation</p>
+                <div class="col-sm-2">
+                    <i class="fa fa-search"></i>
+                </div>
+                <div class="col-sm-10">
+                    <textarea id="chat-search-box" placeholder="Search for a conversation"></textarea>
+                </div>
+
             </div>
             <!-- CHAT CONTACTS -->
-            <div class="row contact-list">
-                <!-- COTNACT ITEM -->
-                <div class="contact-item">
-                    <!-- TIME -->
-                    <div class="row">
-                        <div class="col-sm-9">
-                        </div>
-                        <div class="col-sm-3 time">
-                            <p>4:15pm</p>
-                        </div>
+            <div hidden class=" contact-list">
+                <ul id="contact-main-list">
+                    <li class="contact-item-container">
+                        <!-- COTNACT ITEM -->
 
-                    </div>
-                    <!-- INFO -->
-                    <div class="row">
-                        <!-- ICON -->
-                        <div class="col-sm-4">
-                            <img class="img-responsive" src="img/face.png">
-                        </div>
-                        <!-- DETAILS -->
-                        <div class="col-sm-8">
-                            <!-- NAME -->
-                            <div class="row contact-name">
-                                <p>Caloocan Social Hygene Clinic</p>
-                            </div>
-                            <!-- LAST MESSAGE -->
-                            <div class="row contact-message">
-                                <p>Kamusta naman yung mga...</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <div class="contact-item ">
+                            <!-- TIME -->
+                            <div class="row">
+                                <div class="col-sm-9">
+                                </div>
+                                <div class="col-sm-3 time">
+                                    <p>4:15pm</p>
+                                </div>
 
-                <div class="contact-item">
-                    <!-- TIME -->
-                    <div class="row">
-                        <div class="col-sm-9">
+                            </div>
+                            <!-- INFO -->
+                            <div class="row">
+                                <!-- ICON -->
+                                <div class="col-sm-4">
+                                    <img class="img-responsive" src="img/face.png">
+                                </div>
+                                <!-- DETAILS -->
+                                <div class="col-sm-8">
+                                    <!-- NAME -->
+                                    <div class="row contact-name">
+                                        <p>Caloocan Social Hygene Clinic</p>
+                                    </div>
+                                    <!-- LAST MESSAGE -->
+                                    <div class="row contact-message">
+                                        <p>Kamusta naman yung mga...</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-3 time">
-                            <p>4:15pm</p>
-                        </div>
+                    </li>
+                </ul>
 
-                    </div>
-                    <!-- INFO -->
-                    <div class="row">
-                        <!-- ICON -->
-                        <div class="col-sm-4">
-                            <img class="img-responsive" src="img/face.png">
-                        </div>
-                        <!-- DETAILS -->
-                        <div class="col-sm-8">
-                            <!-- NAME -->
-                            <div class="row contact-name">
-                                <p>Caloocan Social Hygene Clinic</p>
-                            </div>
-                            <!-- LAST MESSAGE -->
-                            <div class="row contact-message">
-                                <p>Kamusta naman yung mga...</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="contact-item">
-                    <!-- TIME -->
-                    <div class="row">
-                        <div class="col-sm-9">
-                        </div>
-                        <div class="col-sm-3 time">
-                            <p>4:15pm</p>
-                        </div>
-
-                    </div>
-                    <!-- INFO -->
-                    <div class="row">
-                        <!-- ICON -->
-                        <div class="col-sm-4">
-                            <img class="img-responsive" src="img/face.png">
-                        </div>
-                        <!-- DETAILS -->
-                        <div class="col-sm-8">
-                            <!-- NAME -->
-                            <div class="row contact-name">
-                                <p>Caloocan Social Hygene Clinic</p>
-                            </div>
-                            <!-- LAST MESSAGE -->
-                            <div class="row contact-message">
-                                <p>Kamusta naman yung mga...</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <!-- TIME -->
-                    <div class="row">
-                        <div class="col-sm-9">
-                        </div>
-                        <div class="col-sm-3 time">
-                            <p>4:15pm</p>
-                        </div>
-
-                    </div>
-                    <!-- INFO -->
-                    <div class="row">
-                        <!-- ICON -->
-                        <div class="col-sm-4">
-                            <img class="img-responsive" src="img/face.png">
-                        </div>
-                        <!-- DETAILS -->
-                        <div class="col-sm-8">
-                            <!-- NAME -->
-                            <div class="row contact-name">
-                                <p>Caloocan Social Hygene Clinic</p>
-                            </div>
-                            <!-- LAST MESSAGE -->
-                            <div class="row contact-message">
-                                <p>Kamusta naman yung mga...</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
-	<nav class="navbar navbar-expand-lg navbar-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">
             <img class="img-responsive" src="img/logo.png" height=50 width=150>
         </a>
@@ -275,9 +201,15 @@
                         <span class="fa fa-caret-down" data-toggle="dropdown"></span>
                         <div class="dropdown account-dropdown">
                             <ul class="dropdown-menu account-dropdown-menu">
-                                <li type = "button" data-toggle="modal" data-target="#profileModal"><span class = "profile-edit">PRC</span></li>
-                                <li><span>Settings</span></li>
-                                <li><span>Sign Out</span></li>
+                                <li type="button" data-toggle="modal" data-target="#profileModal">
+                                    <span class="profile-edit">PRC</span>
+                                </li>
+                                <li>
+                                    <span>Settings</span>
+                                </li>
+                                <li>
+                                    <span>Sign Out</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -305,31 +237,31 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class = "container">
-                            <div class = "row">
-                                <div class = "col-lg-2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-2">
                                     <img class="img-responsive" src="img/ppapi.png" height=100 width=100>
                                 </div>
-                                <div class = "col-lg-10">
-                                    <div class = "content">
-                                        <div class = "row row-nobottom-margin">
-                                            <div class = "col-lg-12">
-                                                <div class = "edit">
-                                                    <span class = "fa fa-pencil icon"> </span>
-                                                    <span class = "label">Edit</span>
+                                <div class="col-lg-10">
+                                    <div class="content">
+                                        <div class="row row-nobottom-margin">
+                                            <div class="col-lg-12">
+                                                <div class="edit">
+                                                    <span class="fa fa-pencil icon"> </span>
+                                                    <span class="label">Edit</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class = "row">
-                                            <div class = "col-lg-12">
-                                                <p class = "title">PLHIV Response Center (PRC)</p>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <p class="title">PLHIV Response Center (PRC)</p>
                                             </div>
                                         </div>
-                                        <div class = "row">
-                                            <div class = "col-lg-12">
-                                                <div class = "admins">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="admins">
                                                     <p>PRC Administrators</p>
-                                                    <div class = "names">
+                                                    <div class="names">
                                                         <span>Richard Bragado</span>
                                                         <span>Lean Aseron</span>
                                                         <span>Noel Quinto</span>
@@ -340,32 +272,34 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class = "row">
-                                            <div class = "col-lg-12">
-                                                <div class = "contact-info">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="contact-info">
                                                     <p>Contact Information</p>
-                                                    <div class = "row">
-                                                        <div class = "col-lg-1">
+                                                    <div class="row">
+                                                        <div class="col-lg-1">
                                                             <img class="img-responsive icon" src="img/phone.png" height=30 width=30>
                                                         </div>
-                                                        <div class = "col-lg-11">
+                                                        <div class="col-lg-11">
                                                             <span>(02) 743 7293</span>
                                                         </div>
                                                     </div>
-                                                    <div class = "row">
-                                                        <div class = "col-lg-1">
+                                                    <div class="row">
+                                                        <div class="col-lg-1">
                                                             <img class="img-responsive icon" src="img/email.png" height=30 width=35>
                                                         </div>
-                                                        <div class = "col-lg-11">
+                                                        <div class="col-lg-11">
                                                             <span>plhiv.response@gmail.com</span>
                                                         </div>
                                                     </div>
-                                                    <div class = "row">
-                                                        <div class = "col-lg-1">
+                                                    <div class="row">
+                                                        <div class="col-lg-1">
                                                             <img class="img-responsive icon" src="img/location.png" height=40 width=25>
                                                         </div>
-                                                        <div class = "col-lg-11">
-                                                            <span>1965-B JRB Building, Anacleto Street, Sta. Cruz, Manila, Metro Manila</span>
+                                                        <div class="col-lg-11">
+                                                            <span>1965-B JRB Building, Anacleto Street, Sta. Cruz, Manila, Metro
+                                                                Manila
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -380,67 +314,75 @@
             </div>
         </div>
     </nav>
-    
-    <div class = "container container-with-spacing">
-        <div class = "row">
-            <div class = "col-lg-9">
-                <div class = "breadcrumbs red-rect-bg">
-                    <div class = "row">
-                        <div class = "col-lg-12">
-                            <p>Main Forum  >  Official Announcements  >  Current Services of CMC</p>
+
+    <div class="container container-with-spacing">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="breadcrumbs red-rect-bg">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p>Main Forum > Official Announcements > Current Services of CMC</p>
                         </div>
                     </div>
                 </div>
-                <div class = "post white-rect-bg">
-                    <div class = "row">
-                        <div class = "col-lg-1">
+                <div class="post white-rect-bg">
+                    <div class="row">
+                        <div class="col-lg-1">
                             <img class="img-responsive post-image" src="img/ppapi.png" height=60 width=60>
                         </div>
-                        <div class = "col-lg-7">
-                            <div class = "description">
-                                <p class = "place">Caloocan Medical Center</p>
-                                <p class = "title">Current Services of CMC</p>
-                                <p>To all health service providers, here are the updates regarding HIV services from the Department of Health.</p>
-                                <p>To all health service providers, here are the updates regarding HIV services from the Department of Health. To all health service providers, here are the updates</p>
+                        <div class="col-lg-7">
+                            <div class="description">
+                                <p class="place">Caloocan Medical Center</p>
+                                <p class="title">Current Services of CMC</p>
+                                <p>To all health service providers, here are the updates regarding HIV services from the Department
+                                    of Health.</p>
+                                <p>To all health service providers, here are the updates regarding HIV services from the Department
+                                    of Health. To all health service providers, here are the updates</p>
                             </div>
                         </div>
-                        <div class = "col-lg-4">
-                            <p class = "datetime">July 2, 2018 4:15 PM</p>
+                        <div class="col-lg-4">
+                            <p class="datetime">July 2, 2018 4:15 PM</p>
                         </div>
                     </div>
                 </div>
-                <div class = "row">
-                    <div class = "col-lg-12">
-                        <p class = "header-text">Comments</p>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="header-text">Comments</p>
                     </div>
                 </div>
                 <!-- comments -->
-                <div class = "comment-list">
-                    <div class = "comment grey-rect-bg">
-                        <div class = "row">
-                            <div class = "col-lg-1">
+                <div class="comment-list">
+                    <div class="comment grey-rect-bg">
+                        <div class="row">
+                            <div class="col-lg-1">
                                 <img class="img-responsive comment-image" src="img/ppapi.png" height=60 width=60>
                             </div>
-                            <div class = "col-lg-7">
-                                <div class = "description">
-                                    <p class = "bold">Caloocan Medical Center</p>
-                                    <p class = "info">Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! </p>
+                            <div class="col-lg-7">
+                                <div class="description">
+                                    <p class="bold">Caloocan Medical Center</p>
+                                    <p class="info">Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! </p>
                                 </div>
                             </div>
-                            <div class = "col-lg-4">
-                                <div class = "row half-row">
-                                    <div class = "col-lg-12">
-                                        <p class = "datetime">July 2, 2018 4:15 PM</p>
+                            <div class="col-lg-4">
+                                <div class="row half-row">
+                                    <div class="col-lg-12">
+                                        <p class="datetime">July 2, 2018 4:15 PM</p>
                                     </div>
                                 </div>
-                                <div class = "row half-row">
-                                    <div class = "col-lg-12">
-                                        <div class = "more">
+                                <div class="row half-row">
+                                    <div class="col-lg-12">
+                                        <div class="more">
                                             <div class="dropdown comment-dropdown">
                                                 <span class="icon" data-toggle="dropdown">...</span>
                                                 <ul class="dropdown-menu">
-                                                    <li><span class = "fa fa-pencil edit-icon"></span><span class = "edit">Edit ...</span></li>
-                                                    <li><span class = "fa fa-trash delete-icon"></span><span class = "delete">Delete ...</span></li>
+                                                    <li>
+                                                        <span class="fa fa-pencil edit-icon"></span>
+                                                        <span class="edit">Edit ...</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="fa fa-trash delete-icon"></span>
+                                                        <span class="delete">Delete ...</span>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -449,31 +391,37 @@
                             </div>
                         </div>
                     </div>
-                    <div class = "comment grey-rect-bg">
-                        <div class = "row">
-                            <div class = "col-lg-1">
+                    <div class="comment grey-rect-bg">
+                        <div class="row">
+                            <div class="col-lg-1">
                                 <img class="img-responsive comment-image" src="img/ppapi.png" height=60 width=60>
                             </div>
-                            <div class = "col-lg-7">
-                                <div class = "description">
-                                    <p class = "bold">Caloocan Medical Center</p>
-                                    <p class = "info">Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! </p>
+                            <div class="col-lg-7">
+                                <div class="description">
+                                    <p class="bold">Caloocan Medical Center</p>
+                                    <p class="info">Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! </p>
                                 </div>
                             </div>
-                            <div class = "col-lg-4">
-                                <div class = "row half-row">
-                                    <div class = "col-lg-12">
-                                        <p class = "datetime">July 2, 2018 4:15 PM</p>
+                            <div class="col-lg-4">
+                                <div class="row half-row">
+                                    <div class="col-lg-12">
+                                        <p class="datetime">July 2, 2018 4:15 PM</p>
                                     </div>
                                 </div>
-                                <div class = "row half-row">
-                                    <div class = "col-lg-12">
-                                        <div class = "more">
+                                <div class="row half-row">
+                                    <div class="col-lg-12">
+                                        <div class="more">
                                             <div class="dropdown comment-dropdown">
                                                 <span class="icon" data-toggle="dropdown">...</span>
                                                 <ul class="dropdown-menu">
-                                                    <li><span class = "fa fa-pencil edit-icon"></span><span class = "edit">Edit ...</span></li>
-                                                    <li><span class = "fa fa-trash delete-icon"></span><span class = "delete">Delete ...</span></li>
+                                                    <li>
+                                                        <span class="fa fa-pencil edit-icon"></span>
+                                                        <span class="edit">Edit ...</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="fa fa-trash delete-icon"></span>
+                                                        <span class="delete">Delete ...</span>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -482,31 +430,37 @@
                             </div>
                         </div>
                     </div>
-                    <div class = "comment grey-rect-bg">
-                        <div class = "row">
-                            <div class = "col-lg-1">
+                    <div class="comment grey-rect-bg">
+                        <div class="row">
+                            <div class="col-lg-1">
                                 <img class="img-responsive comment-image" src="img/ppapi.png" height=60 width=60>
                             </div>
-                            <div class = "col-lg-7">
-                                <div class = "description">
-                                    <p class = "bold">Caloocan Medical Center</p>
-                                    <p class = "info">Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! </p>
+                            <div class="col-lg-7">
+                                <div class="description">
+                                    <p class="bold">Caloocan Medical Center</p>
+                                    <p class="info">Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! </p>
                                 </div>
                             </div>
-                            <div class = "col-lg-4">
-                                <div class = "row half-row">
-                                    <div class = "col-lg-12">
-                                        <p class = "datetime">July 2, 2018 4:15 PM</p>
+                            <div class="col-lg-4">
+                                <div class="row half-row">
+                                    <div class="col-lg-12">
+                                        <p class="datetime">July 2, 2018 4:15 PM</p>
                                     </div>
                                 </div>
-                                <div class = "row half-row">
-                                    <div class = "col-lg-12">
-                                        <div class = "more">
+                                <div class="row half-row">
+                                    <div class="col-lg-12">
+                                        <div class="more">
                                             <div class="dropdown comment-dropdown">
                                                 <span class="icon" data-toggle="dropdown">...</span>
                                                 <ul class="dropdown-menu">
-                                                    <li><span class = "fa fa-pencil edit-icon"></span><span class = "edit">Edit ...</span></li>
-                                                    <li><span class = "fa fa-trash delete-icon"></span><span class = "delete">Delete ...</span></li>
+                                                    <li>
+                                                        <span class="fa fa-pencil edit-icon"></span>
+                                                        <span class="edit">Edit ...</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="fa fa-trash delete-icon"></span>
+                                                        <span class="delete">Delete ...</span>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -517,34 +471,34 @@
                     </div>
                 </div>
             </div>
-            <div class = "col-lg-3">
-                <div class = "row">
-                    <div class = "col-lg-12">
+            <div class="col-lg-3">
+                <div class="row">
+                    <div class="col-lg-12">
                         <!-- search in forum -->
                         <form class="form-inline search-bar-forum">
                             <input type="search" placeholder="Search in Forum" aria-label="Search">
                         </form>
                     </div>
                 </div>
-                <div class = "forum-btn red-rect-bg">
-                    <div class = "row">
-                        <div class = "col-lg-12">
-                            <p class = "center">Edit Post</p>
+                <div class="forum-btn red-rect-bg">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="center">Edit Post</p>
                         </div>
                     </div>
                 </div>
-                <div class = "forum-btn red-rect-bg">
-                    <div class = "row">
-                        <div class = "col-lg-12">
-                            <p class = "center">Comment</p>
+                <div class="forum-btn red-rect-bg">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="center">Comment</p>
                         </div>
                     </div>
                 </div>
-                <div class = "other-topics">
-                    <div class = "row">
-                        <div class = "col-lg-12">
+                <div class="other-topics">
+                    <div class="row">
+                        <div class="col-lg-12">
                             <!-- other topics -->
-                            <p class = "bold">Other Topics:</p>
+                            <p class="bold">Other Topics:</p>
                             <ul>
                                 <li>HIV Service Updates</li>
                                 <li>Referral Status</li>
@@ -560,42 +514,46 @@
         </div>
     </div>
 
-    <footer class = "page-footer">
-        <div class = "container-fluid">
-            <div class = "row">
-                <div class = "col-lg-2">
-                    <div class = "contact-info">
-                        <div class = "emails">
+    <footer class="page-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="contact-info">
+                        <div class="emails">
                             <span>plhiv.response@gmail.com</span>
                             <span>pinoy.plus@yahoo.com</span>
                         </div>
-                        <div class = "number">
+                        <div class="number">
                             <span>(02) 743 7293</span>
                         </div>
-                        <div class = "address">
+                        <div class="address">
                             <span>1965-B JRB Building, Anacleto Street, Sta Cruz, Manila</span>
                         </div>
                     </div>
                 </div>
-                <div class = "col-lg-7"></div>
-                <div class = "col-lg-3">
-                    <div class = "row">
-                        <div class = "col-lg-7">
+                <div class="col-lg-7"></div>
+                <div class="col-lg-3">
+                    <div class="row">
+                        <div class="col-lg-7">
                             <span>Follow us on our social media accounts</span>
                         </div>
-                        <div class = "col-lg-2">
-                            <a href = "https://twitter.com/PlusAdvocacy"><img class="img-responsive" src="img/twitter.png" height=55 width=60></a>
+                        <div class="col-lg-2">
+                            <a href="https://twitter.com/PlusAdvocacy">
+                                <img class="img-responsive" src="img/twitter.png" height=55 width=60>
+                            </a>
                         </div>
-                        <div class = "col-lg-1"></div>
-                        <div class = "col-lg-2">
-                            <a href = "https://www.facebook.com/PinoyPlusAssociationInc/"><img class="img-responsive" src="img/fb.png" height=50 width=35></a>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-2">
+                            <a href="https://www.facebook.com/PinoyPlusAssociationInc/">
+                                <img class="img-responsive" src="img/fb.png" height=50 width=35>
+                            </a>
                         </div>
                     </div>
-                    <div class = "row">
-                        <div class = "col-lg-9"></div>
-                        <div class = "col-lg-3">
-                            <div class = "copyright">
-                                <p class = "copyright-text">&copy 2018</p>
+                    <div class="row">
+                        <div class="col-lg-9"></div>
+                        <div class="col-lg-3">
+                            <div class="copyright">
+                                <p class="copyright-text">&copy 2018</p>
                             </div>
                         </div>
                     </div>
@@ -608,6 +566,6 @@
 <script src="js/keycodes.js"></script>
 <script src="js/dashboard-chat.js"></script>
 <script src="js/messagebox.js"></script>
-<script src ="js/navbar.js"></script>
+<script src="js/navbar.js"></script>
 
 </html>
