@@ -57,11 +57,22 @@ $(() => {
     $("#chatHost").remove();
     $("#username").remove();
     $("#password").remove();
+    const user = username.substring(0, username.lastIndexOf("@"));
+    const userHost = username.substring(username.lastIndexOf("@") + 1);
     const admin = DASHBOARD_CHAT.admin = new Admin(adminServerUrl);
     const conn = new Strophe.Connection(chatServerUrl);
+    admin.cmd("get_vcard", {
+        user: user,
+        host: userHost,
+        name: "NICKNAME"
+    }).then(e => {
+        if (!e.error) {
+            $(".welcome-text").text("Welcome back, " + e.content.content);
+        }
+    });
     admin.cmd("get_roster", {
-        user: username.substring(0, username.lastIndexOf("@")),
-        server: username.substring(username.lastIndexOf("@") + 1)
+        user: user,
+        server: userHost
     }).then(e => {
         if (e.error) {
             console.error(e.message);
