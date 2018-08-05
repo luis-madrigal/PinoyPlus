@@ -8,10 +8,11 @@ const MemcachedStore = require("connect-memcached")(session);
 const config = {
 
     port: process.env.port || process.env.PORT || 3000,
-    chatServerUrl: "http://104.215.190.53:4000",
+    adminAccount: "admin@pinoyplus",
+    adminServerUrl: "http://104.215.190.53:9000/",
+    chatServerUrl: "http://104.215.190.53:4000/",
+    chatHost: "pinoyplus",
     sessionSecret: "asdpfodkdpvk134po1kp24okfpokd-v0ss-wmwkemld",
-    storageServerUrl: "http://localhost:5605",
-    storageSecret: "ASdlmg3p442pogb-pofg,rwerwefdvdfvdfgw;el,fsv;,"
 }
 
 const app = express()
@@ -32,7 +33,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: {
         secure: false,
-        maxAge: 60000
+        maxAge: 20 * 60 * 1000
     }
 }))
 
@@ -51,17 +52,29 @@ app.get('/', (req, res) => {
 
     // console.log("Login=" + auth.username + ":" + auth.password)
 
-    // if (!(auth && auth.username && auth.password)) {
-    //     res.render("login.html", {
-    //         chatServerUrl: config.chatServerUrl
-    //     })
-    //     return;
-    // }
+    if (!(auth && auth.username && auth.password)) {
+        res.render("login.html", {
+            chatServerUrl: config.chatServerUrl
+        })
+        return;
+    }
 
     res.render("dashboard.html", {
+        adminAccount: config.adminAccount,
+        adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
+        chatHost: config.chatHost,
         username: auth.username,
         password: auth.password
+    })
+})
+
+app.get('/init', (req, res) => {
+    res.render("init.html", {
+        adminAccount: config.adminAccount,
+        adminServerUrl: config.adminServerUrl,
+        chatServerUrl: config.chatServerUrl,
+        chatHost: config.chatHost
     })
 })
 
