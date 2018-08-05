@@ -1,7 +1,9 @@
 const DASHBOARD_CHAT = {
     username: "",
     currentlyChatting: "user1@localhost",
+    currentlyChattingNick: "User1",
     conn: <Strophe.Connection>null,
+    admin: <Admin>null,
     logMessage: (fromUser: boolean, content: string) => { console.error("Function logMessage is not yet initialized") },
     sendMessage: (to: string, content: string) => { console.error("Function sendMessage is not yet initialized") }
 }
@@ -47,15 +49,99 @@ $(() => {
 })
 
 $(() => {
+    const adminAccount = $("#adminAccount").val() + ""
+    const adminServerUrl = $("#adminServerUrl").val() + ""
     const chatServerUrl = $("#chatServerUrl").val() + ""
+    const chatHost = $("#chatHost").val() + ""
     const username = DASHBOARD_CHAT.username = $("#username").val() + ""
     const password = $("#password").val() + ""
 
+    $("#adminAccount").remove()
+    $("#adminServerUrl").remove()
     $("#chatServerUrl").remove()
+    $("#chatHost").remove()
     $("#username").remove()
     $("#password").remove()
 
-    const conn = DASHBOARD_CHAT.conn = new Strophe.Connection(chatServerUrl)
+    const user = username.substring(0, username.lastIndexOf("@"))
+    const userHost = username.substring(username.lastIndexOf("@") + 1)
+
+    const admin = DASHBOARD_CHAT.admin = new Admin(adminServerUrl)
+    const conn = new Strophe.Connection(chatServerUrl)
+
+    admin.cmd("get_vcard", {
+        user: user,
+        host: userHost,
+        name: "NICKNAME"
+    }).then(e => {
+        if (!e.error) {
+            $(".welcome-text").text("Welcome back, " + e.content.content)
+        }
+    })
+
+    admin.cmd("get_roster", {
+        user: user,
+        server: userHost
+    }).then(e => {
+        if (e.error) {
+            console.error(e.message)
+            console.error(e.content)
+            return;
+        }
+        for (let f of e.content) {
+            const name = f.nick
+            const jid = f.jid
+            DASHBOARD_CHAT.currentlyChatting = jid
+            DASHBOARD_CHAT.currentlyChattingNick = name
+
+            const body = `
+			<div class="contact-item" id="${jid.replace("@", "-")}">
+                <div class="row">
+                    <div class="col-sm-9">
+                    </div>
+                    <div class="col-sm-3 time">
+                        <p>4:15pm</p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img class="img-responsive" src="img/face.png">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="row contact-name">
+                            <p>${name}</p>
+                        </div>
+                        <!-- LAST MESSAGE -->
+                        <div class="row contact-message">
+                            <p>Kamusta naman yung mga...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `
+            $(".chat-list-container").append(body)
+
+            $('#' + jid.replace("@", "-")).click(function (e) {
+                $('.chat-list-container').css('display', 'none');
+                $('.main-chat-container').css('display', 'block');
+
+                console.log("Load Chat Log Between " + username + " and " + jid)
+                DASHBOARD_CHAT.conn["mam"].query(username, {
+                    with: jid,
+                    max: 1000,
+                    before: '',
+                    onMessage: msg => {
+                        console.log(msg || "");
+                        return true;
+                    },
+                    onComplete: () => {
+                        console.log("Chat Log  Loaded Between " + username + " and " + jid);
+                    }
+                })
+            });
+        }
+    })
 
     conn.connect(username, password, status => {
         if (status == Strophe.Status.ERROR) {
@@ -69,6 +155,8 @@ $(() => {
         } else if (status == Strophe.Status.CONNECTING) {
             console.log("Connecting...")
         } else if (status == Strophe.Status.CONNECTED) {
+            DASHBOARD_CHAT.conn = conn
+
             console.log("Connected")
 
             console.log("Sending Presence (Online)")
@@ -96,19 +184,7 @@ $(() => {
             // conn.addHandler(onSubscriptionRequest, null, "presence", "subscribe");
             // conn.addHandler(onPresence, null, "presence");
 
-            console.log("Load Chat Log")
-            conn["mam"].query(username, {
-                with: DASHBOARD_CHAT.currentlyChatting,
-                max: 1000,
-                before: '',
-                onMessage: msg => {
-                    console.log(msg || "");
-                    return true;
-                },
-                onComplete: () => {
-                    console.log("Chat Log Loaded");
-                }
-            })
+
 
         }
     })
