@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $(".home-img").click(function() {
+    $(".navbar-brand").click(function() {
         window.location.href = "/";
     })
     $("#whatIsPrc").click(function() {

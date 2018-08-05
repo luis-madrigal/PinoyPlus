@@ -2,12 +2,12 @@
 	white-space: nowrap;
     color: #6D6E71;
 	font-size: 0.9em;
-	font-weight: bold;
+	font-weight: bolder;
 	text-align: center;
 	top: 100%;
 	letter-spacing: -0.05em;
-	margin-right: 8%;
-	margin-left: 8%;
+	margin-right: 6%;
+	margin-left: 6%;
 	font-weight: 900;
 }
 
@@ -49,6 +49,11 @@
 .search-bar-custom :focus {
 	outline: none;
 	box-shadow: 0 0 10px #CC0000;
+}
+
+.navbar-brand img {
+	width: 138.74267px;
+	height: 41.053px;
 }
 
 .account {

@@ -10,7 +10,7 @@ body {
 }
 
 .red-text {
-	color: darkred;
+	color: #B12226;
 }
 
 .white-rect-bg {
@@ -20,7 +20,7 @@ body {
 }
 
 .box-label {
-	color: darkred;
+	color: #B12226;
 	padding-left: 3%;
 	padding-top: 5%;
 }

@@ -1,17 +1,29 @@
 var dataPie = {
     datasets: [{
-        data: [10, 20, 30],
+        data: [40, 30, 20, 5, 10, 2, 4, 4, 1],
         backgroundColor: [
-            "rgba(255, 0, 0, 1)",
-            "rgba(255, 255, 0, 1)",
-            "rgba(0, 0, 255, 1)"
+            "rgba(70, 115, 165, 1)", //blue
+            "rgba(169, 72, 70, 1)", //red
+            "rgba(138, 163, 82, 1)", //green
+            "rgba(113, 91, 143, 1)",//purple
+            "rgba(69, 152, 174, 1)", //seablue
+            "rgba(218, 132, 68, 1)", //orange
+            "rgba(148, 170, 206, 1)", //pastel blue
+            "rgba(207, 147, 147, 1)", //pastel pink
+            "rgba(169, 156, 187, 1)" //pastel purple
         ]
     }],
 
     labels: [
-        'Red',
-        'Yellow',
-        'Treatment'
+        'Treatment Serv',
+        'Psychosocial',
+        'Others',
+        'Policy & Govt',
+        'Economic',
+        'Family',
+        'Employment',
+        'Legal Serv',
+        'Spiritual'
     ]
 };
 var ctxPie = $("#refServicesChart");
@@ -33,7 +45,8 @@ function randomScalingFactor() {
 var dataLine = {
     labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'],
     datasets: [{
-        backgroundColor: "rgba(255, 0, 0, 1)",
+        label: 'Employment',
+        backgroundColor: "rgba(70, 115, 165, 1)",
         fill: true,
         data: [
             randomScalingFactor(),
@@ -50,7 +63,8 @@ var dataLine = {
             randomScalingFactor()
         ],
     },{
-        backgroundColor: "rgba(255, 255, 0, 1)",
+        label: 'Others',
+        backgroundColor: "rgba(169, 72, 70, 1)",
         fill: true,
         data: [
             randomScalingFactor(),
@@ -67,7 +81,8 @@ var dataLine = {
             randomScalingFactor()
         ],
     },{
-        backgroundColor: "rgba(255, 0, 255, 1)",
+        label: 'Policy and Govt',
+        backgroundColor: "rgba(138, 163, 82, 1)",
         fill: true,
         data: [
             randomScalingFactor(),
@@ -84,7 +99,8 @@ var dataLine = {
             randomScalingFactor()
         ],
     },{
-        backgroundColor: "rgba(0, 255, 0, 1)",
+        label: 'Family',
+        backgroundColor: "rgba(113, 91, 143, 1)",
         fill: true,
         data: [
             randomScalingFactor(),
@@ -101,7 +117,8 @@ var dataLine = {
             randomScalingFactor()
         ],
     },{
-        backgroundColor: "rgba(0, 255, 255, 1)",
+        label: 'Legal Serv',
+        backgroundColor: "rgba(148, 170, 206, 1)",
         fill: true,
         data: [
             randomScalingFactor(),
@@ -118,7 +135,26 @@ var dataLine = {
             randomScalingFactor()
         ],
     },{
-        backgroundColor: "rgba(0, 0, 255, 1)",
+        label: 'Economic',
+        backgroundColor: "rgba(207, 147, 147, 1)",
+        fill: true,
+        data: [
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor()
+        ],
+    },{
+        label: 'Spiritual',
+        backgroundColor: "rgba(185, 205, 150, 1)",
         fill: true,
         data: [
             randomScalingFactor(),
