@@ -125,6 +125,28 @@ $(() => {
             $('#' + jid.replace("@", "-")).click(function (e) {
                 $('.chat-list-container').css('display', 'none');
                 $('.main-chat-container').css('display', 'block');
+                $('.chat-container').empty()
+                $(".chat-container").append(`
+                    <div hidden class="row message-container conversant-message">
+                        <div class="col-sm-1">
+                            <img class="img-responsive" src="img/face.png">
+                        </div>
+                        <div class="col-sm-7 messages">
+                            <p class="message">asddddddddd</p>
+                        </div>
+                    </div>
+                    <div hidden class="row message-container user-message">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-7 messages">
+                            <p class="message">asddddddddd</p>
+                        </div>
+                        <div class="col-sm-1">
+                            <img class="img-responsive" src="img/face.png">
+                        </div>
+                    </div>
+                `)
+
+                DASHBOARD_CHAT.currentlyChatting = jid
 
                 console.log("Load Chat Log Between " + username + " and " + jid)
                 DASHBOARD_CHAT.conn["mam"].query(username, {
@@ -171,13 +193,29 @@ $(() => {
                 var from = Strophe.getBareJidFromJid($(msg).find("message").attr("from"))
                 var to = Strophe.getBareJidFromJid($(msg).find("message").attr("to"))
 
-                console.log("Message recieved (From: " + from + " To: " + to + " Me: " + me + ")")
                 console.log(msg)
 
-                if (to == me || from == me) {
-                    var body = $(msg).find("body").text()
-                    DASHBOARD_CHAT.logMessage(me == from, body)
+
+                if (from != null && to != null) {
+                    // This is an IQ Stanza (query message) for retrieving 
+                    console.log("Message History recieved (From: " + from + " To: " + to + " Me: " + me + ")")
+
+                } else {
+                    // This is for normal messages
+                    from = Strophe.getBareJidFromJid($(msg).attr("from"))
+                    to = Strophe.getBareJidFromJid($(msg).attr("to"))
+
+                    if (from != DASHBOARD_CHAT.currentlyChatting && to != DASHBOARD_CHAT.currentlyChatting) {
+                        // If the message is not from the one you are currently chatting
+                        // Then don't log it
+                        return true
+                    }
+
+                    console.log("Message History recieved (From: " + from + " To: " + to + " Me: " + me + ")")
                 }
+
+                var body = $(msg).find("body").text()
+                DASHBOARD_CHAT.logMessage(me == from, body)
 
                 return true
             }, null, 'message', null, null, null);
