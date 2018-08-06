@@ -43,7 +43,7 @@
 <body>
 	<!-- CHAT BOX -->
 	<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none;width:33%;right:0; height: 100%; background-color: transparent;"
-	 id="chatBox">
+	    id="chatBox">
 		<div class="row chat-top">
 		</div>
 		<!--CHATBOX HEADER-->
@@ -167,7 +167,7 @@
 			<img class="img-responsive" src="img/logo.png" height=50 width=150>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-		 aria-expanded="false" aria-label="Toggle navigation">
+		    aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
@@ -448,8 +448,17 @@
 			</div>
 		</div>
 	</footer>
+
+	<input hidden id="username" value="<%= username %>">
+	<input hidden id="password" value="<%= password %>">
+	<input hidden id="adminAccount" value="<%= adminAccount %>">
+	<input hidden id="adminServerUrl" value="<%= adminServerUrl %>">
+	<input hidden id="chatServerUrl" value="<%= chatServerUrl %>">
+	<input hidden id="chatHost" value="<%= chatHost %>">
+
 </body>
 
+<script src="js/admin.js"></script>
 <script src="js/dashboard-chat.js"></script>
 <script src="js/messagebox.js"></script>
 <script src="js/navbar.js"></script>
