@@ -5,7 +5,7 @@ var threadTemplate = '<div class = "thread white-rect-bg">'+
                             '</div>'+
                             '<div class = "col-lg-7">'+
                                 '<div class = "description">'+
-                                    '<p class = "bold">%TITLE%</p>'+
+                                    '<p class = "title bold">%TITLE%</p>'+
                                     '<p class = "info">%DESCRIPTION%</p>'+
                                     '<p class = "reply-count">%REPLY_COUNT% Replies</p>'+
                                 '</div>'+

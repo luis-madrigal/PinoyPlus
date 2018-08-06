@@ -12,6 +12,15 @@
     margin-left: 10%;
 }
 
+.thread .title {
+    color:rgb(73, 73, 73);
+}
+
+.thread .title:hover{
+    color: #B12226;
+    font-weight: bold;
+}
+
 .thread .description {
     line-height: 5px;
     margin-left: 3%;
