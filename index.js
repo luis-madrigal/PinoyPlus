@@ -49,10 +49,20 @@ app.use(cors({
 app.use('/', express.static("res"))
 app.set('views', path.join(__dirname, 'views'))
 
+// This section has pages that doesn't need login
+app.get('/init', (req, res) => {
+    res.render("init.html", {
+        adminAccount: config.adminAccount,
+        adminServerUrl: config.adminServerUrl,
+        chatServerUrl: config.chatServerUrl,
+        chatHost: config.chatHost
+    })
+})
+
+
+// The login/dashboard page
 app.get('/', (req, res) => {
     let auth = req.session;
-
-    // console.log("Login=" + auth.username + ":" + auth.password)
 
     if (!(auth && auth.username && auth.password)) {
         res.render("login.html", {
@@ -71,20 +81,25 @@ app.get('/', (req, res) => {
     })
 })
 
-app.get('/init', (req, res) => {
-    res.render("init.html", {
-        adminAccount: config.adminAccount,
-        adminServerUrl: config.adminServerUrl,
-        chatServerUrl: config.chatServerUrl,
-        chatHost: config.chatHost
-    })
+// This guards that the links beyond this can only be accessed if logged in
+app.get("*", (req, res, next) => {
+    let auth = req.session;
+
+    if (!(auth && auth.username && auth.password)) {
+        res.redirect("/")
+        return;
+    }
+    next()
 })
 
 app.get('/announcements', (req, res) => {
     let auth = req.session;
 
     res.render("announcements-main.html", {
+        adminAccount: config.adminAccount,
+        adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
+        chatHost: config.chatHost,
         username: auth.username,
         password: auth.password
     })
@@ -94,7 +109,10 @@ app.get('/threads', (req, res) => {
     let auth = req.session;
 
     res.render("announcements-thread.html", {
+        adminAccount: config.adminAccount,
+        adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
+        chatHost: config.chatHost,
         username: auth.username,
         password: auth.password
     })
@@ -104,7 +122,10 @@ app.get('/posts', (req, res) => {
     let auth = req.session;
 
     res.render("announcements-post.html", {
+        adminAccount: config.adminAccount,
+        adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
+        chatHost: config.chatHost,
         username: auth.username,
         password: auth.password
     })
@@ -114,7 +135,10 @@ app.get('/feedback', (req, res) => {
     let auth = req.session;
 
     res.render("feedback.html", {
+        adminAccount: config.adminAccount,
+        adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
+        chatHost: config.chatHost,
         username: auth.username,
         password: auth.password
     })
@@ -124,7 +148,10 @@ app.get("/about", (req, res) => {
     let auth = req.session;
 
     res.render("about.html", {
+        adminAccount: config.adminAccount,
+        adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
+        chatHost: config.chatHost,
         username: auth.username,
         password: auth.password
     })
@@ -134,20 +161,16 @@ app.get("/database", (req, res) => {
     let auth = req.session;
 
     res.render("database.html", {
+        adminAccount: config.adminAccount,
+        adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
+        chatHost: config.chatHost,
         username: auth.username,
         password: auth.password
     })
 })
 
-app.get("/test", (req, res) => {
-    req.session.s = req.session.s || 1
-    req.session.s++;
-    res.json({
-        count: req.session.s
-    })
-})
-
+// Redirects to the login page if 
 app.get("*", (req, res) => {
     console.log("Error 404: " + req.url);
     res.redirect("/");
