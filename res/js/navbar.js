@@ -29,18 +29,20 @@ $(document).ready(function() {
         $('#profileModal').find('.data').removeClass('hide');
     })
 
-    $(".add-more").click(function(e){
+    $(document).on('click', '.remove-me', function(e) {
+        e.preventDefault();
+        var fieldNum = this.id.charAt(this.id.length-1);
+        var fieldID = "#admin-field" + fieldNum;
+        $(this).remove();
+        $(fieldID).remove();
+    });
+    
+    $(document).on('click', '.add-more', function(e) {
         if($("#admin-field"+nextAdmin).val() == "")
             return;
         e.preventDefault();
         addAdmin()
-        $('.remove-me').on("click", function(e){
-            e.preventDefault();
-            var fieldNum = this.id.charAt(this.id.length-1);
-            var fieldID = "#admin-field" + fieldNum;
-            $(this).remove();
-            $(fieldID).remove();
-        });
+        
     });
 })
 
@@ -62,6 +64,7 @@ function getCurrentData() {
 }
 
 function addAdmin(inputVal) {
+    console.log('add admin')
     var addto = "#admin-field" + nextAdmin;
     var addRemove = "#admin-field" + (nextAdmin);
     if(inputVal != null)
@@ -69,7 +72,7 @@ function addAdmin(inputVal) {
     nextAdmin = nextAdmin + 1;
     var newIn = '<input autocomplete="off" class="input form-control" id="admin-field' + nextAdmin + '" name="field' + nextAdmin + '" type="text" placeholder = "Enter admin name">';
     var newInput = $(newIn);
-    var removeBtn = '<button id="remove' + (nextAdmin - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="admin-field">';
+    var removeBtn = '<button type="button" id="remove' + (nextAdmin - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="admin-field">';
     var removeButton = $(removeBtn);
     $(addto).after(newInput);
     $(addRemove).after(removeButton);
