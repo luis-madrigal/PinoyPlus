@@ -180,21 +180,23 @@
 }
 
 #profileModal .title {
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 	border-bottom-style: solid;
 	border-bottom-width: 2px;
 	border-bottom-color: #B12226;
-	font-size: 1.5em;
-	color: #B12226;
-
 }
 
-#profileModal .edit {
+#profileModal .title span {
+	font-size: 1.5em;
+	color: #B12226;
+}
+
+#profileModal .action {
 	color: rgb(161, 161, 161);
 	text-align: right;
 }
 
-#profileModal .edit:hover {
+#profileModal .action:hover {
 	text-decoration: underline;
 	cursor: pointer;
 }
@@ -234,4 +236,15 @@
 #profileModal .contact-info span {
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+#profileModal .admin-fields .input {
+	display: inline-block;
+	width: 80%;
+	margin-bottom: 10px;
+}
+
+#profileModal #adminLabel {
+	margin-top: 20px;
+	color: #B12226;
 }

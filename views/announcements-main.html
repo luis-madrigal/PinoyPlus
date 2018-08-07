@@ -164,7 +164,6 @@
         </div>
     </div>
 
-
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">
             <img class="img-responsive" src="img/logo.png" height=50 width=150>
@@ -179,7 +178,7 @@
                 <li id="whatIsPrc" class="nav-item-custom">
                     <span href="#">WHAT IS PRC</span>
                 </li>
-                <li id="announcements" class="nav-item-custom nav-item-selected">
+                <li id="announcements" class="nav-item-custom">
                     <span href="#">ANNOUNCEMENTS</span>
                 </li>
                 <li id="database" class="nav-item-custom">
@@ -246,64 +245,113 @@
                                     <div class="content">
                                         <div class="row row-nobottom-margin">
                                             <div class="col-lg-12">
-                                                <div class="edit">
+                                                <div id = "edit" class="action data">
                                                     <span class="fa fa-pencil icon"> </span>
                                                     <span class="label">Edit</span>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <p class="title">PLHIV Response Center (PRC)</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="admins">
-                                                    <p>PRC Administrators</p>
-                                                    <div class="names">
-                                                        <span>Richard Bragado</span>
-                                                        <span>Lean Aseron</span>
-                                                        <span>Noel Quinto</span>
-                                                        <span>Rommel Legwes</span>
-                                                        <span>Benjamin Rivera</span>
-                                                        <span>Kai Ledesma</span>
-                                                    </div>
+                                                <div id = "done" class = "action data-edit hide">
+                                                    <span class="fa fa-check icon"> </span>
+                                                    <span class="label">Done</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="contact-info">
-                                                    <p>Contact Information</p>
-                                                    <div class="row">
-                                                        <div class="col-lg-1">
-                                                            <img class="img-responsive icon" src="img/phone.png" height=30 width=30>
-                                                        </div>
-                                                        <div class="col-lg-11">
-                                                            <span>(02) 743 7293</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-1">
-                                                            <img class="img-responsive icon" src="img/email.png" height=30 width=35>
-                                                        </div>
-                                                        <div class="col-lg-11">
-                                                            <span>plhiv.response@gmail.com</span>
+                                        <form action = "">
+                                            <div class = "form-group">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class = "title">
+                                                            <div class = "data">
+                                                                <span>PLHIV Response Center (PRC)</span>
+                                                            </div>
+                                                            <div class = "data-edit hide">
+                                                                <input type="text" class="form-control" id="titleEdit" placeholder="Enter organization name">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-1">
-                                                            <img class="img-responsive icon" src="img/location.png" height=40 width=25>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <p id = "adminLabel">PRC Administrators</p>
+                                                        <div class="admins data">
+                                                            <div class="names">
+                                                                <span>Richard Bragado</span>
+                                                                <span>Lean Aseron</span>
+                                                                <span>Noel Quinto</span>
+                                                                <span>Rommel Legwes</span>
+                                                                <span>Benjamin Rivera</span>
+                                                                <span>Kai Ledesma</span>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-lg-11">
-                                                            <span>1965-B JRB Building, Anacleto Street, Sta. Cruz, Manila, Metro
-                                                                Manila</span>
+                                                        <div class = "admins data-edit hide">
+                                                            <input type="hidden" name="count" value="1" />
+                                                            <div class="control-group admin-fields">
+                                                                <div class="controls"> 
+                                                                    <div class="input-append">
+                                                                        <div id="admin-field">
+                                                                            <input autocomplete="off" class="input form-control" id="admin-field1" name="prof1" type="text" placeholder="Enter admin name" data-items="8"/>
+                                                                            <button id="b1" class="btn add-more" type="button">+</button>
+                                                                        </div>
+                                                                    </div>
+                                                                <br>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="contact-info">
+                                                            <p>Contact Information</p>
+                                                            <div class="row">
+                                                                <div class="col-lg-1">
+                                                                    <img class="img-responsive icon" src="img/phone.png" height=30 width=30>
+                                                                </div>
+                                                                <div class="col-lg-11">
+                                                                    <div class = "contact-num">
+                                                                        <div class = "data">
+                                                                            <span>(02) 743 7293</span>
+                                                                        </div>
+                                                                        <div class = "data-edit hide">
+                                                                            <input type="tel" class="form-control" id="numberEdit" placeholder="Enter contact number">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-1">
+                                                                    <img class="img-responsive icon" src="img/email.png" height=30 width=35>
+                                                                </div>
+                                                                <div class="col-lg-11">
+                                                                    <div class = "contact-email">
+                                                                        <div class = "data">
+                                                                            <span>plhiv.response@gmail.com</span>
+                                                                        </div>
+                                                                        <div class = "data-edit hide">
+                                                                            <input type="email" class="form-control" id="emailEdit" placeholder="Enter contact email">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-1">
+                                                                    <img class="img-responsive icon" src="img/location.png" height=40 width=25>
+                                                                </div>
+                                                                <div class="col-lg-11">
+                                                                    <div class = "contact-address">
+                                                                        <div class = "data">
+                                                                            <span>1965-B JRB Building, Anacleto Street, Sta. Cruz, Manila, Metro Manila</span>
+                                                                        </div>
+                                                                        <div class = "data-edit hide">
+                                                                            <input type="text" class="form-control" id="addressEdit" placeholder="Enter contact address">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
