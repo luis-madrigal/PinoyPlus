@@ -57,23 +57,29 @@ $(() => {
     $("#chatHost").remove();
     $("#username").remove();
     $("#password").remove();
-    const user = username.substring(0, username.lastIndexOf("@"));
-    const userHost = username.substring(username.lastIndexOf("@") + 1);
+    // const user = username.substring(0, username.lastIndexOf("@"))
+    // const userHost = username.substring(username.lastIndexOf("@") + 1)
     const admin = DASHBOARD_CHAT.admin = new Admin(adminServerUrl);
     const conn = new Strophe.Connection(chatServerUrl);
-    admin.cmd("get_vcard", {
-        user: user,
-        host: userHost,
-        name: "NICKNAME"
-    }).then(e => {
+    admin.getVcard(username, "NICKNAME").then(e => {
         if (!e.error) {
-            $(".welcome-text").text("Welcome back, " + e.content.content);
+            $(".welcome-text").text("Welcome back, " + e.content);
         }
     });
-    admin.cmd("get_roster", {
-        user: user,
-        server: userHost
-    }).then(e => {
+    // admin.cmd("get_vcard", {
+    //     user: user,
+    //     host: userHost,
+    //     name: "NICKNAME"
+    // }).then(e => {
+    //     if (!e.error) {
+    //         $(".welcome-text").text("Welcome back, " + e.content.content)
+    //     }
+    // })
+    // admin.cmd("get_roster", {
+    //     user: user,
+    //     server: userHost
+    // })
+    admin.getRoster(username).then(e => {
         if (e.error) {
             console.error(e.message);
             console.error(e.content);
@@ -136,18 +142,23 @@ $(() => {
                 `);
                 DASHBOARD_CHAT.currentlyChatting = jid;
                 console.log("Load Chat Log Between " + username + " and " + jid);
-                DASHBOARD_CHAT.conn["mam"].query(username, {
-                    with: jid,
-                    max: 1000,
-                    before: '',
-                    onMessage: msg => {
-                        console.log(msg || "");
-                        return true;
-                    },
-                    onComplete: () => {
-                        console.log("Chat Log  Loaded Between " + username + " and " + jid);
+                const waitForLoading = setInterval(() => {
+                    if (DASHBOARD_CHAT.conn) {
+                        clearInterval(waitForLoading);
+                        DASHBOARD_CHAT.conn["mam"].query(username, {
+                            with: jid,
+                            max: 1000,
+                            before: '',
+                            onMessage: msg => {
+                                console.log(msg || "");
+                                return true;
+                            },
+                            onComplete: () => {
+                                console.log("Chat Log  Loaded Between " + username + " and " + jid);
+                            }
+                        });
                     }
-                });
+                }, 300);
             });
         }
     });

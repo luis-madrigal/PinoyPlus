@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/luis-madrigal/PinoyPlus#readme",
   "dependencies": {
-    "connect-memcached": "^1.0.0",
     "cors": "^2.8.4",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
