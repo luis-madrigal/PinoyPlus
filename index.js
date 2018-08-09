@@ -1,9 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const path = require("path");
 const express = require("express");
 const session = require("express-session");
-const cors = require("cors");
 const config_1 = require("./config");
 const utils = require("./scripts/server-utils");
 const app = express();
@@ -23,14 +21,9 @@ app.use(session({
         maxAge: 20 * 60 * 1000
     }
 }));
-// Cross-origin
-app.use(cors({
-    credentials: true,
-    origin: true
-}));
 // Public Files
-app.use('/', express.static("res"));
-app.set('views', path.join(__dirname, 'views'));
+app.use('/', express.static("public"));
+app.set('views', "views");
 // This section has pages that doesn't need login
 app.get('/init', (req, res) => {
     res.render("init", {

@@ -1,7 +1,5 @@
-import path = require("path")
 import express = require('express')
 import session = require('express-session')
-import cors = require('cors')
 
 import config from "./config"
 import * as utils from "./scripts/server-utils"
@@ -12,11 +10,11 @@ const app = express()
 app.set('view engine', 'ejs')
 
 // Encoding Handlers
-app.use(express.json()); // to support JSON-encoded bodies
+app.use(express.json());
 app.use(express.urlencoded());
 
 // Session
-app.set('trust proxy', 1) // trust first proxy
+app.set('trust proxy', 1)
 app.use(session({
     secret: config.sessionSecret,
     resave: false,
@@ -27,15 +25,9 @@ app.use(session({
     }
 }))
 
-// Cross-origin
-app.use(cors({
-    credentials: true,
-    origin: true
-}))
-
 // Public Files
-app.use('/', express.static("res"))
-app.set('views', path.join(__dirname, 'views'))
+app.use('/', express.static("public"))
+app.set('views', "views")
 
 // This section has pages that doesn't need login
 app.get('/init', (req, res) => {
