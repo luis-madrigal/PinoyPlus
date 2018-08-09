@@ -1,17 +1,36 @@
 import express = require('express')
 import session = require('express-session')
+import morgan = require("morgan")
+
+import request = require('request')
 
 import config from "./config"
 import * as utils from "./scripts/server-utils"
 
 const app = express()
 
+
+// Logger
+if (config.debug) {
+    app.use(morgan('dev', {
+        skip: function (req, res) {
+            return res.statusCode < 400
+        }, stream: process.stderr
+    }));
+
+    app.use(morgan('dev', {
+        skip: function (req, res) {
+            return res.statusCode >= 400
+        }, stream: process.stdout
+    }));
+}
+
 // Rendering Engine
 app.set('view engine', 'ejs')
 
 // Encoding Handlers
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded())
 
 // Session
 app.set('trust proxy', 1)
@@ -183,15 +202,90 @@ app.get("*", (req, res) => {
  * 
  * ************************************/
 
-app.post("/storage", (req, res) => {
+app.post("/login", (req, res) => {
     console.log(utils.jsonCircle(req.body, 4))
-    let content = req.body || {}
-    for (let key in content) {
-        req.session[key] = content[key] || ""
+    let content = req.body
+
+    if (!content) {
+        res.status(400).send("No input provided")
+        return
     }
-    res.json({
-        status: 200
-    })
+
+    let username = content.username
+    if (!username) {
+        res.status(400).send("No username provided")
+        return
+    }
+
+    let password = content.password
+    if (!password) {
+        res.status(400).send("No password provided")
+        return
+    }
+
+    request({
+        method: "POST",
+        url: config.adminServerUrl + "check_password",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            user: utils.getUserFromJid(username),
+            host: utils.getHostFromJid(username),
+            password: password
+        })
+    }, (error, response, body) => {
+        if (error) {
+            res.status(500).send("Chat server is offline")
+            return
+        }
+
+        if (body == "0") {
+            req.session.username = username
+            req.session.password = password
+
+            res.status(200).send("Ok")
+        } else {
+            res.status(403).send("Invalid username or password")
+        }
+    });
+
+    // $.ajax({
+    //     method: "POST",
+    //     url: config.adminServerUrl + "check_password",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     data: JSON.stringify({
+    //         user: utils.getUserFromJid(username),
+    //         host: utils.getHostFromJid(username),
+    //         password: password
+    //     })
+    // }).done((data, textStatus, jqXHR) => {
+    //     if (jqXHR.responseText == "0") {
+
+    //         req.session.username = username
+    //         req.session.password = password
+
+    //         res.status(200).send("Ok")
+    //     } else {
+
+    //         res.status(403).send("Invalid username or password")
+    //     }
+    // }).fail((jqXHR, textStatus, errorThrown) => {
+    //     res.status(500).send("Chat server is offline")
+    // })
+
+})
+app.post("/logout", (req, res) => {
+    if (!req.session.username || !req.session.username) {
+        res.status(403).send("Not Logged in")
+        return
+    }
+
+    delete req.session.username
+    delete req.session.password
+    res.status(200).send("Ok")
 })
 
 

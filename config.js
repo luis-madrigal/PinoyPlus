@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.config = {
+    debug: true,
     port: process.env.port || process.env.PORT || 3000,
     adminAccount: "admin@pinoyplus",
     adminServerUrl: "http://104.215.190.53:9000/",

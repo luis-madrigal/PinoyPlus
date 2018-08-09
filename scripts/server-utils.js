@@ -24,3 +24,11 @@ function jsonCircle(obj, spacing) {
     return str;
 }
 exports.jsonCircle = jsonCircle;
+function getUserFromJid(jid) {
+    return jid.substring(0, jid.lastIndexOf("@"));
+}
+exports.getUserFromJid = getUserFromJid;
+function getHostFromJid(jid) {
+    return jid.substring(jid.lastIndexOf("@") + 1);
+}
+exports.getHostFromJid = getHostFromJid;

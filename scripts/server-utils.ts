@@ -1,5 +1,5 @@
 
-export function jsonCircle(obj, spacing) {
+export function jsonCircle(obj: object, spacing?: number) {
     var cache = [];
     var str = JSON.stringify(obj, function (key, value) {
         if (typeof value === 'object' && value !== null) {
@@ -20,4 +20,12 @@ export function jsonCircle(obj, spacing) {
     }, spacing);
     cache = null;
     return str;
+}
+
+
+export function getUserFromJid(jid: string): string {
+    return jid.substring(0, jid.lastIndexOf("@"))
+}
+export function getHostFromJid(jid: string): string {
+    return jid.substring(jid.lastIndexOf("@") + 1)
 }
