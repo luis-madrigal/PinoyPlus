@@ -4,11 +4,10 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
-const MemcachedStore = require("connect-memcached")(session);
 const config_1 = require("./config");
+const utils = require("./scripts/server-utils");
 const app = express();
 // Rendering Engine
-app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 // Encoding Handlers
 app.use(express.json()); // to support JSON-encoded bodies
@@ -34,7 +33,7 @@ app.use('/', express.static("res"));
 app.set('views', path.join(__dirname, 'views'));
 // This section has pages that doesn't need login
 app.get('/init', (req, res) => {
-    res.render("init.html", {
+    res.render("init", {
         adminAccount: config_1.default.adminAccount,
         adminServerUrl: config_1.default.adminServerUrl,
         chatServerUrl: config_1.default.chatServerUrl,
@@ -45,12 +44,12 @@ app.get('/init', (req, res) => {
 app.get('/', (req, res) => {
     let auth = req.session;
     if (!(auth && auth.username && auth.password)) {
-        res.render("login.html", {
+        res.render("login", {
             chatServerUrl: config_1.default.chatServerUrl
         });
         return;
     }
-    res.render("dashboard.html", {
+    res.render("dashboard", {
         adminAccount: config_1.default.adminAccount,
         adminServerUrl: config_1.default.adminServerUrl,
         chatServerUrl: config_1.default.chatServerUrl,
@@ -70,7 +69,7 @@ app.get("*", (req, res, next) => {
 });
 app.get('/announcements', (req, res) => {
     let auth = req.session;
-    res.render("announcements-main.html", {
+    res.render("announcements-main", {
         adminAccount: config_1.default.adminAccount,
         adminServerUrl: config_1.default.adminServerUrl,
         chatServerUrl: config_1.default.chatServerUrl,
@@ -81,7 +80,7 @@ app.get('/announcements', (req, res) => {
 });
 app.get('/threads', (req, res) => {
     let auth = req.session;
-    res.render("announcements-thread.html", {
+    res.render("announcements-thread", {
         adminAccount: config_1.default.adminAccount,
         adminServerUrl: config_1.default.adminServerUrl,
         chatServerUrl: config_1.default.chatServerUrl,
@@ -92,7 +91,7 @@ app.get('/threads', (req, res) => {
 });
 app.get('/posts', (req, res) => {
     let auth = req.session;
-    res.render("announcements-post.html", {
+    res.render("announcements-post", {
         adminAccount: config_1.default.adminAccount,
         adminServerUrl: config_1.default.adminServerUrl,
         chatServerUrl: config_1.default.chatServerUrl,
@@ -103,7 +102,7 @@ app.get('/posts', (req, res) => {
 });
 app.get('/feedback', (req, res) => {
     let auth = req.session;
-    res.render("feedback.html", {
+    res.render("feedback", {
         adminAccount: config_1.default.adminAccount,
         adminServerUrl: config_1.default.adminServerUrl,
         chatServerUrl: config_1.default.chatServerUrl,
@@ -114,7 +113,7 @@ app.get('/feedback', (req, res) => {
 });
 app.get("/about", (req, res) => {
     let auth = req.session;
-    res.render("about.html", {
+    res.render("about", {
         adminAccount: config_1.default.adminAccount,
         adminServerUrl: config_1.default.adminServerUrl,
         chatServerUrl: config_1.default.chatServerUrl,
@@ -125,7 +124,7 @@ app.get("/about", (req, res) => {
 });
 app.get("/database", (req, res) => {
     let auth = req.session;
-    res.render("database.html", {
+    res.render("database", {
         adminAccount: config_1.default.adminAccount,
         adminServerUrl: config_1.default.adminServerUrl,
         chatServerUrl: config_1.default.chatServerUrl,
@@ -140,7 +139,7 @@ app.get("*", (req, res) => {
     res.redirect("/");
 });
 app.post("/storage", (req, res) => {
-    console.log(jsonCircle(req.body, 4));
+    console.log(utils.jsonCircle(req.body, 4));
     let content = req.body || {};
     for (let key in content) {
         req.session[key] = content[key] || "";
@@ -150,26 +149,3 @@ app.post("/storage", (req, res) => {
     });
 });
 app.listen(config_1.default.port, () => console.log('Listening on port ' + config_1.default.port + '!'));
-function jsonCircle(obj, spacing) {
-    var cache = [];
-    var str = JSON.stringify(obj, function (key, value) {
-        if (typeof value === 'object' && value !== null) {
-            if (cache.indexOf(value) !== -1) {
-                // Duplicate reference found
-                try {
-                    // If this value does not reference a parent it can be deduped
-                    return JSON.parse(JSON.stringify(value));
-                }
-                catch (error) {
-                    // discard key if value cannot be deduped
-                    return;
-                }
-            }
-            // Store value in our collection
-            cache.push(value);
-        }
-        return value;
-    }, spacing);
-    cache = null;
-    return str;
-}

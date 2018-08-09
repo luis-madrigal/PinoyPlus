@@ -9,7 +9,6 @@ import * as utils from "./scripts/server-utils"
 const app = express()
 
 // Rendering Engine
-app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs')
 
 // Encoding Handlers
@@ -40,7 +39,7 @@ app.set('views', path.join(__dirname, 'views'))
 
 // This section has pages that doesn't need login
 app.get('/init', (req, res) => {
-    res.render("init.html", {
+    res.render("init", {
         adminAccount: config.adminAccount,
         adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
@@ -54,13 +53,13 @@ app.get('/', (req, res) => {
     let auth = req.session;
 
     if (!(auth && auth.username && auth.password)) {
-        res.render("login.html", {
+        res.render("login", {
             chatServerUrl: config.chatServerUrl
         })
         return;
     }
 
-    res.render("dashboard.html", {
+    res.render("dashboard", {
         adminAccount: config.adminAccount,
         adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
@@ -84,7 +83,7 @@ app.get("*", (req, res, next) => {
 app.get('/announcements', (req, res) => {
     let auth = req.session;
 
-    res.render("announcements-main.html", {
+    res.render("announcements-main", {
         adminAccount: config.adminAccount,
         adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
@@ -97,7 +96,7 @@ app.get('/announcements', (req, res) => {
 app.get('/threads', (req, res) => {
     let auth = req.session;
 
-    res.render("announcements-thread.html", {
+    res.render("announcements-thread", {
         adminAccount: config.adminAccount,
         adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
@@ -110,7 +109,7 @@ app.get('/threads', (req, res) => {
 app.get('/posts', (req, res) => {
     let auth = req.session;
 
-    res.render("announcements-post.html", {
+    res.render("announcements-post", {
         adminAccount: config.adminAccount,
         adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
@@ -123,7 +122,7 @@ app.get('/posts', (req, res) => {
 app.get('/feedback', (req, res) => {
     let auth = req.session;
 
-    res.render("feedback.html", {
+    res.render("feedback", {
         adminAccount: config.adminAccount,
         adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
@@ -136,7 +135,7 @@ app.get('/feedback', (req, res) => {
 app.get("/about", (req, res) => {
     let auth = req.session;
 
-    res.render("about.html", {
+    res.render("about", {
         adminAccount: config.adminAccount,
         adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
@@ -149,7 +148,7 @@ app.get("/about", (req, res) => {
 app.get("/database", (req, res) => {
     let auth = req.session;
 
-    res.render("database.html", {
+    res.render("database", {
         adminAccount: config.adminAccount,
         adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
