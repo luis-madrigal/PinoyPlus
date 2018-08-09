@@ -39,8 +39,17 @@ app.get('/init', (req, res) => {
     })
 })
 
+/* ************************************
+ * 
+ * PAGES
+ * 
+ * ************************************/
 
-// The login/dashboard page
+
+/**
+ * DEFAULT PAGE
+ * The login/dashboard (default) page
+ */
 app.get('/', (req, res) => {
     let auth = req.session;
 
@@ -61,7 +70,11 @@ app.get('/', (req, res) => {
     })
 })
 
-// This guards that the links beyond this can only be accessed if logged in
+
+/**
+ * ROUTE GUARD
+ * This guards that the links beyond this can only be accessed if logged in
+ */
 app.get("*", (req, res, next) => {
     let auth = req.session;
 
@@ -71,6 +84,10 @@ app.get("*", (req, res, next) => {
     }
     next()
 })
+
+/**
+ * PAGES
+ */
 
 app.get('/announcements', (req, res) => {
     let auth = req.session;
@@ -150,11 +167,21 @@ app.get("/database", (req, res) => {
     })
 })
 
-// Redirects to the login page if 
+/**
+ * ERROR: 404
+ * Redirects to the default page if path not found
+ */
 app.get("*", (req, res) => {
     console.log("Error 404: " + req.url);
     res.redirect("/");
 })
+
+
+/* ************************************
+ * 
+ * SERVICES
+ * 
+ * ************************************/
 
 app.post("/storage", (req, res) => {
     console.log(utils.jsonCircle(req.body, 4))
@@ -167,4 +194,10 @@ app.post("/storage", (req, res) => {
     })
 })
 
+
+/* ************************************
+ * 
+ * START LISTENING
+ * 
+ * ************************************/
 app.listen(config.port, () => console.log('Listening on port ' + config.port + '!'))
