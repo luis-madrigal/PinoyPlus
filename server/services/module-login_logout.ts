@@ -54,7 +54,7 @@ app.post("/login", (req, res) => {
     })
 })
 app.post("/logout", (req, res) => {
-    if (!req.session.username || !req.session.username) {
+    if (!req.session.username || !req.session.password) {
         res.status(403).send("Not Logged in")
         return
     }
