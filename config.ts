@@ -8,6 +8,7 @@ export const config = {
     // chatServerUrl: "http://localhost:5280/bosh/",
     chatHost: "pinoyplus",
     sessionSecret: "asdpfodkdpvk134po1kp24okfpokd-v0ss-wmwkemld",
+    rootDir: __dirname
 }
 
 export default config

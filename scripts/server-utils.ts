@@ -1,4 +1,9 @@
-
+/**
+ * Similar JSON.stringify but allowed on objects with cirucalar references
+ * @param obj object
+ * @param spacing prettify spacing
+ * @returns JSON string representation
+ */
 export function jsonCircle(obj: object, spacing?: number) {
     var cache = [];
     var str = JSON.stringify(obj, function (key, value) {
@@ -22,10 +27,20 @@ export function jsonCircle(obj: object, spacing?: number) {
     return str;
 }
 
-
+/**
+ * Extracts user from the given jabber id
+ * @param jid jabber id
+ * @returns user
+ */
 export function getUserFromJid(jid: string): string {
     return jid.substring(0, jid.lastIndexOf("@"))
 }
+
+/**
+ * Extracts host from the given jabber id
+ * @param jid jabber id
+ * @returns host/server
+ */
 export function getHostFromJid(jid: string): string {
     return jid.substring(jid.lastIndexOf("@") + 1)
 }

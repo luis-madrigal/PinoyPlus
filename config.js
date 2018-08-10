@@ -10,5 +10,6 @@ exports.config = {
     // chatServerUrl: "http://localhost:5280/bosh/",
     chatHost: "pinoyplus",
     sessionSecret: "asdpfodkdpvk134po1kp24okfpokd-v0ss-wmwkemld",
+    rootDir: __dirname
 };
 exports.default = exports.config;

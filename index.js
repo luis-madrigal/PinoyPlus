@@ -1,46 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-const session = require("express-session");
-const morgan = require("morgan");
 const request = require("request");
 const config_1 = require("./config");
 const utils = require("./scripts/server-utils");
-const app = express();
-// Logger
-if (config_1.default.debug) {
-    app.use(morgan('dev', {
-        skip: function (req, res) {
-            return res.statusCode < 400;
-        }, stream: process.stderr
-    }));
-    app.use(morgan('dev', {
-        skip: function (req, res) {
-            return res.statusCode >= 400;
-        }, stream: process.stdout
-    }));
-}
-// Rendering Engine
-app.set('view engine', 'ejs');
-// Encoding Handlers
-app.use(express.json());
-app.use(express.urlencoded());
-// Session
-app.set('trust proxy', 1);
-app.use(session({
-    secret: config_1.default.sessionSecret,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        secure: false,
-        maxAge: 20 * 60 * 1000
-    }
-}));
-// Public Files
-app.use('/', express.static("public"));
-app.set('views', "views");
+exports.app = express();
+exports.router = express.Router();
+require("./server/module-debug");
+require("./server/module-view_engine");
+require("./server/module-encoding_handler");
+require("./server/module-session");
+require("./server/module-public_files");
+require("./server/module-html_templates");
 // This section has pages that doesn't need login
-app.get('/init', (req, res) => {
+exports.app.get('/init', (req, res) => {
     res.render("init", {
         adminAccount: config_1.default.adminAccount,
         adminServerUrl: config_1.default.adminServerUrl,
@@ -57,7 +30,7 @@ app.get('/init', (req, res) => {
  * DEFAULT PAGE
  * The login/dashboard (default) page
  */
-app.get('/', (req, res) => {
+exports.app.get('/', (req, res) => {
     let auth = req.session;
     if (!(auth && auth.username && auth.password)) {
         res.render("login", {
@@ -78,7 +51,7 @@ app.get('/', (req, res) => {
  * ROUTE GUARD
  * This guards that the links beyond this can only be accessed if logged in
  */
-app.get("*", (req, res, next) => {
+exports.app.get("*", (req, res, next) => {
     let auth = req.session;
     if (!(auth && auth.username && auth.password)) {
         res.redirect("/");
@@ -89,7 +62,7 @@ app.get("*", (req, res, next) => {
 /**
  * PAGES
  */
-app.get('/announcements', (req, res) => {
+exports.app.get('/announcements', (req, res) => {
     let auth = req.session;
     res.render("announcements-main", {
         adminAccount: config_1.default.adminAccount,
@@ -100,7 +73,7 @@ app.get('/announcements', (req, res) => {
         password: auth.password
     });
 });
-app.get('/threads', (req, res) => {
+exports.app.get('/threads', (req, res) => {
     let auth = req.session;
     res.render("announcements-thread", {
         adminAccount: config_1.default.adminAccount,
@@ -111,7 +84,7 @@ app.get('/threads', (req, res) => {
         password: auth.password
     });
 });
-app.get('/posts', (req, res) => {
+exports.app.get('/posts', (req, res) => {
     let auth = req.session;
     res.render("announcements-post", {
         adminAccount: config_1.default.adminAccount,
@@ -122,7 +95,7 @@ app.get('/posts', (req, res) => {
         password: auth.password
     });
 });
-app.get('/feedback', (req, res) => {
+exports.app.get('/feedback', (req, res) => {
     let auth = req.session;
     res.render("feedback", {
         adminAccount: config_1.default.adminAccount,
@@ -133,7 +106,7 @@ app.get('/feedback', (req, res) => {
         password: auth.password
     });
 });
-app.get("/about", (req, res) => {
+exports.app.get("/about", (req, res) => {
     let auth = req.session;
     res.render("about", {
         adminAccount: config_1.default.adminAccount,
@@ -144,7 +117,7 @@ app.get("/about", (req, res) => {
         password: auth.password
     });
 });
-app.get("/database", (req, res) => {
+exports.app.get("/database", (req, res) => {
     let auth = req.session;
     res.render("database", {
         adminAccount: config_1.default.adminAccount,
@@ -159,7 +132,7 @@ app.get("/database", (req, res) => {
  * ERROR: 404
  * Redirects to the default page if path not found
  */
-app.get("*", (req, res) => {
+exports.app.get("*", (req, res) => {
     console.log("Error 404: " + req.url);
     res.redirect("/");
 });
@@ -168,7 +141,7 @@ app.get("*", (req, res) => {
  * SERVICES
  *
  * ************************************/
-app.post("/login", (req, res) => {
+exports.app.post("/login", (req, res) => {
     console.log(utils.jsonCircle(req.body, 4));
     let content = req.body;
     if (!content) {
@@ -233,7 +206,7 @@ app.post("/login", (req, res) => {
     //     res.status(500).send("Chat server is offline")
     // })
 });
-app.post("/logout", (req, res) => {
+exports.app.post("/logout", (req, res) => {
     if (!req.session.username || !req.session.username) {
         res.status(403).send("Not Logged in");
         return;
@@ -247,4 +220,4 @@ app.post("/logout", (req, res) => {
  * START LISTENING
  *
  * ************************************/
-app.listen(config_1.default.port, () => console.log('Listening on port ' + config_1.default.port + '!'));
+exports.app.listen(config_1.default.port, () => console.log('Listening on port ' + config_1.default.port + '!'));
