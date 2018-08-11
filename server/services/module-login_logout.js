@@ -4,7 +4,6 @@ const config_1 = require("../../config");
 const index_1 = require("../../index");
 const request = require("request");
 const utils = require("../../scripts/server-utils");
-const std = require("../../scripts/standards");
 index_1.default.post("/login", (req, res) => {
     console.log(utils.jsonCircle(req.body, 4));
     let content = req.body;
@@ -29,8 +28,8 @@ index_1.default.post("/login", (req, res) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            user: std.getUserFromJid(username),
-            host: std.getHostFromJid(username),
+            user: utils.getUserFromJid(username),
+            host: utils.getHostFromJid(username),
             password: password
         })
     }, (error, response, body) => {

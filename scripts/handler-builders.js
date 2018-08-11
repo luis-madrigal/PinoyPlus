@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const config_1 = require("../config");
-const std = require("./standards");
+const utils = require("./server-utils");
 const request = require("request");
 function requireLogin(handler, errHandler) {
     errHandler = errHandler || (err => {
@@ -39,8 +39,8 @@ function requireValidatedLogin(handler, errHandler) {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    user: std.getUserFromJid(auth.username),
-                    host: std.getHostFromJid(auth.username),
+                    user: utils.getUserFromJid(auth.username),
+                    host: utils.getHostFromJid(auth.username),
                     password: auth.password
                 })
             }, (error, response, body) => {

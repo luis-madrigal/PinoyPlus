@@ -1,5 +1,5 @@
 import config from "../config"
-import * as std from "./standards"
+import * as utils from "./server-utils"
 
 import * as express from "express"
 import request = require('request')
@@ -42,8 +42,8 @@ export function requireValidatedLogin(handler: express.RequestHandler, errHandle
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    user: std.getUserFromJid(auth.username),
-                    host: std.getHostFromJid(auth.username),
+                    user: utils.getUserFromJid(auth.username),
+                    host: utils.getHostFromJid(auth.username),
                     password: auth.password
                 })
             }, (error, response, body) => {
