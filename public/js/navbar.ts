@@ -1,29 +1,34 @@
 var nextAdmin = 1;
+
 $(document).ready(function () {
     $(".navbar-brand").click(function () {
         window.location.href = "/";
-    });
+    })
     $("#whatIsPrc").click(function () {
         window.location.href = "/about";
-    });
+    })
     $("#announcements").click(function () {
         window.location.href = "/announcements";
-    });
+    })
     $("#database").click(function () {
-        window.location.href = "/database";
-    });
+        window.location.href = "/database"
+    })
     $("#feedback").click(function () {
         window.location.href = "/feedback";
-    });
+    })
+
     $("#profileModal #edit").click(function () {
         $('#profileModal').find('.data-edit').removeClass('hide');
         $('#profileModal').find('.data').addClass('hide');
+
         getCurrentData();
-    });
+    })
+
     $("#profileModal #done").click(function () {
         $('#profileModal').find('.data-edit').addClass('hide');
         $('#profileModal').find('.data').removeClass('hide');
-    });
+    })
+
     $(document).on('click', '.remove-me', function (e) {
         e.preventDefault();
         var fieldNum = this["id"].charAt(this["id"].length - 1);
@@ -31,30 +36,35 @@ $(document).ready(function () {
         $(this).remove();
         $(fieldID).remove();
     });
+
     $(document).on('click', '.add-more', function (e) {
         if ($("#admin-field" + nextAdmin).val() == "")
             return;
         e.preventDefault();
-        addAdmin();
+        addAdmin()
+
     });
-});
+})
+
 function getCurrentData() {
-    $(".title #titleEdit").val($(".title .data span").text());
-    $(".contact-num #numberEdit").val($(".contact-num .data span").text());
-    $(".contact-email #emailEdit").val($(".contact-email .data span").text());
-    $(".contact-address #addressEdit").val($(".contact-address .data span").text());
+    $(".title #titleEdit").val($(".title .data span").text())
+    $(".contact-num #numberEdit").val($(".contact-num .data span").text())
+    $(".contact-email #emailEdit").val($(".contact-email .data span").text())
+    $(".contact-address #addressEdit").val($(".contact-address .data span").text())
+
     $(".admins .input-append").empty();
     $(".admins .input-append").append('<div id="admin-field">' +
         '<input autocomplete="off" class="input form-control" id="admin-field1" name="prof1" type="text" placeholder="Enter admin name" data-items="8"/>' +
         '<button id="b1" class="btn add-more" type="button">+</button>' +
-        '</div>');
+        '</div>')
     nextAdmin = 1;
     $(".admins .names span").each(function () {
         addAdmin($(this).text());
-    });
+    })
 }
-function addAdmin(inputVal) {
-    console.log('add admin');
+
+function addAdmin(inputVal?: string) {
+    console.log('add admin')
     var addto = "#admin-field" + nextAdmin;
     var addRemove = "#admin-field" + (nextAdmin);
     if (inputVal != null)

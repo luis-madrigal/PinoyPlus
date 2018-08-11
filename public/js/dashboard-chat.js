@@ -7,6 +7,7 @@ const DASHBOARD_CHAT = {
     otherNick: "User1",
     conn: null,
     admin: null,
+    adminAccount: "admin@pinoyplus",
     adminServerUrl: "",
     logMessage: (fromUser, content) => { console.error("Function logMessage is not yet initialized"); },
     sendMessage: (to, content) => { console.error("Function sendMessage is not yet initialized"); }
@@ -49,7 +50,7 @@ $(() => {
     };
 });
 $(() => {
-    const adminAccount = $("#adminAccount").val() + "";
+    const adminAccount = DASHBOARD_CHAT.adminAccount = $("#adminAccount").val() + "";
     const adminServerUrl = DASHBOARD_CHAT.adminServerUrl = $("#adminServerUrl").val() + "";
     const chatServerUrl = $("#chatServerUrl").val() + "";
     const chatHost = $("#chatHost").val() + "";
@@ -65,13 +66,9 @@ $(() => {
     // const userHost = username.substring(username.lastIndexOf("@") + 1)
     const admin = DASHBOARD_CHAT.admin = new Admin(adminServerUrl);
     const conn = new Strophe.Connection(chatServerUrl);
-    admin.getVcard(username, "NICKNAME").then(e => {
-        if (!e.error) {
-            $(".welcome-text").text("Welcome back, " + e.content);
-        }
-    });
-    admin.getDesc(username).then(r => {
+    admin.getDesc(username).then((r) => {
         DASHBOARD_CHAT.userImg = r.content.img;
+        $(".welcome-text").text("Welcome back, " + r.content.name);
     });
     // admin.cmd("get_vcard", {
     //     user: user,

@@ -7,6 +7,7 @@ const DASHBOARD_CHAT = {
     otherNick: "User1",
     conn: <Strophe.Connection>null,
     admin: <Admin>null,
+    adminAccount: "admin@pinoyplus",
     adminServerUrl: "",
     logMessage: (fromUser: boolean, content: string) => { console.error("Function logMessage is not yet initialized") },
     sendMessage: (to: string, content: string) => { console.error("Function sendMessage is not yet initialized") }
@@ -53,7 +54,7 @@ $(() => {
 })
 
 $(() => {
-    const adminAccount = $("#adminAccount").val() + ""
+    const adminAccount = DASHBOARD_CHAT.adminAccount = $("#adminAccount").val() + ""
     const adminServerUrl = DASHBOARD_CHAT.adminServerUrl = $("#adminServerUrl").val() + ""
     const chatServerUrl = $("#chatServerUrl").val() + ""
     const chatHost = $("#chatHost").val() + ""
@@ -73,14 +74,9 @@ $(() => {
     const admin = DASHBOARD_CHAT.admin = new Admin(adminServerUrl)
     const conn = new Strophe.Connection(chatServerUrl)
 
-    admin.getVcard(username, "NICKNAME").then(e => {
-        if (!e.error) {
-            $(".welcome-text").text("Welcome back, " + e.content)
-        }
-    })
-
-    admin.getDesc(username).then(r => {
+    admin.getDesc(username).then((r: Result<ProfileInfo>) => {
         DASHBOARD_CHAT.userImg = r.content.img
+        $(".welcome-text").text("Welcome back, " + r.content.name)
     })
     // admin.cmd("get_vcard", {
     //     user: user,

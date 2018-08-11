@@ -7,6 +7,6 @@ index_1.default.post("/is_admin", (req, res) => {
         res.status(200).json(true);
     }
     else {
-        res.status(403).json(false);
+        res.status(200).json(false);
     }
 });

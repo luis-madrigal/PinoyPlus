@@ -3,16 +3,36 @@ $(() => {
     $.ajax({
         url: url,
         type: 'post'
-    }).done(() => {
-        console.log("I am an admin");
+    }).done(isAdmin => {
+        if (!isAdmin) {
+            console.log("I am not an admin");
+            $("#edit").remove();
+            $(".edit").remove();
+        }
+        else {
+            console.log("I am an admin");
+        }
     }).fail(e => {
         $("#edit").remove();
         $(".edit").remove();
     });
-    $("#prc-info").click(() => {
+    $("#edit").click(() => {
+        // On click copy data from the view panel to the edit panel
+        $("#titleEdit").val($("#titleView").text());
+        $("#numberEdit").val($("#numberView").text());
+        $("#emailEdit").val($("#emailView").text());
+        $("#addressEdit").val($("#addressView").text());
+        // TODO transfer list of admins
+        $(".remove-me").click(); // Clear all admin input fields
+        $("#admin-list").find("span").each(function () {
+            let span = $(this);
+            addAdmin(span.text());
+        });
+    });
+    function loadPRCInfo() {
         console.log("Clicking PRC Info");
         const admin = new Admin(DASHBOARD_CHAT.adminServerUrl);
-        admin.getDesc(DASHBOARD_CHAT.username).then(e => {
+        admin.getDesc(DASHBOARD_CHAT.adminAccount).then(e => {
             if (e.message == "error_no_value_found_in_vcard") {
                 return {
                     jid: "N/A",
@@ -30,10 +50,19 @@ $(() => {
             return e.content;
         }).then((data) => {
             console.log("DATA", data);
+            $("#titleView").text(data.name);
+            $("#numberView").text(data.contact.num);
+            $("#emailView").text(data.contact.email);
+            $("#addressView").text(data.contact.addr);
+            $("#admin-list").empty();
+            for (let name of data.members || []) {
+                $("#admin-list").append(`<span>${name}</span>`);
+            }
         }).catch(err => {
             console.error(err);
         });
-    });
+    }
+    $("#prc-info").click(loadPRCInfo);
     $("#done").click(() => {
         const admin = new Admin(DASHBOARD_CHAT.adminServerUrl);
         const title = $("#titleEdit").val() + "";
@@ -59,6 +88,8 @@ $(() => {
                 addr: addr
             }
         };
-        admin.setDesc(DASHBOARD_CHAT.username, info).then(() => console.log("Profile Set", info));
+        admin.setDesc(DASHBOARD_CHAT.username, info)
+            .then(() => console.log("Profile Set", info))
+            .then(() => loadPRCInfo());
     });
 });
