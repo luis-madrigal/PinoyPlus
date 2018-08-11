@@ -3,13 +3,6 @@ interface ServerMessage {
     code: number,
     message: string
 }
-interface AdminResult<T> {
-    error: boolean,
-    message: string,
-    status: number,
-    headers: string,
-    content: T
-}
 interface RosterInfo {
     jid: string,
     nick: string,
@@ -70,6 +63,16 @@ admin.cmd("get_vcard",{
 }).then(res => console.log(res))
  
 */
+
+interface Result<T> {
+    error: boolean,
+    message: string,
+    status: number,
+    headers: string,
+    content: T
+}
+type ResultPromise<T> = Promise<Result<T>>
+
 class Admin {
 
     constructor(private _apiUrl: string) { }
@@ -81,14 +84,39 @@ class Admin {
         return jid.substring(jid.lastIndexOf("@") + 1)
     }
 
-    public status(): Promise<AdminResult<string>> {
+    public status(): ResultPromise<string> {
         return this.cmd("status", {})
     }
-    public reloadConfig(): Promise<AdminResult<"">> {
+    public reloadConfig(): ResultPromise<""> {
         return this.cmd("reload_config", {})
     }
 
-    public getVcard(jid: string, info: VCardType): Promise<AdminResult<string>> {
+    public getDesc(jid: string): ResultPromise<any> {
+        return this.getVcard(jid, "DESC").then(r => {
+
+            let obj = r.content
+            if (!r.error) {
+                try {
+                    obj = JSON.parse(r.content)
+                } catch (e) {
+                    obj = r.content
+                }
+            }
+
+            return {
+                error: r.error,
+                message: r.message,
+                status: r.status,
+                headers: r.headers,
+                content: obj
+            }
+        })
+    }
+    public setDesc(jid: string, info: any): ResultPromise<""> {
+        return this.setVcard(jid, "DESC", JSON.stringify(info))
+    }
+
+    public getVcard(jid: string, info: VCardType): ResultPromise<string> {
         return this.cmd("get_vcard", {
             user: Admin.getUser(jid),
             host: Admin.getHost(jid),
@@ -101,7 +129,36 @@ class Admin {
             content: r.error ? "" : r.content.content
         }))
     }
-    public setVCard(jid: string, info: VCardType, value: string): Promise<AdminResult<"">> {
+    public getVcard2(jid: string, info: VCardType, subinfo: string): ResultPromise<string> {
+        return this.cmd("get_vcard2", {
+            user: Admin.getUser(jid),
+            host: Admin.getHost(jid),
+            name: info,
+            subname: subinfo
+        }).then(r => ({
+            error: r.error,
+            message: r.message,
+            status: r.status,
+            headers: r.headers,
+            content: r.error ? "" : r.content.content
+        }))
+    }
+    public getVcard2Multi(jid: string, info: VCardType, subinfo: string): ResultPromise<string[]> {
+        return this.cmd("get_vcard2_multi", {
+            user: Admin.getUser(jid),
+            host: Admin.getHost(jid),
+            name: info,
+            subname: subinfo
+        }).then(r => ({
+            error: r.error,
+            message: r.message,
+            status: r.status,
+            headers: r.headers,
+            content: r.error ? [] : r.content
+        }))
+    }
+
+    public setVcard(jid: string, info: VCardType, value: string): ResultPromise<""> {
         return this.cmd("set_vcard", {
             user: Admin.getUser(jid),
             host: Admin.getHost(jid),
@@ -109,15 +166,33 @@ class Admin {
             content: value
         })
     }
+    public setVcard2(jid: string, info: VCardType, subinfo: string, value: string): ResultPromise<""> {
+        return this.cmd("set_vcard2", {
+            user: Admin.getUser(jid),
+            host: Admin.getHost(jid),
+            name: info,
+            subname: subinfo,
+            content: value
+        })
+    }
+    public setVcard2Multi(jid: string, info: VCardType, subinfo: string, values: string[]): ResultPromise<""> {
+        return this.cmd("set_vcard2_multi", {
+            user: Admin.getUser(jid),
+            host: Admin.getHost(jid),
+            name: info,
+            subname: subinfo,
+            contents: values
+        })
+    }
 
-    public getRoster(jid: string): Promise<AdminResult<RosterInfo[]>> {
+    public getRoster(jid: string): ResultPromise<RosterInfo[]> {
         return this.cmd("get_roster", {
             user: Admin.getUser(jid),
             server: Admin.getHost(jid)
         })
     }
 
-    public addRosterItem(jid: string, otherJid: string, otherNickname: string): Promise<AdminResult<"">> {
+    public addRosterItem(jid: string, otherJid: string, otherNickname: string): ResultPromise<""> {
         return this.cmd("add_rosteritem", {
             localuser: Admin.getUser(jid),
             localserver: Admin.getHost(jid),
@@ -128,7 +203,7 @@ class Admin {
             subs: "both"
         })
     }
-    public deleteRosterItem(jid: string, otherJid: string): Promise<AdminResult<"">> {
+    public deleteRosterItem(jid: string, otherJid: string): ResultPromise<""> {
         return this.cmd("delete_rosteritem", {
             localuser: Admin.getUser(jid),
             localserver: Admin.getHost(jid),
@@ -137,7 +212,7 @@ class Admin {
         })
     }
 
-    public sendMessage(fromJid: string, toJid: string, text: string): Promise<AdminResult<"">> {
+    public sendMessage(fromJid: string, toJid: string, text: string): ResultPromise<""> {
         return this.cmd("send_message", {
             type: "chat",
             from: fromJid,
@@ -147,7 +222,7 @@ class Admin {
         })
     }
 
-    public register(jid: string, password: string): Promise<AdminResult<"Success" | ServerMessage>> {
+    public register(jid: string, password: string): ResultPromise<"Success" | ServerMessage> {
         return this.cmd("register", {
             user: Admin.getUser(jid),
             host: Admin.getHost(jid),
@@ -155,7 +230,7 @@ class Admin {
         })
     }
 
-    public cmd(name: string, args: any): Promise<AdminResult<any>> {
+    public cmd(name: string, args: any): ResultPromise<any> {
         console.log("ADMIN", this._apiUrl + name, args)
         return new Promise((resolve, reject) => {
             $.ajax({

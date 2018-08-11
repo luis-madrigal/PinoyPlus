@@ -1,25 +1,3 @@
-/*
-For APIs visit:
-https://docs.ejabberd.im/developer/ejabberd-api/admin-api/
- 
-EXAMPLE
-Documents (see URL) says:
-POST /api/get_vcard
-    {
-      "user": "user1",
-      "host": "myserver.com",
-      "name": "NICKNAME"
-    }
- 
-Do this:
-const admin = new Admin("http://104.215.190.53:9000/")
-admin.cmd("get_vcard",{
-    "user": "user1",
-    "host": "myserver.com",
-    "name": "NICKNAME"
-}).then(res => console.log(res))
- 
-*/
 class Admin {
     constructor(_apiUrl) {
         this._apiUrl = _apiUrl;
@@ -36,6 +14,29 @@ class Admin {
     reloadConfig() {
         return this.cmd("reload_config", {});
     }
+    getDesc(jid) {
+        return this.getVcard(jid, "DESC").then(r => {
+            let obj = r.content;
+            if (!r.error) {
+                try {
+                    obj = JSON.parse(r.content);
+                }
+                catch (e) {
+                    obj = r.content;
+                }
+            }
+            return {
+                error: r.error,
+                message: r.message,
+                status: r.status,
+                headers: r.headers,
+                content: obj
+            };
+        });
+    }
+    setDesc(jid, info) {
+        return this.setVcard(jid, "DESC", JSON.stringify(info));
+    }
     getVcard(jid, info) {
         return this.cmd("get_vcard", {
             user: Admin.getUser(jid),
@@ -49,12 +50,58 @@ class Admin {
             content: r.error ? "" : r.content.content
         }));
     }
-    setVCard(jid, info, value) {
+    getVcard2(jid, info, subinfo) {
+        return this.cmd("get_vcard2", {
+            user: Admin.getUser(jid),
+            host: Admin.getHost(jid),
+            name: info,
+            subname: subinfo
+        }).then(r => ({
+            error: r.error,
+            message: r.message,
+            status: r.status,
+            headers: r.headers,
+            content: r.error ? "" : r.content.content
+        }));
+    }
+    getVcard2Multi(jid, info, subinfo) {
+        return this.cmd("get_vcard2_multi", {
+            user: Admin.getUser(jid),
+            host: Admin.getHost(jid),
+            name: info,
+            subname: subinfo
+        }).then(r => ({
+            error: r.error,
+            message: r.message,
+            status: r.status,
+            headers: r.headers,
+            content: r.error ? [] : r.content
+        }));
+    }
+    setVcard(jid, info, value) {
         return this.cmd("set_vcard", {
             user: Admin.getUser(jid),
             host: Admin.getHost(jid),
             name: info,
             content: value
+        });
+    }
+    setVcard2(jid, info, subinfo, value) {
+        return this.cmd("set_vcard2", {
+            user: Admin.getUser(jid),
+            host: Admin.getHost(jid),
+            name: info,
+            subname: subinfo,
+            content: value
+        });
+    }
+    setVcard2Multi(jid, info, subinfo, values) {
+        return this.cmd("set_vcard2_multi", {
+            user: Admin.getUser(jid),
+            host: Admin.getHost(jid),
+            name: info,
+            subname: subinfo,
+            contents: values
         });
     }
     getRoster(jid) {

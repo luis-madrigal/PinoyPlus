@@ -30,21 +30,3 @@ function jsonCircle(obj, spacing) {
     return str;
 }
 exports.jsonCircle = jsonCircle;
-/**
- * Extracts user from the given jabber id
- * @param jid jabber id
- * @returns user
- */
-function getUserFromJid(jid) {
-    return jid.substring(0, jid.lastIndexOf("@"));
-}
-exports.getUserFromJid = getUserFromJid;
-/**
- * Extracts host from the given jabber id
- * @param jid jabber id
- * @returns host/server
- */
-function getHostFromJid(jid) {
-    return jid.substring(jid.lastIndexOf("@") + 1);
-}
-exports.getHostFromJid = getHostFromJid;

@@ -4,9 +4,11 @@ import app from "../../index"
 import request = require('request')
 
 import * as utils from "../../scripts/server-utils"
+import * as std from "../../scripts/standards"
 
 app.post("/login", (req, res) => {
     console.log(utils.jsonCircle(req.body, 4))
+
     let content = req.body
 
     if (!content) {
@@ -33,8 +35,8 @@ app.post("/login", (req, res) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            user: utils.getUserFromJid(username),
-            host: utils.getHostFromJid(username),
+            user: std.getUserFromJid(username),
+            host: std.getHostFromJid(username),
             password: password
         })
     }, (error, response, body) => {

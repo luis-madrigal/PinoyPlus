@@ -1,7 +1,14 @@
 import config from "../../config"
 import app from "../../index"
+import { requireLogin } from "../../scripts/handler-builders";
 
-app.get('/announcements', (req, res) => {
+import * as express from "express"
+
+function requireLoginElseRedirect(handler: express.RequestHandler) {
+    return requireLogin(handler, (err, req, res) => res.redirect("/"))
+}
+
+app.get('/announcements', requireLoginElseRedirect((req, res) => {
     let auth = req.session;
 
     res.render("announcements-main", {
@@ -12,9 +19,9 @@ app.get('/announcements', (req, res) => {
         username: auth.username,
         password: auth.password
     })
-})
+}))
 
-app.get('/threads', (req, res) => {
+app.get('/threads', requireLoginElseRedirect((req, res) => {
     let auth = req.session;
 
     res.render("announcements-thread", {
@@ -25,9 +32,9 @@ app.get('/threads', (req, res) => {
         username: auth.username,
         password: auth.password
     })
-})
+}))
 
-app.get('/posts', (req, res) => {
+app.get('/posts', requireLoginElseRedirect((req, res) => {
     let auth = req.session;
 
     res.render("announcements-post", {
@@ -38,9 +45,9 @@ app.get('/posts', (req, res) => {
         username: auth.username,
         password: auth.password
     })
-})
+}))
 
-app.get('/feedback', (req, res) => {
+app.get('/feedback', requireLoginElseRedirect((req, res) => {
     let auth = req.session;
 
     res.render("feedback", {
@@ -51,9 +58,9 @@ app.get('/feedback', (req, res) => {
         username: auth.username,
         password: auth.password
     })
-})
+}))
 
-app.get("/about", (req, res) => {
+app.get("/about", requireLoginElseRedirect((req, res) => {
     let auth = req.session;
 
     res.render("about", {
@@ -64,9 +71,9 @@ app.get("/about", (req, res) => {
         username: auth.username,
         password: auth.password
     })
-})
+}))
 
-app.get("/database", (req, res) => {
+app.get("/database", requireLoginElseRedirect((req, res) => {
     let auth = req.session;
 
     res.render("database", {
@@ -77,4 +84,4 @@ app.get("/database", (req, res) => {
         username: auth.username,
         password: auth.password
     })
-})
+}))

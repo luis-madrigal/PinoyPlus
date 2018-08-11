@@ -9,3 +9,12 @@ app.get('/init', (req, res) => {
         chatHost: config.chatHost
     })
 })
+
+app.get("/db-editor", (req, res) => {
+    res.render("database-editor", {
+        adminAccount: config.adminAccount,
+        adminServerUrl: config.adminServerUrl,
+        chatServerUrl: config.chatServerUrl,
+        chatHost: config.chatHost
+    })
+})

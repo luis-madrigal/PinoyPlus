@@ -1,0 +1,102 @@
+<html>
+
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/admin.js"></script>
+</head>
+
+<body>
+
+    <script>
+        var p = Promise.resolve()
+
+        function register() {
+            const admin = new Admin("<%= adminServerUrl%>")
+            const data = {
+                jid: $("#jid").val(),
+                img: $("#img").val(),
+                name: $("#name").val(),
+                contact: {
+                    name: $("#contact-name").val(),
+                    email: $("#contact-jid").val(),
+                    num: $("#contact-num").val(),
+                    addr: $("#contact-addr").val(),
+                }
+            }
+            console.log(data)
+            p = p.then(admin.setDesc($("#jid").val(), data).then(console.log).catch(console.log))
+        }
+
+        function registerData(jid, imgsrc, partname, focalname, email, number, address) {
+
+            $("#jid").val(jid)
+            $("#img").val(imgsrc)
+            $("#name").val(partname)
+            $("#contact-name").val(focalname)
+            $("#contact-email").val(email)
+            $("#contact-num").val(number)
+            $("#contact-addr").val(address)
+
+            register()
+        }
+
+        $(() => {
+
+            registerData("admin@pinoyplus", "img/logo.png",
+                "Community and Family Services International",
+                "Dr. Zenaida Calupaz", "zenaida.calupaz@gmail.com", "268-1195 / 9058892105",
+                "2F Torres Building 2442 Park Avenue, Pasay, Metro Manila");
+            registerData("cfsi@pinoyplus", "img/database/cfsi.png",
+                "Community and Family Services International",
+                "Dr. Zenaida Calupaz", "zenaida.calupaz@gmail.com", "268-1195 / 9058892105",
+                "2F Torres Building 2442 Park Avenue, Pasay, Metro Manila");
+            registerData("woodwater@pinoyplus", "img/database/woodwater.png", "Woodwater Center for Healing",
+                "Ms. Gerlita Condino-Enrera", "gerlita@gmail.com", "(02) 551 1977",
+                "18 Nicanor Reyes St., Loyola Heights, Quezon City");
+            registerData("valenzuela_shc@pinoyplus", "img/database/metrov.png",
+                "Valenzuela Social Hygiene Clinic", "Ms. Lovelina Maderazo",
+                "lovelina@gmail.com", "(02) 292-0211", "Poblacion II, Malinta, Valenzuela City");
+            registerData("sta_cruz_shc@pinoyplus", "img/database/calalang.png",
+                "Sta. Cruz Social Hygiene Clinic",
+                "Dr. Diane Mendoza – Physician", "diane@gmail.com", "711-6942",
+                "2/F Manila Health Dept., Quiricada St, Sta. Cruz, Manila");
+            registerData("st_camillus_phc@pinoyplus", "img/database/stcam.png",
+                "St. Camillus Pastoral Health Care", "Ms. Gerlita Enrera",
+                "stcamillus_phc@yahoo.com", "(02) 645-3741",
+                "116 Amang Rodriguez Ave, Santolan, Pasig City")
+        })
+    </script>
+
+    <p>Account (jid): </p>
+    <input id="jid" type="text">
+    <br>
+
+    <p>Image Source (img): </p>
+    <input id="img" type="text">
+    <br>
+
+    <p>Partner Name (name): </p>
+    <input id="name" type="text">
+    <br>
+
+    <p>Focal Person (contact.name): </p>
+    <input id="contact-name" type="text">
+    <br>
+
+    <p>Email (contact.email): </p>
+    <input id="contact-email" type="text">
+    <br>
+
+    <p>Number (contact.num): </p>
+    <input id="contact-num" type="text">
+    <br>
+
+    <p>Address (contact.addr): </p>
+    <input id="contact-addr" type="text">
+    <br>
+
+    <button onclick="register">Submit</button>
+</body>
+
+</html>

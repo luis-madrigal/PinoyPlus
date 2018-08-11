@@ -1,7 +1,10 @@
 const DASHBOARD_CHAT = {
+    defaultImg: "img/face.png",
     username: "",
-    currentlyChatting: "user1@localhost",
-    currentlyChattingNick: "User1",
+    userImg: "img/face.png",
+    otherImg: "img/face.png",
+    otherName: "user1@localhost",
+    otherNick: "User1",
     conn: <Strophe.Connection>null,
     admin: <Admin>null,
     logMessage: (fromUser: boolean, content: string) => { console.error("Function logMessage is not yet initialized") },
@@ -20,7 +23,7 @@ $(() => {
                 <div class="col-lg-4"></div>
                 <div class="col-lg-7 messages"></div>
                 <div class="col-lg-1">
-                    <img class="img-responsive" src="img/face.png">
+                    <img class="img-responsive" src="${DASHBOARD_CHAT.userImg || DASHBOARD_CHAT.defaultImg}">
                 </div>
             </div>
             `);
@@ -28,7 +31,7 @@ $(() => {
             $(".chat-container").append(`
             <div class="row message-container conversant-message">
                 <div class="col-lg-1">
-                    <img class="img-responsive" src="img/face.png">
+                    <img class="img-responsive" src="${DASHBOARD_CHAT.otherImg || DASHBOARD_CHAT.defaultImg}">
                 </div>
                 <div class="col-lg-7 messages"></div>
             </div>
@@ -74,6 +77,10 @@ $(() => {
             $(".welcome-text").text("Welcome back, " + e.content)
         }
     })
+
+    admin.getDesc(username).then(r => {
+        DASHBOARD_CHAT.userImg = r.content.img
+    })
     // admin.cmd("get_vcard", {
     //     user: user,
     //     host: userHost,
@@ -94,85 +101,93 @@ $(() => {
             console.error(e.content)
             return;
         }
+        let p = Promise.resolve()
         for (let f of e.content) {
-            const name = f.nick
-            const jid = f.jid
-            DASHBOARD_CHAT.currentlyChatting = jid
-            DASHBOARD_CHAT.currentlyChattingNick = name
+            p = p.then(() => admin.getDesc(f.jid)).then(r => {
+                const name = f.nick
+                const jid = f.jid
+                DASHBOARD_CHAT.otherName = jid
+                DASHBOARD_CHAT.otherNick = name
+                DASHBOARD_CHAT.otherImg = r.content.img
 
-            const body = `
-			<div class="contact-item" id="${jid.replace("@", "-")}">
-                <div class="row">
-                    <div class="col-sm-9">
+                const jid_id = jid.replace("@", "-")
+                $(".chat-list-container").append(`
+                <div class="contact-item" id="${jid_id}">
+                    <div class="row">
+                        <div class="col-sm-9">
+                        </div>
+                        <div class="col-sm-3 time">
+                            <p>4:15pm</p>
+                        </div>
+    
                     </div>
-                    <div class="col-sm-3 time">
-                        <p>4:15pm</p>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img class="img-responsive" src="${r.content.img}">
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row contact-name">
+                                <p>${name}</p>
+                            </div>
+                            <!-- LAST MESSAGE -->
+                            <div class="row contact-message">
+                                <p>Start a Conversation</p>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <img class="img-responsive" src="img/face.png">
-                    </div>
-                    <div class="col-sm-8">
-                        <div class="row contact-name">
-                            <p>${name}</p>
-                        </div>
-                        <!-- LAST MESSAGE -->
-                        <div class="row contact-message">
-                            <p>Kamusta naman yung mga...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `
-            $(".chat-list-container").append(body)
-
-            $('#' + jid.replace("@", "-")).click(function (e) {
-                $('.chat-list-container').css('display', 'none');
-                $('.main-chat-container').css('display', 'block');
-                $('.chat-container').empty()
-                $(".chat-container").append(`
-                    <div hidden class="row message-container conversant-message">
-                        <div class="col-sm-1">
-                            <img class="img-responsive" src="img/face.png">
-                        </div>
-                        <div class="col-sm-7 messages">
-                            <p class="message">asddddddddd</p>
-                        </div>
-                    </div>
-                    <div hidden class="row message-container user-message">
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-7 messages">
-                            <p class="message">asddddddddd</p>
-                        </div>
-                        <div class="col-sm-1">
-                            <img class="img-responsive" src="img/face.png">
-                        </div>
-                    </div>
                 `)
 
-                DASHBOARD_CHAT.currentlyChatting = jid
+                $('#' + jid_id).click(function (e) {
+                    DASHBOARD_CHAT.otherName = jid
+                    DASHBOARD_CHAT.otherImg = r.content.img
 
-                console.log("Load Chat Log Between " + username + " and " + jid)
-                const waitForLoading = setInterval(() => {
-                    if (DASHBOARD_CHAT.conn) {
-                        clearInterval(waitForLoading)
-                        DASHBOARD_CHAT.conn["mam"].query(username, {
-                            with: jid,
-                            max: 1000,
-                            before: '',
-                            onMessage: msg => {
-                                console.log(msg || "");
-                                return true;
-                            },
-                            onComplete: () => {
-                                console.log("Chat Log  Loaded Between " + username + " and " + jid);
-                            }
-                        })
-                    }
-                }, 300)
-            });
+                    $('.chat-list-container').css('display', 'none');
+                    $('.main-chat-container').css('display', 'block');
+                    $('.chat-container').empty()
+                    $(".chat-container").append(`
+                        <div class="row message-container conversant-message">
+                            <div class="col-sm-1">
+                                <img class="img-responsive" src="${r.content.img}">
+                            </div>
+                            <div class="col-sm-7 messages">
+                                <p hidden class="message">asddddddddd</p>
+                            </div>
+                        </div>
+                        <div class="row message-container user-message">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-7 messages">
+                                <p hidden class="message">asddddddddd</p>
+                            </div>
+                            <div class="col-sm-1">
+                                <img class="img-responsive" src="${DASHBOARD_CHAT.userImg}">
+                            </div>
+                        </div>
+                    `)
+
+
+                    console.log("Load Chat Log Between " + username + " and " + jid)
+                    const waitForLoading = setInterval(() => {
+                        if (DASHBOARD_CHAT.conn) {
+                            clearInterval(waitForLoading)
+                            DASHBOARD_CHAT.conn["mam"].query(username, {
+                                with: jid,
+                                max: 1000,
+                                before: '',
+                                onMessage: msg => {
+                                    console.log(msg || "");
+                                    return true;
+                                },
+                                onComplete: () => {
+                                    console.log("Chat Log  Loaded Between " + username + " and " + jid);
+                                }
+                            })
+                        }
+                    }, 300)
+                });
+            })
+
+
         }
     })
 
@@ -195,9 +210,6 @@ $(() => {
             console.log("Sending Presence (Online)")
             conn.send($pres())
 
-            console.log("Initializing Plugin (Strophe.roster)")
-            conn["roster"].init(conn)
-
             console.log("Initializing Handlers")
             conn.addHandler(msg => {
                 var me = username
@@ -216,7 +228,7 @@ $(() => {
                     from = Strophe.getBareJidFromJid($(msg).attr("from"))
                     to = Strophe.getBareJidFromJid($(msg).attr("to"))
 
-                    if (from != DASHBOARD_CHAT.currentlyChatting && to != DASHBOARD_CHAT.currentlyChatting) {
+                    if (from != DASHBOARD_CHAT.otherName && to != DASHBOARD_CHAT.otherName) {
                         // If the message is not from the one you are currently chatting
                         // Then don't log it
                         return true
@@ -246,7 +258,7 @@ $(() => {
             let str = self.val() + "";
             if (str.trim()) {
                 DASHBOARD_CHAT.logMessage(true, str)
-                DASHBOARD_CHAT.sendMessage(DASHBOARD_CHAT.currentlyChatting, str + "")
+                DASHBOARD_CHAT.sendMessage(DASHBOARD_CHAT.otherName, str + "")
                 self.val("");
             }
             e.preventDefault();

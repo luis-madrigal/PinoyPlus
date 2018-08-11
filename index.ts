@@ -15,13 +15,11 @@ import "./server/module-html_templates"
 import "./server/dev/module-init_pages"
 
 import "./server/pages/module-default_page"
-
-import "./server/route_guard/module-require_login"
-
 import "./server/pages/module-pages"
 import "./server/pages/module-error_404"
 
 import "./server/services/module-login_logout"
+import "./server/services/module-is_admin"
 
 /* ************************************
  * 
