@@ -147,52 +147,14 @@ $(() => {
                     $('.chat-list-container').css('display', 'none');
                     $('.main-chat-container').css('display', 'block');
                     $('.chat-container').empty();
-                    // $(".chat-container").append(`
-                    //     <div class="row message-container conversant-message">
-                    //         <div class="col-sm-1">
-                    //             <img class="img-responsive" src="${r.content.img}">
-                    //         </div>
-                    //         <div class="col-sm-7 messages">
-                    //             <p hidden class="message">asddddddddd</p>
-                    //         </div>
-                    //     </div>
-                    //     <div class="row message-container user-message">
-                    //         <div class="col-sm-4"></div>
-                    //         <div class="col-sm-7 messages">
-                    //             <p hidden class="message">asddddddddd</p>
-                    //         </div>
-                    //         <div class="col-sm-1">
-                    //             <img class="img-responsive" src="${DASHBOARD_CHAT.userImg}">
-                    //         </div>
-                    //     </div>
-                    // `)
                     console.log("Load Chat Log Between " + username + " and " + jid);
                     getLastMessages(jid, 1000, msg => console.log("MSG", msg), lmsg => console.log("LMSG", lmsg));
-                    // const waitForLoading = setInterval(() => {
-                    //     var lastMessage
-                    //     if (DASHBOARD_CHAT.conn) {
-                    //         clearInterval(waitForLoading)
-                    //         DASHBOARD_CHAT.conn["mam"].query(username, {
-                    //             with: jid,
-                    //             max: 1000,
-                    //             before: '',
-                    //             onMessage: msg => {
-                    //                 lastMessage = msg
-                    //                 console.log(msg || "");
-                    //                 return true;
-                    //             },
-                    //             onComplete: () => {
-                    //                 console.log("Chat Log  Loaded Between " + username + " and " + jid);
-                    //                 if (lastMessage) {
-                    //                     let str = $(lastMessage).find("delay").attr("stamp")
-                    //                     let date = new Date(str)
-                    //                     $(jid_id + "-time").text(getTime(date))
-                    //                 }
-                    //             }
-                    //         })
-                    //     }
-                    // }, 300)
                 });
+                if (username != adminAccount) {
+                    $('#' + jid_id).ready(function () {
+                        $('#' + jid_id).click();
+                    });
+                }
                 return {
                     jid_id: jid_id,
                     jid: jid
