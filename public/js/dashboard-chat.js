@@ -7,6 +7,7 @@ const DASHBOARD_CHAT = {
     otherNick: "User1",
     conn: null,
     admin: null,
+    adminServerUrl: "",
     logMessage: (fromUser, content) => { console.error("Function logMessage is not yet initialized"); },
     sendMessage: (to, content) => { console.error("Function sendMessage is not yet initialized"); }
 };
@@ -49,7 +50,7 @@ $(() => {
 });
 $(() => {
     const adminAccount = $("#adminAccount").val() + "";
-    const adminServerUrl = $("#adminServerUrl").val() + "";
+    const adminServerUrl = DASHBOARD_CHAT.adminServerUrl = $("#adminServerUrl").val() + "";
     const chatServerUrl = $("#chatServerUrl").val() + "";
     const chatHost = $("#chatHost").val() + "";
     const username = DASHBOARD_CHAT.username = $("#username").val() + "";

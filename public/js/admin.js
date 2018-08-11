@@ -16,6 +16,15 @@ class Admin {
     }
     getDesc(jid) {
         return this.getVcard(jid, "DESC").then(r => {
+            if (r.error && r.content == "error_no_value_found_in_vcard") {
+                return {
+                    error: false,
+                    message: "no_value_found_in_vcard",
+                    status: r.status,
+                    headers: r.headers,
+                    content: "\"\""
+                };
+            }
             let obj = r.content;
             if (!r.error) {
                 try {

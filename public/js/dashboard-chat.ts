@@ -7,6 +7,7 @@ const DASHBOARD_CHAT = {
     otherNick: "User1",
     conn: <Strophe.Connection>null,
     admin: <Admin>null,
+    adminServerUrl: "",
     logMessage: (fromUser: boolean, content: string) => { console.error("Function logMessage is not yet initialized") },
     sendMessage: (to: string, content: string) => { console.error("Function sendMessage is not yet initialized") }
 }
@@ -53,7 +54,7 @@ $(() => {
 
 $(() => {
     const adminAccount = $("#adminAccount").val() + ""
-    const adminServerUrl = $("#adminServerUrl").val() + ""
+    const adminServerUrl = DASHBOARD_CHAT.adminServerUrl = $("#adminServerUrl").val() + ""
     const chatServerUrl = $("#chatServerUrl").val() + ""
     const chatHost = $("#chatHost").val() + ""
     const username = DASHBOARD_CHAT.username = $("#username").val() + ""
