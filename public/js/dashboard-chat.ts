@@ -13,6 +13,14 @@ const DASHBOARD_CHAT = {
     sendMessage: (to: string, content: string) => { console.error("Function sendMessage is not yet initialized") }
 }
 
+function signout() {
+    $.ajax({
+        method: "post",
+        url: window.location.origin + "/logout"
+    })
+        .then(() => window.location.reload())
+        .catch(() => window.location.reload())
+}
 $(() => {
     DASHBOARD_CHAT.logMessage = (fromUser: boolean, content: string) => {
         const lastMsgFromUser = $(".chat-container").children().last().hasClass("user-message");
