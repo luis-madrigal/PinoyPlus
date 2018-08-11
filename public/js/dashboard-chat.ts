@@ -48,7 +48,7 @@ $(() => {
             from: DASHBOARD_CHAT.username,
             to: to,
             type: "chat"
-        }).c("body").t(content)
+        }).c("body").t("<span class='actual-content'>" + content + "</span>" + "<span hidden class='hidden-timestamp'>" + new Date().toISOString() + "</span>")
         DASHBOARD_CHAT.conn.send(msg)
     }
 })
@@ -68,37 +68,49 @@ $(() => {
     $("#username").remove()
     $("#password").remove()
 
-    // const user = username.substring(0, username.lastIndexOf("@"))
-    // const userHost = username.substring(username.lastIndexOf("@") + 1)
-
     const admin = DASHBOARD_CHAT.admin = new Admin(adminServerUrl)
     const conn = new Strophe.Connection(chatServerUrl)
+
+    function getTime(d: Date): string {
+        let amOrPm = (d.getHours() < 12) ? "AM" : "PM";
+        let hour = (d.getHours() < 12) ? d.getHours() : d.getHours() - 12;
+        let mins = (d.getMinutes() < 10 ? "0" : "") + d.getMinutes()
+        return hour + ':' + mins + ' ' + amOrPm;
+    }
+    function getLastMessages(jid: string, count: number, onMsg?: (msg: any) => any, onFin?: (lastMsg: any) => any) {
+        const waitForLoading = setInterval(() => {
+            var lastMessage
+            if (DASHBOARD_CHAT.conn) {
+                clearInterval(waitForLoading)
+                DASHBOARD_CHAT.conn["mam"].query(username, {
+                    with: jid,
+                    max: count,
+                    before: '',
+                    onMessage: msg => {
+                        lastMessage = msg
+                        if (onMsg) { onMsg(msg) }
+                        return true;
+                    },
+                    onComplete: () => {
+                        console.log("Chat Log  Loaded Between " + username + " and " + jid);
+                        if (onFin) { onFin(lastMessage) }
+                    }
+                })
+            }
+        }, 300)
+    }
 
     admin.getDesc(username).then((r: Result<ProfileInfo>) => {
         DASHBOARD_CHAT.userImg = r.content.img
         $(".welcome-text").text("Welcome back, " + r.content.name)
     })
-    // admin.cmd("get_vcard", {
-    //     user: user,
-    //     host: userHost,
-    //     name: "NICKNAME"
-    // }).then(e => {
-    //     if (!e.error) {
-    //         $(".welcome-text").text("Welcome back, " + e.content.content)
-    //     }
-    // })
-
-    // admin.cmd("get_roster", {
-    //     user: user,
-    //     server: userHost
-    // })
     admin.getRoster(username).then(e => {
         if (e.error) {
             console.error(e.message)
             console.error(e.content)
             return;
         }
-        let p = Promise.resolve()
+        let p = Promise.resolve({})
         for (let f of e.content) {
             p = p.then(() => admin.getDesc(f.jid)).then(r => {
                 const name = f.nick
@@ -114,7 +126,7 @@ $(() => {
                         <div class="col-sm-9">
                         </div>
                         <div class="col-sm-3 time">
-                            <p>4:15pm</p>
+                            <p id="${jid_id + "-time"}">N/A</p>
                         </div>
     
                     </div>
@@ -128,7 +140,7 @@ $(() => {
                             </div>
                             <!-- LAST MESSAGE -->
                             <div class="row contact-message">
-                                <p>Start a Conversation</p>
+                                <p id="${jid_id + "-lmsg"}">Start a Conversation</p>
                             </div>
                         </div>
                     </div>
@@ -142,49 +154,85 @@ $(() => {
                     $('.chat-list-container').css('display', 'none');
                     $('.main-chat-container').css('display', 'block');
                     $('.chat-container').empty()
-                    $(".chat-container").append(`
-                        <div class="row message-container conversant-message">
-                            <div class="col-sm-1">
-                                <img class="img-responsive" src="${r.content.img}">
-                            </div>
-                            <div class="col-sm-7 messages">
-                                <p hidden class="message">asddddddddd</p>
-                            </div>
-                        </div>
-                        <div class="row message-container user-message">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-7 messages">
-                                <p hidden class="message">asddddddddd</p>
-                            </div>
-                            <div class="col-sm-1">
-                                <img class="img-responsive" src="${DASHBOARD_CHAT.userImg}">
-                            </div>
-                        </div>
-                    `)
+                    // $(".chat-container").append(`
+                    //     <div class="row message-container conversant-message">
+                    //         <div class="col-sm-1">
+                    //             <img class="img-responsive" src="${r.content.img}">
+                    //         </div>
+                    //         <div class="col-sm-7 messages">
+                    //             <p hidden class="message">asddddddddd</p>
+                    //         </div>
+                    //     </div>
+                    //     <div class="row message-container user-message">
+                    //         <div class="col-sm-4"></div>
+                    //         <div class="col-sm-7 messages">
+                    //             <p hidden class="message">asddddddddd</p>
+                    //         </div>
+                    //         <div class="col-sm-1">
+                    //             <img class="img-responsive" src="${DASHBOARD_CHAT.userImg}">
+                    //         </div>
+                    //     </div>
+                    // `)
 
 
                     console.log("Load Chat Log Between " + username + " and " + jid)
-                    const waitForLoading = setInterval(() => {
-                        if (DASHBOARD_CHAT.conn) {
-                            clearInterval(waitForLoading)
-                            DASHBOARD_CHAT.conn["mam"].query(username, {
-                                with: jid,
-                                max: 1000,
-                                before: '',
-                                onMessage: msg => {
-                                    console.log(msg || "");
-                                    return true;
-                                },
-                                onComplete: () => {
-                                    console.log("Chat Log  Loaded Between " + username + " and " + jid);
-                                }
-                            })
+                    getLastMessages(jid, 1000, msg => console.log("MSG", msg), lmsg => console.log("LMSG", lmsg))
+                    // const waitForLoading = setInterval(() => {
+                    //     var lastMessage
+                    //     if (DASHBOARD_CHAT.conn) {
+                    //         clearInterval(waitForLoading)
+                    //         DASHBOARD_CHAT.conn["mam"].query(username, {
+                    //             with: jid,
+                    //             max: 1000,
+                    //             before: '',
+                    //             onMessage: msg => {
+                    //                 lastMessage = msg
+                    //                 console.log(msg || "");
+                    //                 return true;
+                    //             },
+                    //             onComplete: () => {
+                    //                 console.log("Chat Log  Loaded Between " + username + " and " + jid);
+                    //                 if (lastMessage) {
+                    //                     let str = $(lastMessage).find("delay").attr("stamp")
+                    //                     let date = new Date(str)
+                    //                     $(jid_id + "-time").text(getTime(date))
+                    //                 }
+                    //             }
+                    //         })
+                    //     }
+                    // }, 300)
+                })
+
+                return {
+                    jid_id: jid_id,
+                    jid: jid
+                }
+            }).then(r => {
+                return new Promise((resolve, reject) => {
+                    let isDone = false
+                    getLastMessages(r.jid, 1, msg => {
+                        console.log("FTIME", msg)
+
+                        if (msg && !isDone) {
+                            isDone = true
+                            let body = "<div>" + $(msg).find("body").text() + "</div>"
+                            let filteredText = $(body).find(".actual-content").text()
+                            let hiddenDate = $(body).find(".hidden-timestamp").text()
+                            let date = new Date(hiddenDate)
+
+                            console.warn(body)
+                            console.warn(filteredText)
+                            console.warn(hiddenDate)
+                            console.warn(date.toISOString())
+                            console.warn(getTime(date))
+                            $("#" + r.jid_id + "-time").text(getTime(date))
+                            $("#" + r.jid_id + "-lmsg").text(filteredText)
                         }
-                    }, 300)
-                });
+                    }, lmsg => {
+                        resolve()
+                    })
+                })
             })
-
-
         }
     })
 
