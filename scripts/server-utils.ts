@@ -1,4 +1,27 @@
 import * as express from "express"
+import * as serverStatic from "serve-static";
+
+
+export interface RequestFilter {
+    (req: express.Request, res: express.Response, next: express.NextFunction): boolean
+}
+/**
+ * An extended handler for express.static with additional filter feature
+ * @param root the path that the handler will listen to
+ * @param filter a callback that must return true to pass the request to express.static, must return false to pass request to the next handler (i.e. next())
+ * @param options express.static options
+ * @returns an extended express.static handler
+ */
+export function filteredStatic(root: string, filter: RequestFilter, options?: serverStatic.ServeStaticOptions): express.Handler {
+    const handler = express.static(root, options)
+    return (req, res, next) => {
+        if (filter(req, res, next)) {
+            handler(req, res, next)
+        } else {
+            next()
+        }
+    }
+}
 
 /**
  * Similar JSON.stringify but allowed on objects with cirucalar references

@@ -1,5 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const express = require("express");
+/**
+ * An extended handler for express.static with additional filter feature
+ * @param root the path that the handler will listen to
+ * @param filter a callback that must return true to pass the request to express.static, must return false to pass request to the next handler (i.e. next())
+ * @param options express.static options
+ * @returns an extended express.static handler
+ */
+function filteredStatic(root, filter, options) {
+    const handler = express.static(root, options);
+    return (req, res, next) => {
+        if (filter(req, res, next)) {
+            handler(req, res, next);
+        }
+        else {
+            next();
+        }
+    };
+}
+exports.filteredStatic = filteredStatic;
 /**
  * Similar JSON.stringify but allowed on objects with cirucalar references
  * @param obj object
