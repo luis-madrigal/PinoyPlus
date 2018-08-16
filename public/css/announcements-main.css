@@ -1,63 +1,101 @@
 .service-update {
-    padding: 5%;
+  padding: 5%;
 }
 
 .service-update .description {
-    display: inline-block;
-    font-size: 0.85em;
+  display: inline-block;
+  font-size: 0.85em;
 }
 
 .service-update .read-more {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
-.service-update .read-more:hover{
-    cursor: pointer;
-    text-decoration: underline;
+.service-update .read-more:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .anment-list-mf {
-    margin-top: 12px;
+  margin-top: 12px;
 }
 
-.custom-table th{
-    color:grey;
-    padding-left: 3%;
+.custom-table th {
+  color: grey;
+  padding-left: 3%;
 }
 
-.anment-description{
-    cursor: pointer;
-    line-height: 3px;
-    padding: 3% !important;
+.anment-description {
+  cursor: pointer;
+  line-height: 3px;
+  padding: 3% !important;
 }
 
 .anment-description .selected {
-	color: #B12226;
-    font-weight: bold;
+  color: #b12226;
+  font-weight: bold;
 }
 
-.anment-description .info{
-    font-size: 0.8em;
+.anment-description .info {
+  font-size: 0.8em;
 }
 
 .anment-description .title {
-    color:rgb(73, 73, 73);
+  color: rgb(73, 73, 73);
 }
 
 .anment-description .title:hover {
-	color: #B12226;
-    font-weight: bold;
+  color: #b12226;
+  font-weight: bold;
 }
 
 .post-image {
-    margin-left: 20%;
+  margin-left: 20%;
 }
 
 .post-description {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 .post-datetime {
-    line-height: 0;
-    font-size: 0.8em;
+  line-height: 0;
+  font-size: 0.8em;
+}
+
+#discussionModal .modal-dialog {
+  width: 800px;
+  border-radius: 20px;
+}
+
+#discussionModal .modal-header {
+  padding: 9px 15px;
+  background: linear-gradient(to right, #b02428, #86191f);
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: white;
+}
+
+#discussionModal .modal-content {
+  border-radius: 20px;
+}
+
+#discussionModal .modal-body {
+  background: white;
+}
+
+#discussionModal .content {
+  margin-left: 30px;
+}
+
+#discussionModal .title {
+  padding-bottom: 10px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #b12226;
+  font-size: 1.5em;
+  color: #b12226;
 }
