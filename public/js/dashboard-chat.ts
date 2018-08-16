@@ -132,7 +132,7 @@ $(() => {
 
                 const jid_id = jid.replace("@", "-")
                 $(".contact-list").append(`
-                <div class="contact-item" id="${jid_id}">
+                <div class="contact-item pointer" id="${jid_id}">
                     <div class="row">
                         <div class="col-sm-9">
                         </div>

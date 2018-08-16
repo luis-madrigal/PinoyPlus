@@ -51,21 +51,25 @@ body {
 	background: linear-gradient(to right, #B02428, #86191F);
 	border-radius: 26.66px;
 	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-	-webkit-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
-	-moz-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
-	box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+	-webkit-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0, 0, 0, 0.06);
+	-moz-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0, 0, 0, 0.06);
+	box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0, 0, 0, 0.06);
 	color: white;
 }
 
 .white-rect-bg {
-    background-color: white;
+	background-color: white;
 	border-radius: 26.66px;
 	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-	-webkit-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
-	-moz-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
-	box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0,0,0,0.06);
+	-webkit-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0, 0, 0, 0.06);
+	-moz-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0, 0, 0, 0.06);
+	box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px rgba(0, 0, 0, 0.06);
 }
 
 .hide {
 	display: none;
+}
+
+.pointer {
+	cursor: pointer;
 }

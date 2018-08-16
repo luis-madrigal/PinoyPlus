@@ -3,5 +3,8 @@
         "**/**.js": {
             "when": "$(basename).ts"
         }
+    },
+    "files.associations": {
+        "*.ejs": "html"
     }
 }

@@ -90,6 +90,6 @@ $(() => {
         };
         admin.setDesc(DASHBOARD_CHAT.username, info)
             .then(() => console.log("Profile Set", info))
-            .then(() => loadPRCInfo());
+            .then(loadPRCInfo);
     });
 });
