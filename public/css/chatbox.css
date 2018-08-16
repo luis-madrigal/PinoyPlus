@@ -21,7 +21,7 @@
 }
 
 .main-chat-container{
-	height: 75%;
+	height: 77%;
 	overflow-x: hidden;
 }
 
@@ -219,4 +219,8 @@
 	border: none;
 	height: 100%;
 	width: 50%;
+}
+
+#contact-btn {
+	float: left;
 }
