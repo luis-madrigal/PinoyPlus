@@ -17,7 +17,8 @@ app.get('/announcements', requireLoginElseRedirect((req, res) => {
         chatServerUrl: config.chatServerUrl,
         chatHost: config.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "announcements"
     })
 }))
 
@@ -30,7 +31,8 @@ app.get('/threads', requireLoginElseRedirect((req, res) => {
         chatServerUrl: config.chatServerUrl,
         chatHost: config.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "announcements"
     })
 }))
 
@@ -43,7 +45,8 @@ app.get('/posts', requireLoginElseRedirect((req, res) => {
         chatServerUrl: config.chatServerUrl,
         chatHost: config.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "announcements"
     })
 }))
 
@@ -56,7 +59,8 @@ app.get('/feedback', requireLoginElseRedirect((req, res) => {
         chatServerUrl: config.chatServerUrl,
         chatHost: config.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "feedback"
     })
 }))
 
@@ -69,7 +73,8 @@ app.get("/about", requireLoginElseRedirect((req, res) => {
         chatServerUrl: config.chatServerUrl,
         chatHost: config.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "about"
     })
 }))
 
@@ -82,6 +87,7 @@ app.get("/database", requireLoginElseRedirect((req, res) => {
         chatServerUrl: config.chatServerUrl,
         chatHost: config.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "database"
     })
 }))

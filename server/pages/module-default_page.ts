@@ -10,13 +10,14 @@ app.get('/', (req, res) => {
         })
         return;
     }
-
+    
     res.render("dashboard", {
         adminAccount: config.adminAccount,
         adminServerUrl: config.adminServerUrl,
         chatServerUrl: config.chatServerUrl,
         chatHost: config.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "dashboard"
     })
 })

@@ -14,7 +14,8 @@ index_1.default.get('/announcements', requireLoginElseRedirect((req, res) => {
         chatServerUrl: config_1.default.chatServerUrl,
         chatHost: config_1.default.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "announcements"
     });
 }));
 index_1.default.get('/threads', requireLoginElseRedirect((req, res) => {
@@ -25,7 +26,8 @@ index_1.default.get('/threads', requireLoginElseRedirect((req, res) => {
         chatServerUrl: config_1.default.chatServerUrl,
         chatHost: config_1.default.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "announcements"
     });
 }));
 index_1.default.get('/posts', requireLoginElseRedirect((req, res) => {
@@ -36,7 +38,8 @@ index_1.default.get('/posts', requireLoginElseRedirect((req, res) => {
         chatServerUrl: config_1.default.chatServerUrl,
         chatHost: config_1.default.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "announcements"
     });
 }));
 index_1.default.get('/feedback', requireLoginElseRedirect((req, res) => {
@@ -47,7 +50,8 @@ index_1.default.get('/feedback', requireLoginElseRedirect((req, res) => {
         chatServerUrl: config_1.default.chatServerUrl,
         chatHost: config_1.default.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "feedback"
     });
 }));
 index_1.default.get("/about", requireLoginElseRedirect((req, res) => {
@@ -58,7 +62,8 @@ index_1.default.get("/about", requireLoginElseRedirect((req, res) => {
         chatServerUrl: config_1.default.chatServerUrl,
         chatHost: config_1.default.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "about"
     });
 }));
 index_1.default.get("/database", requireLoginElseRedirect((req, res) => {
@@ -69,6 +74,7 @@ index_1.default.get("/database", requireLoginElseRedirect((req, res) => {
         chatServerUrl: config_1.default.chatServerUrl,
         chatHost: config_1.default.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "database"
     });
 }));

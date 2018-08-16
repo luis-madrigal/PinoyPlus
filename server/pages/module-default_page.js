@@ -16,6 +16,7 @@ index_1.default.get('/', (req, res) => {
         chatServerUrl: config_1.default.chatServerUrl,
         chatHost: config_1.default.chatHost,
         username: auth.username,
-        password: auth.password
+        password: auth.password,
+        pageName: "dashboard"
     });
 });

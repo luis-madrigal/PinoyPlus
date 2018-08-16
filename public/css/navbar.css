@@ -186,7 +186,6 @@
 }
 
 #profileModal .title {
-<<<<<<< HEAD
   padding-bottom: 10px;
   border-bottom-style: solid;
   border-bottom-width: 2px;
@@ -203,27 +202,6 @@
 #profileModal .edit:hover {
   text-decoration: underline;
   cursor: pointer;
-=======
-	padding-bottom: 20px;
-	border-bottom-style: solid;
-	border-bottom-width: 2px;
-	border-bottom-color: #B12226;
-}
-
-#profileModal .title span {
-	font-size: 1.5em;
-	color: #B12226;
-}
-
-#profileModal .action {
-	color: rgb(161, 161, 161);
-	text-align: right;
-}
-
-#profileModal .action:hover {
-	text-decoration: underline;
-	cursor: pointer;
->>>>>>> 642a249cc76405b1f6be00969049da5af860f77f
 }
 
 #profileModal .admins p {

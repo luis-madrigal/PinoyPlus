@@ -9,16 +9,16 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li id="whatIsPrc" class="nav-item-custom">
+            <li id="whatIsPrc" class="nav-item-custom <% if(pageName == 'about'){%> nav-item-selected <%}%>">
                 <span href="#">WHAT IS PRC</span>
             </li>
-            <li id="announcements" class="nav-item-custom">
+            <li id="announcements" class="nav-item-custom <% if(pageName == 'announcements'){%> nav-item-selected <%}%>">
                 <span href="#">ANNOUNCEMENTS</span>
             </li>
-            <li id="database" class="nav-item-custom">
+            <li id="database" class="nav-item-custom <% if(pageName == 'database'){%> nav-item-selected <%}%>">
                 <span href="#">DATABASE</span>
             </li>
-            <li id="feedback" class="nav-item-custom">
+            <li id="feedback" class="nav-item-custom <% if(pageName == 'feedback'){%> nav-item-selected <%}%>">
                 <span href="#">FEEDBACK</span>
             </li>
         </ul>
