@@ -272,6 +272,7 @@ $.fn.zabuto_calendar = function (options) {
                 }
             }
 
+            var daystore = []
             for (var wk = 0; wk < weeksInMonth; wk++) {
                 var $dowRow = $('<tr class="calendar-dow"></tr>');
                 for (var dow = 0; dow < 7; dow++) {
@@ -281,7 +282,11 @@ $.fn.zabuto_calendar = function (options) {
                         var dateId = $calendarElement.attr('id') + '_' + dateAsString(year, month, currDayOfMonth);
                         var dayId = dateId + '_day';
 
-                        var $dayElement = $('<div id="' + dayId + '" class="day" >' + currDayOfMonth + '</div>');
+                        var daystring = currDayOfMonth.toString()
+                        if(currDayOfMonth >= 1 && currDayOfMonth <= 9)
+                            daystring = "0"+currDayOfMonth
+
+                        var $dayElement = $('<div id="' + dayId + '" class="day" >' + daystring + '</div>');
                         $dayElement.data('day', currDayOfMonth);
 
                         if ($calendarElement.data('showToday') === true) {
@@ -292,10 +297,9 @@ $.fn.zabuto_calendar = function (options) {
                         }
 
                         var $dowElement = $('<td id="' + dateId + '"></td>');
-                        // if(dow == 4) {
-                        //     $($dayElement).addClass("circle");
-                        // }
-                        $dowElement.append($dayElement);
+                        
+                        $dowElement.append($dayElement)
+                        daystore.push($dowElement)
 
                         $dowElement.data('date', dateAsString(year, month, currDayOfMonth));
                         $dowElement.data('hasEvent', false);
@@ -319,7 +323,34 @@ $.fn.zabuto_calendar = function (options) {
 
                 $tableObj.append($dowRow);
             }
+
+            registerEvents(month, daystore)
+
             return $tableObj;
+        }
+
+        function registerEvents(month, days) {
+            var eventsForMonth = opts.events[month.toString()]
+            if(eventsForMonth != null) {
+                var $circle = $("<div class = 'circle'></div>");
+                var $leftrect = $("<div class = 'left-rect'></div>");
+                var $rightrect = $("<div class = 'right-rect'></div>");
+
+                for(var i = 0; i < eventsForMonth.length; i++) {
+                    var eventDate = eventsForMonth[i]
+                    var $dowElement = days[eventDate - 1];
+
+                    $dowElement.append($circle.clone());
+                    $($dowElement.find(".day")[0]).addClass("has-event")
+
+                    if(eventsForMonth.includes(eventDate - 1))
+                        $dowElement.append($leftrect.clone());
+                    if(eventsForMonth.includes(eventDate + 1))
+                        $dowElement.append($rightrect.clone());
+                }
+            }
+            
+            
         }
 
         /* ----- Modal functions ----- */
@@ -614,16 +645,9 @@ $.fn.zabuto_calendar_language = function (lang) {
 
 $(document).ready(function () {
     $("#my-calendar").zabuto_calendar({
-        legend: [
-            // {type: "text", label: "Special event", badge: "00"},
-            // {type: "block", label: "Regular event", classname: "purple"},
-            // {type: "spacer"},
-            // {type: "text", label: "Bad"},
-            // {type: "list", list: ["grade-1", "grade-2", "grade-3", "grade-4"]},
-            // {type: "text", label: "Good"}
-        ],
-        ajax: {
-            url: "show_data.php?grade=1"
+        events: {
+            "7": [2, 15, 16, 10, 11, 28], //7 means august. the months start at zero. the array of numbers beside it are the dates that have events (please sort!)
+            "9": [25, 26, 1, 10]
         }
     });
 });
