@@ -205,7 +205,7 @@
 }
 #close-chat-bubble {
 	margin-top: -170px;
-	margin-right: -1440%;
+	margin-right: -1360%;
 }
 
 #chatBox{
@@ -217,8 +217,8 @@
 #chat-search-box {
 	resize: none;
 	border: none;
-	height: 100%;
-	width: 50%;
+	height: 300px;
+	width: 25%;
 }
 
 #contact-btn {
