@@ -52,6 +52,7 @@ $(() => {
         $(".chat-container").scrollTop($(".chat-container")[0].scrollHeight);
     }
     DASHBOARD_CHAT.sendMessage = (to: string, content: string) => {
+        console.log("TO: " + to + " MSG: " + content)
         var msg = $msg({
             from: DASHBOARD_CHAT.username,
             to: to,
@@ -119,6 +120,8 @@ $(() => {
             return;
         }
         let p = Promise.resolve({})
+
+        $(".contact-list").empty()
         for (let f of e.content) {
             p = p.then(() => admin.getDesc(f.jid)).then(r => {
                 const name = f.nick
@@ -128,7 +131,7 @@ $(() => {
                 DASHBOARD_CHAT.otherImg = r.content.img
 
                 const jid_id = jid.replace("@", "-")
-                $(".chat-list-container").append(`
+                $(".contact-list").append(`
                 <div class="contact-item" id="${jid_id}">
                     <div class="row">
                         <div class="col-sm-9">
