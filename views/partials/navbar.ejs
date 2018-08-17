@@ -10,16 +10,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li id="whatIsPrc" class="nav-item-custom <% if(pageName == 'about'){%> nav-item-selected <%}%>">
-                <span href="#">WHAT IS PRC</span>
+                <a href="/about">WHAT IS PRC</a>
             </li>
             <li id="announcements" class="nav-item-custom <% if(pageName == 'announcements'){%> nav-item-selected <%}%>">
-                <span href="#">ANNOUNCEMENTS</span>
+                <a href="/announcements">ANNOUNCEMENTS</a>
             </li>
             <li id="database" class="nav-item-custom <% if(pageName == 'database'){%> nav-item-selected <%}%>">
-                <span href="#">DATABASE</span>
+                <a href="/database">DATABASE</a>
             </li>
             <li id="feedback" class="nav-item-custom <% if(pageName == 'feedback'){%> nav-item-selected <%}%>">
-                <span href="#">FEEDBACK</span>
+                <a href="/feedback">FEEDBACK</a>
             </li>
         </ul>
         <ul class="navbar-nav">
@@ -63,13 +63,13 @@
     <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header pointer">
+                <div class="modal-header pointer bg-red">
                     <h5 class="modal-title" id="exampleModalLabel">Profile</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="custom-close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body bg-white">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-2">

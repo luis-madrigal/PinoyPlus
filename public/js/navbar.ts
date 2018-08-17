@@ -4,18 +4,18 @@ $(document).ready(function () {
     $(".navbar-brand").click(function () {
         window.location.href = "/";
     })
-    $("#whatIsPrc").click(function () {
-        window.location.href = "/about";
-    })
-    $("#announcements").click(function () {
-        window.location.href = "/announcements";
-    })
-    $("#database").click(function () {
-        window.location.href = "/database"
-    })
-    $("#feedback").click(function () {
-        window.location.href = "/feedback";
-    })
+    // $("#whatIsPrc").click(function () {
+    //     window.location.href = "/about";
+    // })
+    // $("#announcements").click(function () {
+    //     window.location.href = "/announcements";
+    // })
+    // $("#database").click(function () {
+    //     window.location.href = "/database"
+    // })
+    // $("#feedback").click(function () {
+    //     window.location.href = "/feedback";
+    // })
 
     $("#profileModal #edit").click(function () {
         $('#profileModal').find('.data-edit').removeClass('hide');

@@ -133,6 +133,10 @@ div.zabuto_calendar .table tr td div.day {
     padding-bottom: 8px;
 }
 
+div.zabuto_calendar .table tr td div.day:hover {
+    cursor: pointer;
+}
+
 /* actions and events */
 div.zabuto_calendar .table tr td.event div.day,
 div.zabuto_calendar ul.legend li.event {
