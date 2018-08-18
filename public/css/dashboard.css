@@ -222,5 +222,88 @@ body {
   border-bottom-right-radius: 10px;
 }
 
-.chat-input textarea:selected {
+#eventModal .modal-body .container {
+  padding-left: 25px;
+}
+
+#eventModal #dateLabel {
+  font-weight: bolder;
+  font-size: 1.1em;
+}
+
+#eventModal .instructions {
+  font-size: 1.1em;
+  margin-top: 10px;  
+}
+
+#eventModal form label {
+  color: #b12226;
+  margin-top: 5px;
+}
+
+#eventModal form input,
+#eventModal form select,
+#eventModal form textarea {
+  border-radius: 10px;
+}
+
+#eventModal #hour {
+  width: 120px;
+}
+
+#eventModal #minute {
+  margin-left: -47px;
+  width: 120px;
+}
+
+#eventModal #ampm {
+  display: inline-block;
+  margin-left: -40px;
+  width: 50px;
+}
+
+#eventModal form .row {
+  margin-bottom: 10px;
+}
+
+#eventModal #divider {
+  position: absolute;
+  top: -8px;
+  font-weight: bold;
+  font-size: 2em;
+  color: grey;
+}
+
+#eventModal select {
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
+  
+#eventModal select::-ms-expand {
+	display: none !important;
+}
+
+#eventModal #ampmCaret {
+  margin-left: 5px;
+  font-size: 1.5em;
+  color: rgb(172, 172, 172);
+}
+
+#eventModal #ampmCaret:hover {
+  cursor: pointer;
+  color: rgb(211, 211, 211);
+}
+
+#eventModal .save-btn {
+  margin-top: 15px;
+}
+
+#eventModal .save-btn :hover {
+  cursor: pointer;
+}
+
+#eventModal .save-btn p {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }

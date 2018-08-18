@@ -650,4 +650,8 @@ $(document).ready(function () {
             "9": [25, 26, 1, 10]
         }
     });
+
+    $(".day").on("click", function() {
+        $("#eventModal").modal();
+    });
 });

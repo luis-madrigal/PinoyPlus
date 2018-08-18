@@ -134,6 +134,97 @@
 				</div>
 			</div>
 		</div>
+		<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header bg-red">
+						<h5 class="modal-title" id="exampleModalLabel">Add an event</h5>
+						<button type="button" class="custom-close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body bg-white">
+						<div class="container">
+							<div class = "row">
+								<div class = "col-sm-12">
+									<p id = "dateLabel">August 18, 2018</p>
+								</div>
+							</div>
+							<div class = "row">
+								<div class = "col-sm-10">
+									<p class = "instructions">Please complete the information about the event or activity by filling out the boxes below.</p>
+								</div>
+								<div class = "col-sm-2"></div>
+							</div>
+							<div class="row">
+								<div class = "col-lg-12">
+									<form>
+										<div class = "row">
+											<div class = "col-sm-2">
+												<label for = "name">Event/Activity:</label>
+											</div>
+											<div class = "col-sm-6">
+												<input type = "text" class = "form-control" id = "name">
+											</div>
+											<div class = "col-sm-4"></div>
+										</div>
+										<div class = "row">
+											<div class = "col-sm-2">
+												<label for = "hour">Time:</label>
+											</div>
+											<div class = "col-sm-2">
+												<input type = "number" class = "form-control" id = "hour">
+											</div>
+											<div class = "col-sm-1">
+												<span id = "divider">:</span>
+											</div>
+											<div class = "col-sm-2">
+												<input type = "number" class = "form-control" id = "minute">
+											</div>
+											<div class = "col-sm-1">
+												<select class = "form-control" id = "ampm">
+													<option>AM</option>
+													<option>PM</option>
+												</select>
+												<span id = "ampmCaret" class="fa fa-caret-down"></span>
+											</div>
+											<div class = "col-sm-4"></div>
+										</div>
+										<div class = "row">
+											<div class = "col-sm-2">
+												<label for = "venue">Venue:</label>
+											</div>
+											<div class = "col-sm-6">
+												<input type = "text" class = "form-control" id = "venue">
+											</div>
+											<div class = "col-sm-4"></div>
+										</div>
+										<div class = "row">
+											<div class = "col-sm-2">
+												<label for = "notes">Notes:</label>
+											</div>
+											<div class = "col-sm-6">
+												<textarea class = "form-control" id = "notes"></textarea>
+											</div>
+											<div class = "col-sm-4"></div>
+										</div>
+										<div class="row">
+											<div class="col-sm-10">
+											</div>
+											<div class = "col-sm-2">
+												<div class = "save-btn red-rect-bg">
+													<p class="center">Save</p>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<% include partials/footer %>
