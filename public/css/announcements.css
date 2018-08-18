@@ -73,4 +73,8 @@ body {
 
 .btn-primary-outline {
     background-color: transparent;
-  }
+}
+
+.btn-primary-outline span{
+    background-color: transparent;
+}
