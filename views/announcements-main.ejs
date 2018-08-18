@@ -334,7 +334,9 @@
                                         <form>
                                             <table class="createModal col-lg-12">
                                                 <tr>
-                                                    <td width=200px>Title Of Discussion:</td>
+                                                    <td width=200px>
+                                                        <h5>Title Of Discussion:</h5>
+                                                    </td>
                                                     <td>
                                                         <div class="row">
                                                             <div class="col-lg-8">
@@ -344,7 +346,9 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td width=200px>Topic:</td>
+                                                    <td width=200px>
+                                                        <h5>Topic:</h5>
+                                                    </td>
                                                     <td>
                                                         <div class="row">
                                                             <div class="col-lg-8">
@@ -354,41 +358,59 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td width=200px>Post:</td>
+                                                    <td width=200px style="vertical-align: top">
+                                                        <h5>Post:</h5>
+                                                    </td>
                                                     <td>
-                                                        <textarea class="form-control" style="resize:none"></textarea>
+                                                        <textarea class="form-control" style="resize:none" rows="6"></textarea>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td></td>
                                                     <td>
-                                                        <button type="button" class="btn btn-primary-outline" aria-label="Left Align">
-                                                            <span class="fa fa-paperclip" aria-hidden="true"></span>
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary-outline" aria-label="Left Align">
-                                                            <span class="fa fa-file-picture-o" aria-hidden="true"></span>
-                                                        </button>
+                                                        <div class="row">
+                                                            <div class="col-lg-4">
+                                                                <button type="button" class="btn btn-primary-outline" aria-label="Left Align">
+                                                                    <span class="fa fa-paperclip icon-2x" aria-hidden="true"></span>
+                                                                </button>
+                                                                <button type="button" class="btn btn-primary-outline" aria-label="Left Align">
+                                                                    <span class="fa fa-file-picture-o icon-2x" aria-hidden="true"></span>
+                                                                </button>
+                                                            </div>
+
+
+                                                            <div class="col-lg-4 offset-lg-4">
+                                                                <a href="#" data-dismiss="modal" data-target="discussionModal">
+                                                                    <div id="autoclosable-btn-success" class="post-btn red-rect-bg">
+                                                                        <h5 class="center">Post</h5>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+
+
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
-                                                        <div class="forum-btn red-rect-bg">
-                                                            <p class="center">Post</p>
-                                                        </div>
-                                                    </td>
+                                                    <td></td>
+
                                                 </tr>
                                             </table>
                                         </form>
                                     </div>
                                 </div>
-
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+            <div class="alert alert-success alert-autocloseable-success">
+                <strong>Success!</strong> Your discussion was posted.
+            </div>
+
+
 
             <% include partials/footer %>
 
