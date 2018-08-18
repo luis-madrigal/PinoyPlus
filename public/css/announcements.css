@@ -50,6 +50,11 @@ body {
     padding-bottom: 3%;
 }
 
+.forum-btn h5 {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
 .other-topics {
     margin-top: 20px;
 
@@ -60,3 +65,12 @@ body {
     list-style-type: none;
     line-height: 30px;
 }
+
+.createModal tr td{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.btn-primary-outline {
+    background-color: transparent;
+  }

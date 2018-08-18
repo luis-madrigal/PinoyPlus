@@ -322,7 +322,7 @@
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header bg-red">
-                            <h5 class="modal-title" id="exampleModalLabel">Create A New Post</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Start A New Discussion</h5>
                             <button type="button" class="custom-close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -330,53 +330,60 @@
                         <div class="modal-body bg-white">
                             <div class="container">
                                 <div class="row">
-                                    <form>
-                                        <!-- Text input-->
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label" for="article_title">Title</label>
-                                            <div class="col-md-12">
-                                                <input id="article_title" name="article_title" type="text" placeholder="article title" class="form-control input-md">
-                                            </div>
-                                        </div>
-
-                                        <!-- Text input-->
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label" for="article_subtitle">SubTitle</label>
-                                            <div class="col-md-12">
-                                                <input id="article_subtitle" name="article_subtitle" type="text" placeholder="article subtitle" class="form-control input-md">
-                                            </div>
-                                        </div>
-
-                                        <!-- Select Basic -->
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label" for="article_categories">Categories</label>
-                                            <div class="col-md-12">
-                                                <select id="article_categories" name="article_categories" class="form-control">
-                                                    <option value="1">Official Announcements</option>
-                                                    <option value="2">HIV Service Updates</option>
-                                                    <option value="2">Referral Status</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <!-- Textarea -->
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label" for="source_description">Description</label>
-                                            <div class="col-md-12">
-                                                <textarea class="form-control" id="source_description" name="source_description"></textarea>
-                                            </div>
-                                        </div>
-
-                                        <!-- Button (Double) -->
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label" for="submit"></label>
-                                            <div class="col-md-12">
-                                                <button id="reset" name="reset" type="reset" class="btn btn-danger">Cancel</button>
-                                                <button id="submit" name="submit" type="submit" class="btn btn-success">Submit</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    <div class="col-md-12">
+                                        <form>
+                                            <table class="createModal col-lg-12">
+                                                <tr>
+                                                    <td width=200px>Title Of Discussion:</td>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-8">
+                                                                <input type="text" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width=200px>Topic:</td>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-8">
+                                                                <input type="text" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width=200px>Post:</td>
+                                                    <td>
+                                                        <textarea class="form-control" style="resize:none"></textarea>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary-outline" aria-label="Left Align">
+                                                            <span class="fa fa-paperclip" aria-hidden="true"></span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary-outline" aria-label="Left Align">
+                                                            <span class="fa fa-file-picture-o" aria-hidden="true"></span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="forum-btn red-rect-bg">
+                                                            <p class="center">Post</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </div>
                                 </div>
+
+
+
                             </div>
                         </div>
                     </div>
