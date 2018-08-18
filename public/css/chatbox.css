@@ -21,7 +21,7 @@
 }
 
 .main-chat-container{
-	height: 77%;
+	height: 75.5%;
 	overflow-x: hidden;
 }
 
@@ -105,7 +105,8 @@
 	background-color: white;
 	height: 23%;
 	margin-top: -4%;
-	
+	box-shadow: 2px 2px 5px 2px #cccccc;
+	border-top: 1px #ccc;
 }
 
 .chat-input {
@@ -158,6 +159,8 @@
 	overflow-x: hidden;
 	margin-top: -22%;
 	padding-bottom: -100%;
+	align: top;
+	display: inline-block;
 }
 
 .contact-item img {
@@ -198,14 +201,14 @@
 #close-chat {
 	background-color: transparent;
 	border: transparent;
-	
+	height:  1px;
 	margin-top: -46px;
 	margin-right: -40px;
 	position: absolute;
 }
 #close-chat-bubble {
 	margin-top: -170px;
-	margin-right: -1360%;
+	margin-right: -1440%;
 }
 
 #chatBox{
@@ -217,10 +220,12 @@
 #chat-search-box {
 	resize: none;
 	border: none;
-	height: 300px;
-	width: 25%;
+	height: 40px;
+	width: 400px;
 }
 
 #contact-btn {
 	float: left;
+	margin-left: 5%;
+	margin-top: 2%;
 }
