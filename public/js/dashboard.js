@@ -86,7 +86,7 @@ function addAnnouncement(title, description, datetime) {
 }
 
 function addUpdate(title, date) {
-    title = title.trunc(40);
+    title = title.trunc(41);
 
     var replacements = {
         "%TITLE%": title,
@@ -105,8 +105,8 @@ function replaceStr(str, replacements) {
 }
 
 $(document).ready(function () {
-    addEvent(13, "June", "Meeting with Pinoy Plus Advocacy Inc.");
-    addEvent(14, "June", "Meeting with Pinoy Plus Advocacy Inc.");
+    addEvent(18, "August", "Meeting with Pinoy Plus Advocacy Inc.");
+    addEvent(27, "August", "Meeting with Pinoy Plus Advocacy Inc.");
 
     addAnnouncement("PLHIV Response Center", "To all service providers, kindly update your profiles", "July 2, 2018 4:15 PM");
     addAnnouncement("PLHIV Response Center", "To all service providers, kindly update your profiles", "July 2, 2018 4:15 PM");

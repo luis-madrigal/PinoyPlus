@@ -646,12 +646,16 @@ $.fn.zabuto_calendar_language = function (lang) {
 $(document).ready(function () {
     $("#my-calendar").zabuto_calendar({
         events: {
-            "7": [2, 15, 16, 10, 11, 28], //7 means august. the months start at zero. the array of numbers beside it are the dates that have events (please sort!)
-            "9": [25, 26, 1, 10]
+            "7": [18, 27], //7 means august. the months start at zero. the array of numbers beside it are the dates that have events (please sort!)
         }
     });
 
-    $(".day").on("click", function() {
+    $(document).on("click", ".day", function() {
+        console.log("click")
+        var options = {year: 'numeric', month: 'long', day: 'numeric' };
+        var date = new Date($(this).attr("id").split("_")[3]);
+        
         $("#eventModal").modal();
+        $($("#eventModal").find("#dateLabel")[0]).text(date.toLocaleDateString("en-US", options));
     });
 });
