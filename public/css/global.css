@@ -5,6 +5,12 @@
 
 @font-face {
   font-family: Avenir;
+  src: url(../fonts/Avenir-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Avenir;
   src: url(../fonts/Avenir-Bold.ttf);
   font-weight: bold;
 }
@@ -42,6 +48,10 @@ body {
   font-weight: bold;
 }
 
+.light-bold {
+  font-weight: 500;
+}
+
 .no-padding-left {
   padding-left: 0;
 }
@@ -73,6 +83,18 @@ body {
 
 .white-rect-bg {
   background-color: white;
+  border-radius: 26.66px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  -webkit-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px
+    rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px
+    rgba(0, 0, 0, 0.06);
+  box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px
+    rgba(0, 0, 0, 0.06);
+}
+
+.grey-rect-bg {
+  background: rgb(223, 223, 223);
   border-radius: 26.66px;
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
   -webkit-box-shadow: 2.6666666666666665px 2.6666666666666665px 6.66px 0px

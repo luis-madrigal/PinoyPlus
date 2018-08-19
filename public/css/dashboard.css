@@ -108,6 +108,7 @@ body {
   padding-left: 10px;
   line-height: 3px;
   height: 10vh;
+  font-weight: normal;
 }
 
 .announcement-list {
