@@ -7,6 +7,7 @@ exports.default = exports.app;
 require("./server/module-debug");
 require("./server/module-config");
 require("./server/dev/module-init_pages");
+require("./server/dev/module-refresh");
 require("./server/pages/module-default_page");
 require("./server/pages/module-pages");
 require("./server/pages/module-error_404");
