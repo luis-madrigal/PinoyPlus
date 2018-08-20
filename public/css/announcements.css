@@ -77,6 +77,10 @@ body {
   padding-right: 24px;
 }
 
+.createModal tr td #discussionTitle {
+  color: black;
+}
+
 .form-control {
   margin-top: 20px;
   border: 2px solid #b7b7b7;
@@ -90,4 +94,7 @@ body {
 
 .btn-primary-outline span {
   background-color: transparent;
+}
+
+.discussion-buttons button span {
 }
