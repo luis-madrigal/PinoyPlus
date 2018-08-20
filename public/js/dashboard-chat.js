@@ -129,7 +129,7 @@ $(() => {
                         <div class="col-sm-8">
                         </div>
                         <div class="col-sm-4 time">
-                            <p id="${jid_id + "-time"}">N/A</p>
+                            <p id="${jid_id + "-time"}" class="contact-time">N/A</p>
                         </div>
     
                     </div>

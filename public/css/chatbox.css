@@ -181,10 +181,11 @@
 }
 
 
-.col-sm-3.time p{
-	font-size: 0.4em;
-	text-align: right;
+.contact-time{
+	font-size: 0.6em;
+	text-align: center;
 	padding-right: 5%;
+	padding-top: 2%;
 }
 
 .contact-name {
