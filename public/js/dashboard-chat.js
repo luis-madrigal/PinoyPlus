@@ -126,18 +126,18 @@ $(() => {
                 $(".chat-list-container").append(`
                 <div class="contact-item" id="${jid_id}">
                     <div class="row">
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                         </div>
-                        <div class="col-sm-3 time">
+                        <div class="col-sm-4 time">
                             <p id="${jid_id + "-time"}">N/A</p>
                         </div>
     
                     </div>
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <img class="img-responsive" src="${r.content.img}">
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-9">
                             <div class="row contact-name">
                                 <p>${name}</p>
                             </div>
