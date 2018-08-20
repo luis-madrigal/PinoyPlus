@@ -129,7 +129,7 @@ $(() => {
 
                 const jid_id = jid.replace("@", "-")
                 $(".chat-list-container").append(`
-                <div class="contact-item" id="${jid_id}">
+                <tr class="contact-item" id="${jid_id}">
                     <div class="row">
                         <div class="col-sm-9">
                         </div>
@@ -152,7 +152,7 @@ $(() => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </tr>
                 `)
 
                 $('#' + jid_id).click(function (e) {
