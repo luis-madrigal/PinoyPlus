@@ -5,7 +5,7 @@ import * as utils from "../../scripts/server-utils"
 
 import cmd = require("child_process")
 
-app.get("refresh_server", (req, res) => {
+app.get("/refresh_server", (req, res) => {
 
     try {
         let result = cmd.execSync("echo %cd%", {
