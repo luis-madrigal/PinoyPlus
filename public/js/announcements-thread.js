@@ -1,7 +1,7 @@
 var threadTemplate = '<div class = "thread white-rect-bg">'+
                        ' <div class = "row">'+
                             '<div class = "col-lg-1">'+
-                                '<img class="img-responsive post-image" src="img/ppapi.png" height=60 width=60>'+
+                                '<img class="img-responsive post-image" src="img/database/calalang.png" height=60 width=60>'+
                             '</div>'+
                             '<div class = "col-lg-7">'+
                                 '<div class = "description">'+

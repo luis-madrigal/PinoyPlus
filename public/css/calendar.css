@@ -118,7 +118,7 @@ div.zabuto_calendar tr.calendar-dow .left-rect {
 }
 
 div.zabuto_calendar tr.calendar-dow .current-day {
-    color: darkred;
+    color: #BE1E2D;
     font-weight: bolder;
     font-size: 1em;
 }
