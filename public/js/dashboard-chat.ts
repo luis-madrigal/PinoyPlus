@@ -129,7 +129,7 @@ $(() => {
 
                 const jid_id = jid.replace("@", "-")
                 $(".chat-list-container").append(`
-                <div class="contact-item" id="${jid_id}">
+                <div class="contact-item" id="${jid_id} item-container">
                     <div class="row">
                         <div class="col-sm-8">
                         </div>

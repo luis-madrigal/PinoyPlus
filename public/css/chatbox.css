@@ -11,7 +11,7 @@
 	border-bottom-width: 2px;
 	border-bottom-color: #cccccc;
 	border-top-left-radius: 20px;
-	box-shadow: 2px 2px 5px 2px #cccccc
+	box-shadow: 2px 2px 5px 2px #999
 }
 
 .chat-header img {
@@ -139,7 +139,7 @@
 }
 
 .chat-list-container{
-	background-color: #ccc;
+	background-color: #eee;
 	height: 78.5%;
 	display: block;
 }
@@ -164,7 +164,13 @@
 	padding-bottom: -100%;
 	align: top;
 	display: inline-block;
+	cursor: pointer;
 }
+
+.item-container:hover {
+	background-color: #eee;
+}
+
 
 .contact-item img {
 	border-radius: 50%;
@@ -174,6 +180,7 @@
 	padding-right: 10%;
 	margin-left: 30%;
 	margin-top: -19%;
+	pointer-events: none
 }
 .contact-list{
 	height: 95%;
@@ -186,12 +193,14 @@
 	text-align: center;
 	padding-right: 5%;
 	padding-top: 2%;
+	pointer-events: none
 }
 
 .contact-name {
 	font-size: 1em;
 	text-align: left;
 	margin-top: -7%;
+	pointer-events: none
 }
 
 .contact-message {
@@ -199,6 +208,7 @@
 	text-align: right;
 	color: gray;
 	margin-top: -5%;
+	pointer-events: none
 }
 
 #close-chat {
@@ -217,7 +227,7 @@
 #chatBox{
 	overflow-x: hidden;
 	height: 100%;
-	box-shadow: 3px 53px 5px 5px #cccccc
+	box-shadow: 3px 53px 5px 5px #999
 }
 
 #chat-search-box {
@@ -231,10 +241,15 @@
 	float: left;
 	margin-left: 5%;
 	margin-top: 2%;
+	cursor: pointer;
 }
 
 .search-icon {
 	text-align: center;
 	height: 90px;
 	width: 90px;
+}
+
+#ppapi-logo{
+	margin-right: 40%;
 }
