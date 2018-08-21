@@ -1,7 +1,7 @@
 $(() => {
-    $(".footer").fadeIn(125, () => {
-        $("#large-text").fadeIn(250)
-        $("#sub-text").fadeIn(375, () => {
+    $(".footer").fadeIn(250, () => {
+        $("#large-text").fadeIn(500)
+        $("#sub-text").fadeIn(750, () => {
             $("#login-form").fadeIn(125)
         })
     })

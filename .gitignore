@@ -1,2 +1,4 @@
 node_modules/
 **/test/
+server/pages/module-default_page.js
+server/pages/module-default_page.ts
