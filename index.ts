@@ -8,6 +8,7 @@ import "./server/module-debug"
 import "./server/module-config"
 
 import "./server/dev/module-init_pages"
+import "./server/dev/module-refresh"
 
 import "./server/pages/module-default_page"
 import "./server/pages/module-pages"

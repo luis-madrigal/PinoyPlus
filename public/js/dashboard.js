@@ -86,7 +86,7 @@ function addAnnouncement(title, description, datetime) {
 }
 
 function addUpdate(title, date) {
-    title = title.trunc(40);
+    title = title.trunc(41);
 
     var replacements = {
         "%TITLE%": title,
@@ -105,8 +105,8 @@ function replaceStr(str, replacements) {
 }
 
 $(document).ready(function () {
-    addEvent(13, "June", "Meeting with Pinoy Plus Advocacy Inc.");
-    addEvent(14, "June", "Meeting with Pinoy Plus Advocacy Inc.");
+    addEvent(18, "August", "Meeting with Pinoy Plus Advocacy Inc.");
+    addEvent(27, "August", "Meeting with Pinoy Plus Advocacy Inc.");
 
     addAnnouncement("PLHIV Response Center", "To all service providers, kindly update your profiles", "July 2, 2018 4:15 PM");
     addAnnouncement("PLHIV Response Center", "To all service providers, kindly update your profiles", "July 2, 2018 4:15 PM");
@@ -115,4 +115,24 @@ $(document).ready(function () {
     addUpdate("Project Ruby: An HIV Awareness Forum and a cool place to do stuff.", "July 2, 2018");
     addUpdate("Project Ruby: An HIV Awareness Forum and a cool place to do stuff.", "July 2, 2018");
     addUpdate("Project Ruby: An HIV Awareness Forum and a cool place to do stuff.", "July 2, 2018");
+
+    $("#ampmCaret").click(function() {
+        var $target = $("#ampm");
+        var $clone = $target.clone().removeAttr('id');
+        $clone.val($target.val()).css({
+            overflow: "auto",
+            position: 'absolute',
+            'z-index': 999,
+            left: $target.offset().left,
+            top: $target.offset().top + $target.outerHeight(),
+            width: $target.outerWidth()
+        }).attr('size', $clone.find('option').length > 10 ? 10 : $clone.find('option').length).change(function() {
+            $target.val($clone.val());
+        }).on('click blur keypress',function(e) {
+         if(e.type !== "keypress" || e.which === 13)
+            $(this).remove();
+        });
+        $('body').append($clone);
+        $clone.focus();
+    })
 });

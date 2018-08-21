@@ -1,9 +1,3 @@
-.grey-rect-bg {
-    background-color: rgb(218, 218, 218);
-	border-radius: 20px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 .post {
     margin-top: 15px;
     padding: 2%;
@@ -27,12 +21,12 @@
 .post .place {
     font-size: 1.2em;
     color: black;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .post .title {
     color: black;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .header-text {

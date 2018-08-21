@@ -1,62 +1,100 @@
 body {
-    background-color: #F6F6F6;
+  background-color: #f6f6f6;
 }
 
 .header-text {
-    font-size: 1.2em;
-    color: grey;
-    font-weight: bold;
+  font-size: 1.2em;
+  color: grey;
+  /* font-weight: bold; */
 }
 
 .breadcrumbs {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .breadcrumbs p {
-    white-space: pre;
-    padding-top:10px;
-    padding-left:2%;
+  white-space: pre;
+  padding-top: 10px;
+  padding-left: 2%;
 }
 
 .search-bar-forum {
-    margin-top: 22px;
+  margin-top: 22px;
 }
 
 .search-bar-forum input {
-    height: 40px;
-    width: 100%;
-	background-color: transparent;
-	border-radius: 18px;
-	border-color: transparent;
-    box-shadow: 0 0 5px darkred;
-    padding-left: 5%;
+  height: 40px;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 18px;
+  border-color: transparent;
+  box-shadow: 0 0 5px darkred;
+  padding-left: 5%;
 }
 
 .search-bar-forum :focus {
-	outline: none;
-	box-shadow: 0 0 10px #CC0000;
+  outline: none;
+  box-shadow: 0 0 10px #cc0000;
 }
 
 .forum-btn {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .forum-btn :hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .forum-btn p {
-    padding-top: 3%;
-    padding-bottom: 3%;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }
 
 .other-topics {
-    margin-top: 20px;
+  margin-top: 20px;
+}
 
+.post-btn h5 {
+  margin-top: 15px;
+  padding-top: 7.5%;
+  padding-bottom: 7.5%;
 }
 
 .other-topics ul {
-    padding: 0;
-    list-style-type: none;
-    line-height: 30px;
+  padding: 0;
+  list-style-type: none;
+  line-height: 30px;
+}
+
+.createModal {
+  margin-left: 12px;
+  color: #b02428;
+}
+
+.createModal tr td {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-right: 24px;
+}
+
+.createModal tr td #discussionTitle {
+  color: black;
+}
+
+.form-control {
+  margin-top: 20px;
+  border: 2px solid #b7b7b7;
+  resize: none;
+  border-radius: 15px;
+}
+
+.btn-primary-outline {
+  background-color: transparent;
+}
+
+.btn-primary-outline span {
+  background-color: transparent;
+}
+
+.discussion-buttons button span {
 }

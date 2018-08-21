@@ -69,6 +69,8 @@ $(() => {
         })
     }
 
+    loadPRCInfo()
+
     $("#prc-info").click(loadPRCInfo)
 
     $("#done").click(() => {

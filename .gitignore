@@ -1,4 +1,9 @@
 node_modules/
 **/test/
+<<<<<<< HEAD
 server/pages/module-default_page.js
 server/pages/module-default_page.ts
+=======
+package-lock.json
+package.json
+>>>>>>> 6fe16842cf75cb0c1b0be0c8ef9dbb372e2086ce

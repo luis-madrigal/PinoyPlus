@@ -62,6 +62,7 @@ $(() => {
             console.error(err);
         });
     }
+    loadPRCInfo();
     $("#prc-info").click(loadPRCInfo);
     $("#done").click(() => {
         const admin = new Admin(DASHBOARD_CHAT.adminServerUrl);

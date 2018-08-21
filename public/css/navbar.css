@@ -161,30 +161,6 @@
   border-radius: 20px;
 }
 
-#profileModal .modal-header {
-  padding: 9px 15px;
-  background: linear-gradient(to right, #b02428, #86191f);
-  -webkit-border-top-left-radius: 20px;
-  -webkit-border-top-right-radius: 20px;
-  -moz-border-radius-topleft: 20px;
-  -moz-border-radius-topright: 20px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  color: white;
-}
-
-#profileModal .modal-content {
-  border-radius: 20px;
-}
-
-#profileModal .modal-body {
-  background: white;
-}
-
-#profileModal .content {
-  margin-left: 30px;
-}
-
 #profileModal .title {
   padding-bottom: 10px;
   border-bottom-style: solid;

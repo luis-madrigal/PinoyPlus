@@ -13,17 +13,17 @@
 }
 
 .thread .title {
-    color:rgb(73, 73, 73);
+    font-weight: 500;
 }
 
 .thread .title:hover{
     color: #B12226;
-    font-weight: bold;
 }
 
 .thread .description {
     line-height: 5px;
     margin-left: 3%;
+    font-weight: normal;
 }
 
 .thread .reply-count {
@@ -33,7 +33,7 @@
 
 .thread .info {
     line-height: 20px;
-    color: rgb(78, 78, 78);
+    color: rgb(121, 121, 121);
 }
 
 .thread .datetime {

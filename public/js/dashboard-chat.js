@@ -49,7 +49,6 @@ $(() => {
         $(".chat-container").scrollTop($(".chat-container")[0].scrollHeight);
     };
     DASHBOARD_CHAT.sendMessage = (to, content) => {
-        console.log("TO: " + to + " MSG: " + content);
         var msg = $msg({
             from: DASHBOARD_CHAT.username,
             to: to,
@@ -116,7 +115,6 @@ $(() => {
             return;
         }
         let p = Promise.resolve({});
-        $(".contact-list").empty();
         for (let f of e.content) {
             p = p.then(() => admin.getDesc(f.jid)).then(r => {
                 const name = f.nick;
@@ -125,21 +123,21 @@ $(() => {
                 DASHBOARD_CHAT.otherNick = name;
                 DASHBOARD_CHAT.otherImg = r.content.img;
                 const jid_id = jid.replace("@", "-");
-                $(".contact-list").append(`
-                <div class="contact-item pointer" id="${jid_id}">
+                $(".chat-list-container").append(`
+                <div class="contact-item" id="${jid_id}">
                     <div class="row">
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                         </div>
-                        <div class="col-sm-3 time">
-                            <p id="${jid_id + "-time"}">N/A</p>
+                        <div class="col-sm-4 time">
+                            <p id="${jid_id + "-time"}" class="contact-time">N/A</p>
                         </div>
     
                     </div>
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <img class="img-responsive" src="${r.content.img}">
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-9">
                             <div class="row contact-name">
                                 <p>${name}</p>
                             </div>

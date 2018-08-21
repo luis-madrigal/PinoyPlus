@@ -47,7 +47,7 @@
 
     <% include partials/chat %>
 
-	<% include partials/navbar %>
+    <% include partials/navbar %>
 
     <div class="container container-with-spacing">
         <div class="row">
@@ -62,7 +62,7 @@
                 <div class="post white-rect-bg">
                     <div class="row">
                         <div class="col-lg-1">
-                            <img class="img-responsive post-image" src="img/ppapi.png" height=60 width=60>
+                            <img class="img-responsive post-image" src="img/database/calalang.png" height=60 width=60>
                         </div>
                         <div class="col-lg-7">
                             <div class="description">
@@ -89,11 +89,11 @@
                     <div class="comment grey-rect-bg">
                         <div class="row">
                             <div class="col-lg-1">
-                                <img class="img-responsive comment-image" src="img/ppapi.png" height=60 width=60>
+                                <img class="img-responsive comment-image" src="img/database/calalang.png" height=60 width=60>
                             </div>
                             <div class="col-lg-7">
                                 <div class="description">
-                                    <p class="bold">Caloocan Medical Center</p>
+                                    <p class="light-bold">Caloocan Medical Center</p>
                                     <p class="info">Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! </p>
                                 </div>
                             </div>
@@ -128,11 +128,11 @@
                     <div class="comment grey-rect-bg">
                         <div class="row">
                             <div class="col-lg-1">
-                                <img class="img-responsive comment-image" src="img/ppapi.png" height=60 width=60>
+                                <img class="img-responsive comment-image" src="img/database/calalang.png" height=60 width=60>
                             </div>
                             <div class="col-lg-7">
                                 <div class="description">
-                                    <p class="bold">Caloocan Medical Center</p>
+                                    <p class="light-bold">Caloocan Medical Center</p>
                                     <p class="info">Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! </p>
                                 </div>
                             </div>
@@ -167,11 +167,11 @@
                     <div class="comment grey-rect-bg">
                         <div class="row">
                             <div class="col-lg-1">
-                                <img class="img-responsive comment-image" src="img/ppapi.png" height=60 width=60>
+                                <img class="img-responsive comment-image" src="img/database/calalang.png" height=60 width=60>
                             </div>
                             <div class="col-lg-7">
                                 <div class="description">
-                                    <p class="bold">Caloocan Medical Center</p>
+                                    <p class="light-bold">Caloocan Medical Center</p>
                                     <p class="info">Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! Comment! </p>
                                 </div>
                             </div>
@@ -214,14 +214,14 @@
                         </form>
                     </div>
                 </div>
-                <div class="forum-btn red-rect-bg">
+                <div class="forum-btn red-rect-bg" data-toggle="modal" data-target="#discussionModal">
                     <div class="row">
                         <div class="col-lg-12">
                             <p class="center">Edit Post</p>
                         </div>
                     </div>
                 </div>
-                <div class="forum-btn red-rect-bg">
+                <div class="forum-btn red-rect-bg" data-toggle="modal" data-target="#commentModal">
                     <div class="row">
                         <div class="col-lg-12">
                             <p class="center">Comment</p>
@@ -248,6 +248,116 @@
         </div>
     </div>
 
+    <div class="modal fade" id="discussionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-red">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
+                    <button type="button" class="custom-close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bg-white">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form>
+                                    <table class="createModal col-lg-12">
+                                        <tr>
+                                            <td width=60px style="vertical-align: top">
+                                                <img class="img-responsive post-image" src="img/ppapi.png" height=60 width=60>
+                                            </td>
+                                            <td style="vertical-align: top">
+                                                <textarea class="form-control" style="resize:none; margin: 0;" rows="10">
+Caloocan Medical Center
+
+Current Services of CMC
+                                                    
+To all health service providers, here are the updates regarding HIV services from the Department of Health.
+                                                    
+To all health service providers, here are the updates regarding HIV services from the Department of Health. To all health service providers, here are the updates.
+                                                </textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-lg-4 offset-lg-8">
+                                                        <a href="#" data-dismiss="modal" data-target="discussionModal">
+                                                            <div id="autoclosable-btn-success" class="post-btn red-rect-bg">
+                                                                <h5 class="center">Post</h5>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-red">
+                    <h5 class="modal-title" id="exampleModalLabel">Post a Comment</h5>
+                    <button type="button" class="custom-close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bg-white">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form>
+                                    <table class="createModal col-lg-12">
+                                        <tr>
+                                            <td width=60px style="vertical-align: top">
+                                                <img class="img-responsive post-image" src="img/ppapi.png" height=60 width=60>
+                                            </td>
+                                            <td style="vertical-align: top">
+                                                <textarea class="form-control" style="resize:none; margin: 0;" rows="6">
+
+                                                    </textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-lg-4 offset-lg-8">
+                                                        <a href="#" data-dismiss="modal" data-target="commentModal">
+                                                            <div id="autoclosable-btn-success" class="post-btn red-rect-bg">
+                                                                <h5 class="center">Post</h5>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <% include partials/footer %>
 
     <input hidden id="username" value="<%= username %>">
@@ -258,6 +368,7 @@
     <input hidden id="chatHost" value="<%= chatHost %>">
 
 </body>
+
 
 <script src="js/keycodes.js"></script>
 <script src="js/admin.js"></script>
