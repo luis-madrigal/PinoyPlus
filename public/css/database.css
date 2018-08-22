@@ -15,7 +15,7 @@ body {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 } */
 
-.edit {
+.db-action {
     margin-right: 5px;
     /* margin-top: 10px; */
     padding: 0;
@@ -24,7 +24,12 @@ body {
     font-size: 1.1em;
 }
 
-.edit .label:hover{
+.db-hide {
+    display: none;
+}
+
+#dbEdit .label:hover,
+#dbDone .label:hover{
     cursor: pointer;
     text-decoration: underline;
 }
@@ -58,6 +63,12 @@ body {
 
 .database-header th:last-child{
     border-radius:0 26.66px 26.66px 0;
+}
+
+.database-table .form-control {
+    margin-left: 42px;
+    margin-bottom: 5px;
+    width: 80%;
 }
 
 tbody:before {
