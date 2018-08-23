@@ -48,6 +48,10 @@
   color: #b12226;
 }
 
+.read-more:hover {
+  text-decoration: underline !important;
+}
+
 .post-image {
   margin-left: 20%;
 }
