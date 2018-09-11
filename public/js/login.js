@@ -1,8 +1,8 @@
 $(() => {
-    $(".footer").fadeIn(125, () => {
-        $("#large-text").fadeIn(250);
-        $("#sub-text").fadeIn(375, () => {
-            $("#login-form").fadeIn(125);
+    $(".footer").fadeIn(1000, () => {
+        $("#large-text").fadeIn(1000);
+        $("#sub-text").fadeIn(1250, () => {
+            $("#login-form").fadeIn(250);
         });
     });
 });
@@ -35,7 +35,7 @@ $(() => {
         let url = window.location.origin + "/login";
         $.ajax({
             url: url,
-            type: 'post',
+            type: "post",
             data: {
                 username: username,
                 password: password
@@ -43,11 +43,13 @@ $(() => {
             xhrFields: {
                 withCredentials: true
             }
-        }).done(() => {
+        })
+            .done(() => {
             console.log("Successful Login");
             // conn.disconnect("")
             window.location.pathname = "/";
-        }).fail(e => {
+        })
+            .fail(e => {
             console.log("Error Login: " + e.status);
             resetLogin(e.responseText);
         });
